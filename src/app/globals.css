@@ -518,6 +518,13 @@ body {
     gap: 1rem;
   }
 
+  .mobile-wallet-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
   .connect-wallet-nav-btn.mobile {
     background: linear-gradient(45deg, #22C55E, #16A34A);
     color: #fff;

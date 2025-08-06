@@ -5,7 +5,7 @@ import { useWallet } from '@/contexts/WalletContext';
 import ImageWithFallback from '@/components/ImageWithFallback';
 
 export default function WalletPage() {
-  const { walletAddress, isWalletConnected, isConnecting, connectYoursWallet, disconnectWallet } = useWallet();
+  const { walletAddress, isWalletConnected, isConnecting, availableWallets, selectedWallet, connectWallet, disconnectWallet } = useWallet();
   const [walletData, setWalletData] = useState<any>(null);
 
   // Load wallet data when wallet is connected
@@ -206,7 +206,7 @@ export default function WalletPage() {
               Your wallet data will be securely stored locally.
             </p>
             <button
-              onClick={connectYoursWallet}
+                              onClick={() => connectWallet('Demo')}
               disabled={isConnecting}
               className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >

@@ -6,7 +6,7 @@ import { useWallet } from '@/contexts/WalletContext';
 
 export default function SeriesGeneratorPage() {
   const router = useRouter();
-  const { walletAddress, isWalletConnected, isConnecting, connectYoursWallet, disconnectWallet } = useWallet();
+  const { walletAddress, isWalletConnected, isConnecting, availableWallets, selectedWallet, connectWallet, disconnectWallet } = useWallet();
   const [generatedSeries, setGeneratedSeries] = useState<any>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [seriesForm, setSeriesForm] = useState({
@@ -732,7 +732,7 @@ export default function SeriesGeneratorPage() {
                 Connect your Yours.org wallet to generate and own comic series. Only authenticated users can create series that will appear in their personal collection.
               </p>
               <button
-                onClick={connectYoursWallet}
+                onClick={() => connectWallet('Demo')}
                 disabled={isConnecting}
                 className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >

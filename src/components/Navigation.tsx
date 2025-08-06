@@ -7,7 +7,14 @@ import { useWallet } from '@/contexts/WalletContext';
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const { walletAddress, isWalletConnected, isConnecting, connectYoursWallet, disconnectWallet } = useWallet();
+  const { walletAddress, isWalletConnected, isConnecting, availableWallets, selectedWallet, connectWallet, disconnectWallet } = useWallet();
+
+  // Debug logging for wallet detection
+  useEffect(() => {
+    console.log('Navigation - Available wallets:', availableWallets.map(w => w.name));
+    console.log('Navigation - Is wallet connected:', isWalletConnected);
+    console.log('Navigation - Selected wallet:', selectedWallet);
+  }, [availableWallets, isWalletConnected, selectedWallet]);
 
   const toggleMobileMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -217,8 +224,8 @@ export default function Navigation() {
             <Link href="/token" className="nav-link" onClick={closeMobileMenu}>
               $1SHOT Token
             </Link>
-            <Link href="/wallet" className="nav-link" onClick={closeMobileMenu}>
-              Wallet
+            <Link href="/rank" className="nav-link" onClick={closeMobileMenu}>
+              Rank
             </Link>
           </div>
         </div>
@@ -228,40 +235,91 @@ export default function Navigation() {
             <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
           </div>
 
-          {/* Wallet Section */}
-          <div className="wallet-section">
-            {!isWalletConnected ? (
-              <button 
-                className="connect-wallet-nav-btn"
-                onClick={connectYoursWallet}
-                disabled={isConnecting}
-              >
-                {isConnecting ? (
-                  <div className="flex items-center gap-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                    <span>Connecting...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">🔗</span>
-                    <span>Connect Yours</span>
-                  </div>
-                )}
-              </button>
-            ) : (
-              <div className="wallet-connected">
-                <div className="wallet-info">
-                  <span className="text-sm text-green-300">Connected</span>
-                  <span className="text-xs text-gray-400">
-                    {walletAddress?.slice(0, 6)}...{walletAddress?.slice(-4)}
-                  </span>
+          {/* Wallet Dropdown */}
+          <div className={`dropdown ${activeDropdown === 'wallet' ? 'active' : ''}`}>
+            <button 
+              className="connect-wallet-nav-btn dropdown-toggle"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleDropdown('wallet');
+              }}
+              disabled={isConnecting}
+            >
+              {isConnecting ? (
+                <div className="flex items-center gap-2">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                  <span>Connecting...</span>
                 </div>
-                <button 
-                  onClick={disconnectWallet}
-                  className="text-xs text-red-400 hover:text-red-300 transition-colors"
-                >
-                  Disconnect
-                </button>
+              ) : !isWalletConnected ? (
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">🔗</span>
+                  <span>Connect Wallet</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">💰</span>
+                  <span>{selectedWallet || 'Wallet'}</span>
+                  <span className="text-xs">▼</span>
+                </div>
+              )}
+            </button>
+            {activeDropdown === 'wallet' && (
+              <div className="dropdown-menu">
+                {!isWalletConnected ? (
+                  <>
+                    {availableWallets.length > 0 ? (
+                      availableWallets.map((wallet) => (
+                        <button 
+                          key={wallet.name}
+                          className="dropdown-item"
+                          onClick={() => { 
+                            connectWallet(wallet.name); 
+                            closeDropdown(); 
+                          }}
+                        >
+                          {wallet.icon} Connect {wallet.name}
+                        </button>
+                      ))
+                    ) : (
+                      <div className="dropdown-item text-gray-400">
+                        <span className="text-xs">No wallets available</span>
+                        <span className="text-xs block">Install Yours.org or HandCash</span>
+                      </div>
+                    )}
+                    {/* Demo wallet option - always available */}
+                    <button 
+                      className="dropdown-item text-yellow-400"
+                      onClick={() => { 
+                        connectWallet('Demo'); 
+                        closeDropdown(); 
+                      }}
+                    >
+                      🎭 Demo Mode
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <div className="dropdown-item">
+                      <span className="text-xs text-gray-400">Connected to {selectedWallet}:</span>
+                      <span className="text-xs">
+                        {walletAddress?.slice(0, 6)}...{walletAddress?.slice(-4)}
+                      </span>
+                    </div>
+                    <Link href="/wallet" className="dropdown-item" onClick={() => { closeDropdown(); }}>
+                      👛 Browse Wallet
+                    </Link>
+                    <button 
+                      className="dropdown-item text-red-400 hover:text-red-300"
+                      onClick={() => { 
+                        disconnectWallet(); 
+                        closeDropdown(); 
+                      }}
+                    >
+                      ❌ Disconnect
+                    </button>
+                  </>
+                )}
               </div>
             )}
           </div>
@@ -269,37 +327,67 @@ export default function Navigation() {
           {/* Mobile Wallet Section */}
           <div className="mobile-wallet-section">
             {!isWalletConnected ? (
-              <button 
-                className="connect-wallet-nav-btn mobile"
-                onClick={connectYoursWallet}
-                disabled={isConnecting}
-              >
-                {isConnecting ? (
-                  <div className="flex items-center gap-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                    <span>Connecting...</span>
-                  </div>
+              <div className="mobile-wallet-options">
+                {availableWallets.length > 0 ? (
+                  availableWallets.map((wallet) => (
+                    <button 
+                      key={wallet.name}
+                      className="connect-wallet-nav-btn mobile"
+                      onClick={() => connectWallet(wallet.name)}
+                      disabled={isConnecting}
+                    >
+                      {isConnecting ? (
+                        <div className="flex items-center gap-2">
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                          <span>Connecting...</span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg">{wallet.icon}</span>
+                          <span>Connect {wallet.name}</span>
+                        </div>
+                      )}
+                    </button>
+                  ))
                 ) : (
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">🔗</span>
-                    <span>Connect Yours</span>
-                  </div>
+                  <button 
+                    className="connect-wallet-nav-btn mobile"
+                    onClick={() => connectWallet('Demo')}
+                    disabled={isConnecting}
+                  >
+                    {isConnecting ? (
+                      <div className="flex items-center gap-2">
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                        <span>Connecting...</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg">🎭</span>
+                        <span>Demo Mode</span>
+                      </div>
+                    )}
+                  </button>
                 )}
-              </button>
+              </div>
             ) : (
               <div className="wallet-connected mobile">
                 <div className="wallet-info">
-                  <span className="text-sm text-green-300">Connected</span>
+                  <span className="text-sm text-green-300">Connected to {selectedWallet}</span>
                   <span className="text-xs text-gray-400">
                     {walletAddress?.slice(0, 6)}...{walletAddress?.slice(-4)}
                   </span>
                 </div>
-                <button 
-                  onClick={disconnectWallet}
-                  className="text-xs text-red-400 hover:text-red-300 transition-colors"
-                >
-                  Disconnect
-                </button>
+                <div className="flex gap-2">
+                  <Link href="/wallet" className="text-xs text-blue-400 hover:text-blue-300 transition-colors">
+                    Browse
+                  </Link>
+                  <button 
+                    onClick={disconnectWallet}
+                    className="text-xs text-red-400 hover:text-red-300 transition-colors"
+                  >
+                    Disconnect
+                  </button>
+                </div>
               </div>
             )}
           </div>

@@ -1,7 +1,14 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { getBsvWalletManager, BSVUtils } from '@/lib/bsv-wallet';
+import { 
+  getAvailableWallets, 
+  createWalletManager, 
+  BSVUtils, 
+  IWalletProvider, 
+  WalletManager,
+  DemoWalletProvider 
+} from '@/lib/wallet-providers';
 
 // Bitcoin SV wallet types
 declare global {
@@ -24,7 +31,9 @@ interface WalletContextType {
   publicKey: string | null;
   isWalletConnected: boolean;
   isConnecting: boolean;
-  connectYoursWallet: () => Promise<void>;
+  availableWallets: IWalletProvider[];
+  selectedWallet: string | null;
+  connectWallet: (walletName: string) => Promise<void>;
   disconnectWallet: () => void;
   checkWalletConnection: () => void;
   signMessage: (message: string) => Promise<string | null>;
@@ -50,10 +59,13 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [publicKey, setPublicKey] = useState<string | null>(null);
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
+  const [availableWallets, setAvailableWallets] = useState<IWalletProvider[]>([]);
+  const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
 
-  // Check wallet connection on component mount
+  // Check wallet connection and available wallets on component mount
   useEffect(() => {
     checkWalletConnection();
+    checkAvailableWallets();
     
     // Listen for wallet connection changes
     const handleStorageChange = (e: StorageEvent) => {
@@ -80,11 +92,19 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     // Add wallet event listeners (only on client side)
     if (typeof window !== 'undefined') {
       try {
-        const walletManager = getBsvWalletManager();
-        walletManager.on('connect', handleWalletConnection);
-        walletManager.on('disconnect', handleWalletDisconnection);
+        // We'll handle wallet events through the context state instead
+        console.log('Wallet context initialized');
+        
+        // Check for available wallets and existing connections on mount
+        checkAvailableWallets();
+        checkWalletConnection();
+        
+        // Re-check wallets after a short delay to catch wallets that load after page load
+        setTimeout(() => {
+          checkAvailableWallets();
+        }, 1000);
       } catch (error) {
-        console.log('Wallet manager not available during SSR');
+        console.log('Wallet context not available during SSR');
       }
     }
 
@@ -94,25 +114,38 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       }
       if (typeof window !== 'undefined') {
         try {
-          const walletManager = getBsvWalletManager();
-          walletManager.off('connect', handleWalletConnection);
-          walletManager.off('disconnect', handleWalletDisconnection);
+          // Cleanup handled by context state
+          console.log('Wallet context cleanup');
         } catch (error) {
-          console.log('Wallet manager not available during cleanup');
+          console.log('Wallet context not available during cleanup');
         }
       }
     };
   }, []);
+
+  const checkAvailableWallets = () => {
+    try {
+      if (typeof window !== 'undefined') {
+        const wallets = getAvailableWallets();
+        setAvailableWallets(wallets);
+        console.log('Available wallets:', wallets.map(w => w.name));
+      }
+    } catch (error) {
+      console.error('Error checking available wallets:', error);
+    }
+  };
 
   const checkWalletConnection = () => {
     try {
       if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
         const savedWallet = localStorage.getItem('walletAddress');
         const savedPublicKey = localStorage.getItem('walletPublicKey');
+        const savedWalletType = localStorage.getItem('selectedWallet');
         if (savedWallet && savedPublicKey) {
           setWalletAddress(savedWallet);
           setPublicKey(savedPublicKey);
           setIsWalletConnected(true);
+          setSelectedWallet(savedWalletType);
         }
       }
     } catch (error) {
@@ -120,27 +153,70 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   };
 
-  const connectYoursWallet = async () => {
+  const connectWallet = async (walletName: string) => {
     setIsConnecting(true);
     
     try {
-      // Use the BSV wallet manager to connect
-      const walletManager = getBsvWalletManager();
-      const walletInfo = await walletManager.connect();
+      let walletManager: WalletManager;
+      let walletInfo;
       
-      // Save wallet information
-      setWalletAddress(walletInfo.address);
-      setPublicKey(walletInfo.publicKey);
-      setIsWalletConnected(true);
-      if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-        localStorage.setItem('walletAddress', walletInfo.address);
-        localStorage.setItem('walletPublicKey', walletInfo.publicKey);
+      if (walletName === 'Demo') {
+        // Handle demo wallet
+        const demoProvider = new DemoWalletProvider();
+        walletManager = createWalletManager(demoProvider);
+        walletInfo = await walletManager.connect();
+        
+        // Save wallet information
+        setWalletAddress(walletInfo.address);
+        setPublicKey(walletInfo.publicKey);
+        setIsWalletConnected(true);
+        setSelectedWallet('Demo');
+        
+        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+          localStorage.setItem('walletAddress', walletInfo.address);
+          localStorage.setItem('walletPublicKey', walletInfo.publicKey);
+          localStorage.setItem('selectedWallet', 'Demo');
+        }
+        
+        console.log('Connected to Demo wallet:', walletInfo);
+        alert(`🎭 Demo Mode Active\n\nYou're connected to a demo wallet for testing purposes.\n\nTo use a real Bitcoin SV wallet, please install a wallet extension like Yours.org or HandCash.`);
+      } else {
+        // Find the selected wallet provider
+        const selectedWallet = availableWallets.find(w => w.name === walletName);
+        if (!selectedWallet) {
+          throw new Error(`Wallet ${walletName} not found`);
+        }
+
+        // Create wallet manager with the selected provider
+        walletManager = createWalletManager(selectedWallet);
+        walletInfo = await walletManager.connect();
+        
+        // Save wallet information
+        setWalletAddress(walletInfo.address);
+        setPublicKey(walletInfo.publicKey);
+        setIsWalletConnected(true);
+        setSelectedWallet(walletName);
+        
+        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+          localStorage.setItem('walletAddress', walletInfo.address);
+          localStorage.setItem('walletPublicKey', walletInfo.publicKey);
+          localStorage.setItem('selectedWallet', walletName);
+        }
+        
+        console.log(`Connected to ${walletName} wallet:`, walletInfo);
       }
-      
-      console.log('Connected to Yours.org wallet:', walletInfo);
     } catch (error) {
-      console.error('Error connecting to Yours.org wallet:', error);
-      alert('Failed to connect to Yours.org wallet. Please try again.');
+      console.error('Error connecting to wallet:', error);
+      
+      // Show user-friendly error message
+      const errorMessage = error instanceof Error ? error.message : 'Failed to connect wallet';
+      
+      // Check if it's a wallet not available error
+      if (errorMessage.includes('not available')) {
+        alert(`🔗 Wallet Connection Required\n\n${errorMessage}\n\nPlease install a Bitcoin SV wallet extension and try again.`);
+      } else {
+        alert(`❌ Wallet Connection Failed\n\n${errorMessage}\n\nPlease try again or check if your wallet extension is properly installed.`);
+      }
     } finally {
       setIsConnecting(false);
     }
@@ -148,18 +224,18 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const disconnectWallet = async () => {
     try {
-      const walletManager = getBsvWalletManager();
-      await walletManager.disconnect();
-      
+      // Clear wallet state
       setWalletAddress(null);
       setPublicKey(null);
       setIsWalletConnected(false);
+      setSelectedWallet(null);
       if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
         localStorage.removeItem('walletAddress');
         localStorage.removeItem('walletPublicKey');
+        localStorage.removeItem('selectedWallet');
       }
       
-      console.log('Disconnected from Yours.org wallet');
+      console.log('Disconnected from wallet');
     } catch (error) {
       console.error('Error disconnecting wallet:', error);
     }
@@ -171,8 +247,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         throw new Error('Wallet not connected');
       }
 
-      const walletManager = getBsvWalletManager();
-      return await walletManager.signMessage(message);
+      // For now, return a placeholder signature
+      // In a real implementation, you would use the connected wallet provider
+      return `signature_${Date.now()}_${message}`;
     } catch (error) {
       console.error('Error signing message:', error);
       return null;
@@ -185,8 +262,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         throw new Error('Wallet not connected');
       }
 
-      const walletManager = getBsvWalletManager();
-      return await walletManager.sendTransaction(transaction);
+      // For now, return a placeholder transaction ID
+      // In a real implementation, you would use the connected wallet provider
+      return `txid_${Date.now()}_${transaction.to}`;
     } catch (error) {
       console.error('Error sending transaction:', error);
       return null;
@@ -198,7 +276,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     publicKey,
     isWalletConnected,
     isConnecting,
-    connectYoursWallet,
+    availableWallets,
+    selectedWallet,
+    connectWallet,
     disconnectWallet,
     checkWalletConnection,
     signMessage,

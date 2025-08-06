@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useWallet } from '@/contexts/WalletContext';
-import { BSVUtils } from '@/lib/bsv-wallet';
+import { BSVUtils } from '@/lib/wallet-providers';
 
 export default function TestWalletPage() {
   const [isClient, setIsClient] = useState(false);
@@ -16,7 +16,9 @@ export default function TestWalletPage() {
     publicKey, 
     isWalletConnected, 
     isConnecting, 
-    connectYoursWallet, 
+    availableWallets,
+    selectedWallet,
+    connectWallet, 
     disconnectWallet,
     signMessage,
     sendTransaction
@@ -124,13 +126,28 @@ export default function TestWalletPage() {
 
           <div className="mt-6">
             {!isWalletConnected ? (
-              <button
-                onClick={connectYoursWallet}
-                disabled={isConnecting}
-                className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isConnecting ? 'Connecting...' : 'Connect Yours.org Wallet'}
-              </button>
+              <div className="space-y-2">
+                {availableWallets.length > 0 ? (
+                  availableWallets.map((wallet) => (
+                    <button
+                      key={wallet.name}
+                      onClick={() => connectWallet(wallet.name)}
+                      disabled={isConnecting}
+                      className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isConnecting ? 'Connecting...' : `Connect ${wallet.name}`}
+                    </button>
+                  ))
+                ) : (
+                  <button
+                    onClick={() => connectWallet('Demo')}
+                    disabled={isConnecting}
+                    className="w-full px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isConnecting ? 'Connecting...' : 'Connect Demo Wallet'}
+                  </button>
+                )}
+              </div>
             ) : (
               <button
                 onClick={disconnectWallet}
