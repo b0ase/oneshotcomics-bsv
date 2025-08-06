@@ -1,0 +1,35 @@
+Character: Cyber - The Digital Warrior
+Series: Cypherpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 3 - Action (Full Cybernetic Evolution)
+
+IMAGE PROMPT:
+A cyborg warrior with very specific physical features: Their remaining human parts have MEDIUM TAN skin (not pale, not dark) with warm undertones, and DARK BROWN EYES (not blue, not green) with a determined, defiant gaze. Their face is SQUARE-SHAPED with STRONG JAWLINE and BROAD FOREHEAD. They have a BROAD SHOULDERS, MUSCULAR BUILD, standing at 6'0" with POWERFUL ARMS and CHEST. Their cybernetic enhancements are GLOWING ELECTRIC BLUE (not purple, not green) covering their RIGHT EYE (replaced with cybernetic implant), RIGHT ARM (from shoulder down), and LEFT LEG (from knee down). They wear tactical combat gear that is DARK GRAY and BLACK with ELECTRIC BLUE accents, featuring holographic displays, energy weapons, and advanced technology integrated throughout. The gear has a HIGH COLLAR, ARMORED PLATES, and COMBAT BOOTS.
+
+ACTION POSE: Cyber is in a FULL CYBERNETIC EVOLUTION STANCE, their form UNDERGOING COMPLETE CYBERNETIC TRANSFORMATION as they EVOLVE into a fully digital being. They're positioned in a TRANSFORMING POSE, with their GLOWING ELECTRIC BLUE cybernetics spreading across their entire body and their human parts being enhanced with advanced technology. Their DARK BROWN EYES show determination as they embrace their full cybernetic evolution, becoming a perfect fusion of human and machine. They're using ADVANCED EVOLUTION TECHNOLOGY to transform into a fully evolved cybernetic being with unlimited potential. Background shows a FUTURISTIC EVOLUTION CHAMBER with holographic evolution displays, energy fields, and technological transformation effects. Art style: futuristic and high-tech, evolution effects, cybernetic transformation, detailed technology.
+
+KEY VISUAL ELEMENTS:
+- MEDIUM TAN skin with warm undertones
+- DARK BROWN EYES with determined gaze
+- SQUARE face with strong jawline
+- BROAD SHOULDERS, MUSCULAR build, 6'0"
+- GLOWING ELECTRIC BLUE cybernetics (right eye, right arm, left leg)
+- DARK GRAY and BLACK tactical gear with electric blue accents
+- FULL CYBERNETIC EVOLUTION STANCE with complete transformation
+- TRANSFORMING POSE with evolution technology
+- Cybernetics spreading across entire body
+- Complete fusion of human and machine
+- Futuristic evolution chamber background
+
+ART STYLE: Futuristic and high-tech, evolution effects, cybernetic transformation, detailed technology
+
+CRITICAL CONSISTENCY NOTES:
+- Skin must be MEDIUM TAN with warm undertones, not pale or dark
+- Eyes must be DARK BROWN, never blue or green
+- Face shape must be SQUARE with strong jawline
+- Build must be BROAD SHOULDERS and MUSCULAR, not slim
+- Cybernetics must be GLOWING ELECTRIC BLUE, never purple or green
+- Cybernetics must cover RIGHT EYE, RIGHT ARM, and LEFT LEG specifically
+- Gear must be DARK GRAY and BLACK with ELECTRIC BLUE accents
+- Pose must show FULL CYBERNETIC EVOLUTION STANCE with complete transformation 

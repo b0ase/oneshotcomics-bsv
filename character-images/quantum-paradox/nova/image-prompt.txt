@@ -1,0 +1,26 @@
+Character: Nova - The Time Weaver
+Series: Quantum Paradox
+Type: Hero
+Alignment: Hero
+
+IMAGE PROMPT:
+A young woman in her early 20s with very specific physical features: DARK BROWN hair (not blonde, not red, not black) that is long and flowing down to her waist, with natural waves and a slight curl at the ends. Her skin is LIGHT OLIVE TONE with a warm undertone, covered in small star-shaped patterns that glow with soft blue cosmic energy. Her eyes are LARGE AND ALMOND-SHAPED, colored DEEP SAPPHIRE BLUE with golden flecks, and they glow with temporal energy. Her face is OVAL-SHAPED with HIGH CHEEKBONES, a SMALL BUTTON NOSE, and FULL LIPS. She has a SLIM BUT ATHLETIC BUILD, standing at 5'7" with LONG LIMBS. She wears a sleek, form-fitting cosmic-themed suit that is DARK NAVY BLUE with SILVER accents, featuring quantum particle patterns, time symbols, and flowing energy trails. The suit has a HIGH COLLAR and LONG SLEEVES with GLOVES. Her pose should convey both power and grace, with temporal energy swirling around her hands. Background should feature quantum particles, time distortions, and cosmic nebulae. Art style: modern comic book, highly detailed, dynamic lighting, epic sci-fi atmosphere.
+
+KEY VISUAL ELEMENTS:
+- DARK BROWN hair (long, wavy, waist-length)
+- LIGHT OLIVE skin with star patterns
+- DEEP SAPPHIRE BLUE eyes with golden flecks
+- OVAL face with high cheekbones
+- SLIM ATHLETIC build, 5'7"
+- DARK NAVY BLUE suit with silver accents
+- Temporal energy effects
+- Quantum particle background
+
+ART STYLE: Modern comic book, highly detailed, dynamic lighting, epic sci-fi atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be DARK BROWN, never blonde, red, or black
+- Skin must be LIGHT OLIVE TONE, not pale white or dark
+- Eyes must be DEEP SAPPHIRE BLUE with golden flecks
+- Face shape must be OVAL with high cheekbones
+- Build must be SLIM BUT ATHLETIC, not muscular or curvy 

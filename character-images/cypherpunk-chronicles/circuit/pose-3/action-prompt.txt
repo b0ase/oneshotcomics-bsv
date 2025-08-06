@@ -1,0 +1,32 @@
+Character: Circuit - The Tech Controller
+Series: Cypherpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 3 - Action (Ultimate System Override)
+
+IMAGE PROMPT:
+A man in his late 20s with DARK BROWN hair that is short and neat, with GLOWING BLUE cybernetic implants visible on his scalp. His skin is LIGHT TAN with a neutral undertone, and his eyes are BRIGHT BLUE that glow with electronic energy. His face is SQUARE-SHAPED with HIGH CHEEKBONES, a STRAIGHT NOSE, and THIN LIPS. He has a MUSCULAR BUILD, standing at 6'0" with commanding presence. He wears tactical gear that is DARK BLUE and BLACK, featuring corporate insignia and GLOWING BLUE CYBERNETIC PARTS. The gear has a HIGH COLLAR, FULL COVERAGE, and MULTIPLE TECH INTERFACES.
+
+ACTION POSE: Circuit is in an ULTIMATE OVERRIDE STANCE, floating in the center of a MASSIVE NETWORK as he INITIATES THE FINAL SYSTEM SHUTDOWN. He's completely surrounded by PURE ELECTRONIC ENERGY and SYSTEM INTERFACES that connect him to every corporate network in the city. His cybernetic implants are glowing with maximum intensity as he achieves ultimate control over all technology. He's positioned in a TRANSCENDENT POSE, showing both his human form and his technological mastery. Background shows the ENTIRE CITY'S TECHNOLOGICAL INFRASTRUCTURE under his control, corporate systems collapsing, and a new technological order emerging. Art style: modern comic book, highly detailed, tech lighting, corporate atmosphere.
+
+KEY VISUAL ELEMENTS:
+- DARK BROWN short neat hair with blue implants
+- LIGHT TAN skin with neutral undertone
+- BRIGHT BLUE glowing eyes
+- SQUARE face with high cheekbones
+- MUSCULAR build, 6'0"
+- DARK BLUE and BLACK tactical gear
+- ULTIMATE OVERRIDE STANCE with floating pose
+- PURE ELECTRONIC ENERGY and system interfaces
+- Entire city's technological infrastructure background
+- Glowing blue cybernetic parts
+
+ART STYLE: Modern comic book, highly detailed, tech lighting, corporate atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be DARK BROWN with blue implants
+- Skin must be LIGHT TAN, not pale white or dark
+- Eyes must be BRIGHT BLUE and glowing
+- Face shape must be SQUARE with high cheekbones
+- Build must be MUSCULAR, not slim or average
+- Pose must show ULTIMATE OVERRIDE STANCE with system control 

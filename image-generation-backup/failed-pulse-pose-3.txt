@@ -1,0 +1,32 @@
+Character: Pulse - The Bio-Electric Healer
+Series: Cypherpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 3 - Action (Ultimate Life Restoration)
+
+IMAGE PROMPT:
+A woman in her mid-20s with ELECTRIC BLUE hair that is long and flowing, with natural waves that seem to conduct energy. Her skin is PALE WHITE with a cool undertone, and her eyes are BRIGHT GREEN that glow with healing energy. Her face is OVAL-SHAPED with HIGH CHEEKBONES, a SMALL NOSE, and THIN LIPS. She has a SLIM GRACEFUL BUILD, standing at 5'7" with gentle movements. She wears medical scrubs enhanced with tech: LIGHT BLUE SCRUBS with GREEN ACCENTS, featuring GLOWING GREEN CIRCUITS and HEALING SYMBOLS. The scrubs have a V-NECK, LONG SLEEVES, and MULTIPLE MEDICAL PATCHES.
+
+ACTION POSE: Pulse is in an ULTIMATE RESTORATION STANCE, floating in the center of a MASSIVE LIFE FORCE NETWORK as she INITIATES THE FINAL HEALING WAVE. She's completely surrounded by PURE LIFE ENERGY and HEALING CIRCUITS that connect her to every living being in the city. Her body is becoming one with the life force as she achieves ultimate healing power. She's positioned in a TRANSCENDENT POSE, showing both her human form and her connection to all life. Background shows the ENTIRE CITY'S LIFE FORCE being restored, people being healed en masse, and a new era of health and vitality emerging. Art style: modern comic book, highly detailed, medical lighting, healing atmosphere.
+
+KEY VISUAL ELEMENTS:
+- ELECTRIC BLUE long flowing hair
+- PALE WHITE skin with cool undertone
+- BRIGHT GREEN glowing eyes
+- OVAL face with high cheekbones
+- SLIM GRACEFUL build, 5'7"
+- LIGHT BLUE scrubs with green accents
+- ULTIMATE RESTORATION STANCE with floating pose
+- PURE LIFE ENERGY and healing circuits
+- Entire city's life force being restored
+- Glowing green circuits and healing symbols
+
+ART STYLE: Modern comic book, highly detailed, medical lighting, healing atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be ELECTRIC BLUE, never natural colors
+- Skin must be PALE WHITE, not tan or dark
+- Eyes must be BRIGHT GREEN and glowing
+- Face shape must be OVAL with high cheekbones
+- Build must be SLIM GRACEFUL, not muscular or heavy
+- Pose must show ULTIMATE RESTORATION STANCE with life force transcendence

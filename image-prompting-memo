@@ -1,0 +1,53 @@
+We get better results from shorter prompts, i.e. 
+
+"Character: Cyber - The Digital Warrior
+Series: Cyberpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 2 - Action (Cybernetic Transformation)
+
+IMAGE PROMPT:
+A cyborg warrior with very specific physical features: Their remaining human parts have MEDIUM TAN skin (not pale, not dark) with warm undertones, and DARK BROWN EYES (not blue, not green) with a determined, defiant gaze. Their face is SQUARE-SHAPED with STRONG JAWLINE and BROAD FOREHEAD. They have a BROAD SHOULDERS, MUSCULAR BUILD, standing at 6'0" with POWERFUL ARMS and CHEST. Their cybernetic enhancements are GLOWING ELECTRIC BLUE (not purple, not green) covering their RIGHT EYE (replaced with cybernetic implant), RIGHT ARM (from shoulder down), and LEFT LEG (from knee down). They wear tactical combat gear that is DARK GRAY and BLACK with ELECTRIC BLUE accents, featuring holographic displays, energy weapons, and advanced technology integrated throughout. The gear has a HIGH COLLAR, ARMORED PLATES, and COMBAT BOOTS.
+
+ACTION POSE: Cyber is in a CYBERNETIC TRANSFORMATION STANCE, their form EXPANDING with ADDITIONAL CYBERNETIC ENHANCEMENTS as they UPGRADE their combat capabilities. They're positioned in a TRANSFORMING POSE, with their GLOWING ELECTRIC BLUE cybernetics spreading across their body and NEW WEAPON SYSTEMS deploying from their armor. Their DARK BROWN EYES show determination as their human parts remain intact while cybernetics expand. They're using ADVANCED TRANSFORMATION TECHNOLOGY to enhance their combat abilities with additional armor and weapons. Background shows a FUTURISTIC LABORATORY with holographic displays, energy fields, and technological transformation effects. Art style: futuristic and high-tech, transformation effects, cybernetic enhancement, detailed technology.
+" 
+
+returns a significnatly better image than: 
+
+Character: Cyber - The Digital Warrior
+Series: Cyberpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 2 - Action (Cybernetic Transformation)
+
+IMAGE PROMPT:
+A cyborg warrior with very specific physical features: Their remaining human parts have MEDIUM TAN skin (not pale, not dark) with warm undertones, and DARK BROWN EYES (not blue, not green) with a determined, defiant gaze. Their face is SQUARE-SHAPED with STRONG JAWLINE and BROAD FOREHEAD. They have a BROAD SHOULDERS, MUSCULAR BUILD, standing at 6'0" with POWERFUL ARMS and CHEST. Their cybernetic enhancements are GLOWING ELECTRIC BLUE (not purple, not green) covering their RIGHT EYE (replaced with cybernetic implant), RIGHT ARM (from shoulder down), and LEFT LEG (from knee down). They wear tactical combat gear that is DARK GRAY and BLACK with ELECTRIC BLUE accents, featuring holographic displays, energy weapons, and advanced technology integrated throughout. The gear has a HIGH COLLAR, ARMORED PLATES, and COMBAT BOOTS.
+
+ACTION POSE: Cyber is in a CYBERNETIC TRANSFORMATION STANCE, their form EXPANDING with ADDITIONAL CYBERNETIC ENHANCEMENTS as they UPGRADE their combat capabilities. They're positioned in a TRANSFORMING POSE, with their GLOWING ELECTRIC BLUE cybernetics spreading across their body and NEW WEAPON SYSTEMS deploying from their armor. Their DARK BROWN EYES show determination as their human parts remain intact while cybernetics expand. They're using ADVANCED TRANSFORMATION TECHNOLOGY to enhance their combat abilities with additional armor and weapons. Background shows a FUTURISTIC LABORATORY with holographic displays, energy fields, and technological transformation effects. Art style: futuristic and high-tech, transformation effects, cybernetic enhancement, detailed technology.
+
+KEY VISUAL ELEMENTS:
+- MEDIUM TAN skin with warm undertones
+- DARK BROWN EYES with determined gaze
+- SQUARE face with strong jawline
+- BROAD SHOULDERS, MUSCULAR build, 6'0"
+- GLOWING ELECTRIC BLUE cybernetics (right eye, right arm, left leg)
+- DARK GRAY and BLACK tactical gear with electric blue accents
+- CYBERNETIC TRANSFORMATION STANCE with expanding enhancements
+- TRANSFORMING POSE with new weapon systems
+- Cybernetics spreading across body
+- Advanced transformation technology
+- Futuristic laboratory background
+
+ART STYLE: Futuristic and high-tech, transformation effects, cybernetic enhancement, detailed technology
+
+CRITICAL CONSISTENCY NOTES:
+- Skin must be MEDIUM TAN with warm undertones, not pale or dark
+- Eyes must be DARK BROWN, never blue or green
+- Face shape must be SQUARE with strong jawline
+- Build must be BROAD SHOULDERS and MUSCULAR, not slim
+- Cybernetics must be GLOWING ELECTRIC BLUE, never purple or green
+- Cybernetics must cover RIGHT EYE, RIGHT ARM, and LEFT LEG specifically
+- Gear must be DARK GRAY and BLACK with ELECTRIC BLUE accents
+- Pose must show CYBERNETIC TRANSFORMATION STANCE with expanding enhancements 
+
+which you'd think would be better (but isn't). 

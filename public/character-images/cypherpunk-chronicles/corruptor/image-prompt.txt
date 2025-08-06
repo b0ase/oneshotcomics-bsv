@@ -1,0 +1,27 @@
+Character: Corruptor - The Mind Controller
+Series: Cypherpunk Chronicles
+Type: Villain
+Alignment: Villain
+
+IMAGE PROMPT:
+A well-dressed corporate villain with very specific physical features: He has GLOWING EMERALD GREEN EYES (not blue, not yellow) that pulse with mind-control energy, shaped ALMOND with a COLD, CALCULATING GAZE. His skin is PALE IVORY (not tan, not dark) with cool undertones, giving a polished, corporate appearance. He has a TALL, SLIM BUILD, standing at 6'2" with ELEGANT POSTURE and LONG FINGERS. He wears an expensive business suit that is DEEP NAVY BLUE (not black, not gray) with EMERALD GREEN accents, featuring hidden technology and control devices. The suit has a TAILORED FIT, SILK TIE, and POLISHED SHOES. His appearance is polished and professional, but his eyes reveal his sinister nature. He carries advanced mind-control technology and corporate symbols of power. The pose should be arrogant and controlling, with mind-control energy radiating from his form and corporate logos floating around him. Background should feature corporate headquarters, mind-control victims, and technological corruption. Art style: corporate and sinister, green lighting effects, professional appearance, technological corruption.
+
+KEY VISUAL ELEMENTS:
+- GLOWING EMERALD GREEN EYES with cold gaze
+- PALE IVORY skin with cool undertones
+- TALL, SLIM build, 6'2"
+- DEEP NAVY BLUE business suit with emerald green accents
+- Tailored fit with silk tie
+- Mind-control energy
+- Corporate symbols
+- Technological corruption
+
+ART STYLE: Corporate and sinister, green lighting effects, professional appearance, technological corruption
+
+CRITICAL CONSISTENCY NOTES:
+- Eyes must be GLOWING EMERALD GREEN, never blue or yellow
+- Skin must be PALE IVORY with cool undertones, not tan or dark
+- Build must be TALL and SLIM, not muscular or stocky
+- Suit must be DEEP NAVY BLUE with EMERALD GREEN accents
+- Appearance must be POLISHED and PROFESSIONAL
+- NO BRIGHT COLORS except emerald green eyes and accents 

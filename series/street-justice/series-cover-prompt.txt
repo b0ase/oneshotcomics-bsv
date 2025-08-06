@@ -1,0 +1,39 @@
+# STREET JUSTICE SERIES COVER PROMPT
+
+**Series:** Street Justice  
+**Type:** Series Cover Art  
+**Style:** Comic Book Cover  
+
+**IMAGE PROMPT:**
+A gritty urban comic book cover featuring the Street Justice series. The composition shows a dark cityscape at night with neon lights and rain-slicked streets. In the center foreground, SHADOW (The Silent Protector) emerges from the darkness, his DARK BROWN hair hidden by his hood, wearing his DARK GRAY and BLACK tactical suit, his DARK BROWN eyes absorbing light as he moves stealthily through the shadows.
+
+To his left, MIRAGE (The Master of Deception) appears partially transparent and shifting, her BLONDE hair shimmering and changing color, wearing her PURPLE and SILVER illusion costume, her BRIGHT GREEN hypnotic eyes glowing as she creates multiple illusions and mirror-like effects around her.
+
+In the background, VOID (The Nightmare) looms as a terrifying figure, his BLACK hair appearing to be made of shadows, wearing his BLACK and DARK RED dark costume, his BRIGHT RED eyes glowing with malevolent energy as he feeds on fear and darkness, surrounded by shadow effects.
+
+**KEY VISUAL ELEMENTS:**
+- Dark urban cityscape with neon lights and rain
+- Shadow emerging from darkness with stealth effects
+- Mirage creating illusions and mirror effects
+- Void feeding on fear with shadow and darkness
+- Urban atmosphere with gritty, noir lighting
+- Rain-slicked streets and neon reflections
+- Comic book cover layout with dramatic composition
+
+**ART STYLE:** Modern comic book cover, highly detailed, noir atmosphere, urban grit, dramatic lighting effects
+
+**COVER ELEMENTS:**
+- Title "STREET JUSTICE" prominently displayed
+- Subtitle "Shadows of the City"
+- Issue number or series identifier
+- Dark urban background with neon lights and rain
+- Shadow and illusion effects throughout the composition
+
+**CRITICAL CONSISTENCY NOTES:**
+- All character appearances must match their individual character descriptions
+- Shadow's hair must be DARK BROWN, not black or light
+- Mirage's base hair must be BLONDE, though it can shift colors
+- Void's hair must be BLACK and made of shadows
+- All character costumes must match their established designs
+- Urban noir atmosphere should dominate the background
+- Stealth and illusion effects should be prominent 

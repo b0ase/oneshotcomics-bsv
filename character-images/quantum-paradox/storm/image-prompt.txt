@@ -1,0 +1,27 @@
+Character: Storm - The Weather Controller
+Series: Quantum Paradox
+Type: Hero
+Alignment: Hero
+
+IMAGE PROMPT:
+A medium-height hero with very specific physical features: PURE SILVER hair (not blonde, not white, not gray) that flows like wind, styled in LONG WAVES down to her shoulders with natural movement and wind-swept appearance. Her skin is PALE IVORY with cool undertones, giving an ethereal, storm-like appearance. Her eyes are PIERCING ICE BLUE with silver flecks, shaped ROUND with a COMMANDING GAZE, and they reflect storm clouds. Her face is HEART-SHAPED with DELICATE FEATURES, HIGH ARCHED EYEBROWS, and a SMALL POINTED CHIN. She has a SLENDER, GRACEFUL BUILD, standing at 5'6" with ELEGANT POSTURE and LONG FINGERS. She wears a flowing blue and white costume that is ELECTRIC BLUE and PURE WHITE with SILVER accents, featuring cloud patterns, lightning motifs, and weather symbols. The costume has FLOWING SLEEVES, a CINCHED WAIST, and BILLOWING PANELS. Her pose should be commanding and majestic, with lightning crackling around her hands and storm clouds gathering above. Background should feature dramatic weather effects, rain, lightning, and storm clouds. Art style: modern comic book, atmospheric lighting, dynamic weather effects, epic scale.
+
+KEY VISUAL ELEMENTS:
+- PURE SILVER hair (long waves, shoulder-length)
+- PALE IVORY skin with cool undertones
+- PIERCING ICE BLUE eyes with silver flecks
+- HEART-SHAPED face with delicate features
+- SLENDER, GRACEFUL build, 5'6"
+- ELECTRIC BLUE and PURE WHITE costume with silver accents
+- Lightning effects
+- Storm cloud background
+
+ART STYLE: Modern comic book, atmospheric lighting, dynamic weather effects, epic scale
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be PURE SILVER, never blonde, white, or gray
+- Hair must be LONG WAVES to shoulders, never short or straight
+- Skin must be PALE IVORY with cool undertones, not tan or dark
+- Eyes must be PIERCING ICE BLUE with silver flecks
+- Face shape must be HEART-SHAPED with delicate features
+- Build must be SLENDER and GRACEFUL, not muscular or curvy 

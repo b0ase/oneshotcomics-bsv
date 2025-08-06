@@ -1,0 +1,33 @@
+Character: Tempus - The Time Tyrant
+Series: Quantum Paradox
+Type: Villain
+Alignment: Villain
+Pose: 2 - Action (Time Reversal)
+
+IMAGE PROMPT:
+A villain with very specific physical features: His appearance constantly shifts between YOUNG (mid-30s) and ANCIENT (centuries old), but his core features remain consistent. When young: DARK BROWN hair (not black, not gray) in a SHORT MILITARY CUT, DEEP BROWN EYES with golden flecks, SQUARE JAW, and BROAD SHOULDERS. When ancient: WHITE hair in LONG STRANDS, PALE WRINKLED SKIN, HOLLOW EYES, and FRAIL BUILD. His skin tone is MEDIUM TAN with olive undertones. He wears time-themed armor that is BRONZE and DARK GOLD with BLACK energy accents, featuring intricate clockwork mechanisms, hourglass symbols, and temporal distortions. The armor has a HIGH COLLAR, FULL PLATE DESIGN, and CLOCKWORK DECORATIONS.
+
+ACTION POSE: Tempus is in a TIME REVERSAL STANCE, his form SHIFTING BETWEEN YOUNG AND ANCIENT as he REVERSES TIME ITSELF. He's positioned in a MENACING POSE, with his BRONZE armor glowing with temporal energy and CLOCKWORK MECHANISMS spinning backwards around him. His DEEP BROWN EYES (when young) or HOLLOW EYES (when ancient) show malevolent intent, and he's creating TIME REVERSAL FIELDS that make everything around him move backwards. He's using his time powers to REVERSE DAMAGE and RESTORE HIMSELF while aging his enemies. Background shows TIME FLOWING BACKWARDS with reversed events, backwards-moving objects, and temporal chaos. Art style: modern comic book, temporal distortion effects, reality-bending visuals, menacing atmosphere.
+
+KEY VISUAL ELEMENTS:
+- Shifting age appearance (young: dark brown hair, ancient: white hair)
+- MEDIUM TAN skin with olive undertones
+- DEEP BROWN eyes with golden flecks (when young)
+- SQUARE jaw and broad shoulders (when young)
+- BRONZE and DARK GOLD armor with black accents
+- TIME REVERSAL STANCE with backwards time flow
+- MENACING POSE with clockwork mechanisms
+- Time reversal fields making everything move backwards
+- Temporal energy glowing from armor
+- Time flowing backwards background
+
+ART STYLE: Modern comic book, temporal distortion effects, reality-bending visuals, menacing atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- When young: DARK BROWN hair in SHORT MILITARY CUT, never long or styled
+- When ancient: WHITE hair in LONG STRANDS, never short
+- Skin must be MEDIUM TAN with olive undertones, not pale or dark
+- Eyes must be DEEP BROWN with golden flecks when young
+- Face shape must be SQUARE with broad shoulders when young
+- Armor must be BRONZE and DARK GOLD, never silver or copper
+- Pose must show TIME REVERSAL STANCE with backwards time flow 

@@ -1,0 +1,27 @@
+Character: Tempus - The Time Tyrant
+Series: Quantum Paradox
+Type: Villain
+Alignment: Villain
+
+IMAGE PROMPT:
+A villain with very specific physical features: His appearance constantly shifts between YOUNG (mid-30s) and ANCIENT (centuries old), but his core features remain consistent. When young: DARK BROWN hair (not black, not gray) in a SHORT MILITARY CUT, DEEP BROWN EYES with golden flecks, SQUARE JAW, and BROAD SHOULDERS. When ancient: WHITE hair in LONG STRANDS, PALE WRINKLED SKIN, HOLLOW EYES, and FRAIL BUILD. His skin tone is MEDIUM TAN with olive undertones. He wears time-themed armor that is BRONZE and DARK GOLD with BLACK energy accents, featuring intricate clockwork mechanisms, hourglass symbols, and temporal distortions. The armor has a HIGH COLLAR, FULL PLATE DESIGN, and CLOCKWORK DECORATIONS. His face shows the ravages of time manipulation, sometimes youthful, sometimes ancient. The pose should be arrogant and menacing, with time distortions swirling around them and reality bending in their presence. Background should feature temporal paradoxes, clockwork mechanisms, and distorted reality. Art style: modern comic book, dark and menacing, complex details, reality-bending effects.
+
+KEY VISUAL ELEMENTS:
+- Shifting age appearance (young: dark brown hair, ancient: white hair)
+- MEDIUM TAN skin with olive undertones
+- DEEP BROWN eyes with golden flecks (when young)
+- SQUARE jaw and broad shoulders (when young)
+- BRONZE and DARK GOLD armor with black accents
+- Clockwork mechanisms
+- Temporal distortions
+- Reality-bending effects
+
+ART STYLE: Modern comic book, dark and menacing, complex details, reality-bending effects
+
+CRITICAL CONSISTENCY NOTES:
+- When young: DARK BROWN hair in SHORT MILITARY CUT, never long or styled
+- When ancient: WHITE hair in LONG STRANDS, never short
+- Skin must be MEDIUM TAN with olive undertones, not pale or dark
+- Eyes must be DEEP BROWN with golden flecks when young
+- Face shape must be SQUARE with broad shoulders when young
+- Armor must be BRONZE and DARK GOLD, never silver or copper 

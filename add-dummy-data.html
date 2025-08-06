@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Dummy Data - One Shot Comics</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section h2 {
+            color: #4ecdc4;
+            margin-bottom: 15px;
+        }
+        .button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        .button.secondary {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+        }
+        .button.danger {
+            background: linear-gradient(45deg, #ff4757, #c44569);
+        }
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .status.success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4caf50;
+            color: #4caf50;
+        }
+        .status.error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #f44336;
+            color: #f44336;
+        }
+        .status.info {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196f3;
+            color: #2196f3;
+        }
+        .character-list, .series-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card h3 {
+            margin: 0 0 10px 0;
+            color: #ff6b6b;
+        }
+        .card p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .badge.hero {
+            background: #4caf50;
+            color: white;
+        }
+        .badge.villain {
+            background: #f44336;
+            color: white;
+        }
+        .badge.genre {
+            background: #2196f3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 One Shot Comics - Dummy Data Generator</h1>
+        
+        <div class="section">
+            <h2>📚 Characters</h2>
+            <p>Add 12 diverse characters (heroes and villains) to your character library for story generation.</p>
+            <button class="button" onclick="addDummyCharacters()">Add Dummy Characters</button>
+            <button class="button secondary" onclick="showCurrentCharacters()">Show Current Characters</button>
+            <button class="button danger" onclick="clearAllCharacters()">Clear All Characters</button>
+            <div id="characterStatus"></div>
+            <div id="characterList" class="character-list"></div>
+        </div>
+
+        <div class="section">
+            <h2>📖 Series</h2>
+            <p>Add 5 series with different genres and themes to complement your characters.</p>
+            <button class="button" onclick="addDummySeries()">Add Dummy Series</button>
+            <button class="button secondary" onclick="showCurrentSeries()">Show Current Series</button>
+            <button class="button danger" onclick="clearAllSeries()">Clear All Series</button>
+            <div id="seriesStatus"></div>
+            <div id="seriesList" class="series-list"></div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Quick Setup</h2>
+            <p>Add everything at once for immediate story generation testing.</p>
+            <button class="button" onclick="addEverything()">Add All Dummy Data</button>
+            <button class="button secondary" onclick="checkSetup()">Check Current Setup</button>
+            <div id="setupStatus"></div>
+        </div>
+    </div>
+
+    <script>
+        // Dummy Characters Data
+        const dummyCharacters = [
+            {
+                id: "char_001",
+                name: "Phoenix",
+                type: "hero",
+                powers: "Flight, Fire Manipulation, Regeneration",
+                description: "A powerful hero who can control fire and rise from ashes.",
+                personality: "Brave, protective, determined, sometimes reckless",
+                appearance: "Tall with fiery red hair, glowing orange eyes",
+                backstory: "Born during a solar eclipse, Phoenix gained their powers from cosmic energy.",
+                series: "Quantum Paradox",
+                createdAt: "2025-07-31T10:00:00.000Z"
+            },
+            {
+                id: "char_002", 
+                name: "Storm",
+                type: "hero",
+                powers: "Weather Control, Flight, Lightning Generation",
+                description: "A weather-controlling hero who can summon storms and lightning.",
+                personality: "Wise, calm, strategic, protective of nature",
+                appearance: "Medium height with silver hair, blue eyes",
+                backstory: "Former meteorologist who gained weather powers during a freak storm.",
+                series: "Quantum Paradox",
+                createdAt: "2025-07-31T11:00:00.000Z"
+            },
+            {
+                id: "char_003",
+                name: "Shadow",
+                type: "hero", 
+                powers: "Stealth, Shadow Manipulation, Enhanced Reflexes",
+                description: "A mysterious vigilante who operates in the shadows.",
+                personality: "Mysterious, observant, justice-driven, prefers to work alone",
+                appearance: "Tall and lean, always in dark clothing",
+                backstory: "Former detective who turned to vigilantism after corruption.",
+                series: "Street Justice",
+                createdAt: "2025-07-30T09:00:00.000Z"
+            },
+            {
+                id: "char_004",
+                name: "Cyber",
+                type: "hero",
+                powers: "Cybernetics, Hacking, Enhanced Strength",
+                description: "A cyborg warrior fighting against corporate oppression.",
+                personality: "Analytical, determined, anti-establishment, protective",
+                appearance: "Partially robotic with glowing blue cybernetic parts",
+                backstory: "Former corporate security officer enhanced against their will.",
+                series: "Cyberpunk Chronicles",
+                createdAt: "2025-07-30T10:00:00.000Z"
+            },
+            {
+                id: "char_005",
+                name: "Zara",
+                type: "hero",
+                powers: "Magic, Dimensional Travel, Elemental Control",
+                description: "A powerful sorceress from another dimension.",
+                personality: "Mystical, wise, compassionate, sometimes aloof",
+                appearance: "Ethereal beauty with long flowing hair, glowing eyes",
+                backstory: "Born in a realm of pure magic, chosen to protect dimensional balance.",
+                series: "Mystic Realms",
+                createdAt: "2025-07-30T11:00:00.000Z"
+            },
+            {
+                id: "char_006",
+                name: "Nova",
+                type: "hero",
+                powers: "Time Manipulation, Quantum Teleportation, Energy Projection",
+                description: "A time-traveling hero with quantum particle manipulation.",
+                personality: "Curious, adventurous, responsible, sometimes overwhelmed",
+                appearance: "Young with star-patterned skin, glowing eyes",
+                backstory: "Accidentally gained time powers during a quantum physics experiment.",
+                series: "Quantum Paradox",
+                createdAt: "2025-07-30T12:00:00.000Z"
+            },
+            {
+                id: "char_007",
+                name: "Void",
+                type: "villain",
+                powers: "Dark Energy Manipulation, Teleportation, Fear Induction",
+                description: "A mysterious villain who feeds on fear and darkness.",
+                personality: "Manipulative, cruel, intelligent, enjoys causing fear",
+                appearance: "Tall and imposing, surrounded by shadows, glowing red eyes",
+                backstory: "Once normal person corrupted by dark energy.",
+                series: "Street Justice",
+                createdAt: "2025-07-30T13:00:00.000Z"
+            },
+            {
+                id: "char_008",
+                name: "Corruptor",
+                type: "villain",
+                powers: "Mind Control, Technology Manipulation, Corruption",
+                description: "A corporate villain who can control minds and corrupt technology.",
+                personality: "Ambitious, ruthless, intelligent, obsessed with control",
+                appearance: "Well-dressed businessman with glowing green eyes",
+                backstory: "Former tech CEO who discovered mind-control technology.",
+                series: "Cyberpunk Chronicles",
+                createdAt: "2025-07-30T14:00:00.000Z"
+            },
+            {
+                id: "char_009",
+                name: "Chaos",
+                type: "villain",
+                powers: "Reality Distortion, Chaos Magic, Random Power Generation",
+                description: "A chaotic villain who can distort reality and create random effects.",
+                personality: "Unpredictable, chaotic, destructive, enjoys mayhem",
+                appearance: "Constantly shifting appearance, colorful and chaotic",
+                backstory: "Born from pure chaos energy, exists to disrupt order.",
+                series: "Mystic Realms",
+                createdAt: "2025-07-30T15:00:00.000Z"
+            },
+            {
+                id: "char_010",
+                name: "Tempus",
+                type: "villain",
+                powers: "Time Manipulation, Age Control, Temporal Paradoxes",
+                description: "A time-manipulating villain who can age people rapidly.",
+                personality: "Arrogant, power-hungry, manipulative, obsessed with time",
+                appearance: "Aging rapidly and reversing, wears time-themed armor",
+                backstory: "Former scientist corrupted by time manipulation power.",
+                series: "Quantum Paradox",
+                createdAt: "2025-07-30T16:00:00.000Z"
+            },
+            {
+                id: "char_011",
+                name: "Mirage",
+                type: "villain",
+                powers: "Illusions, Shapeshifting, Mind Manipulation",
+                description: "A master of deception who can create perfect illusions.",
+                personality: "Deceptive, manipulative, intelligent, enjoys mind games",
+                appearance: "Constantly changing appearance, impossible to pin down",
+                backstory: "Former stage magician who discovered real magical powers.",
+                series: "Street Justice",
+                createdAt: "2025-07-30T17:00:00.000Z"
+            },
+            {
+                id: "char_012",
+                name: "Nexus",
+                type: "hero",
+                powers: "Dimensional Portals, Energy Absorption, Reality Anchoring",
+                description: "A hero who can create portals between dimensions.",
+                personality: "Stable, reliable, protective, sometimes distant",
+                appearance: "Tall with geometric patterns on skin, glowing portal-like eyes",
+                backstory: "Born at a dimensional nexus point, protects dimensional stability.",
+                series: "Mystic Realms",
+                createdAt: "2025-07-30T18:00:00.000Z"
+            }
+        ];
+
+        // Dummy Series Data
+        const dummySeries = [
+            {
+                id: "series_001",
+                name: "Quantum Paradox",
+                description: "A time-traveling hero series with quantum physics themes.",
+                genre: "Sci-Fi",
+                artStyle: "Modern Comic",
+                tone: "Epic",
+                setting: "Modern day with time travel elements",
+                targetAudience: "Teen to Adult",
+                themes: ["Time travel", "Quantum physics", "Destiny vs free will"],
+                mainCharacters: ["Nova", "Phoenix", "Storm", "Tempus"],
+                createdAt: "2025-07-30T08:00:00.000Z"
+            },
+            {
+                id: "series_002",
+                name: "Street Justice",
+                description: "A gritty urban vigilante series set in a corrupt city.",
+                genre: "Action",
+                artStyle: "Dark Realistic",
+                tone: "Gritty",
+                setting: "Modern urban city",
+                targetAudience: "Adult",
+                themes: ["Justice", "Corruption", "Vigilantism", "Urban crime"],
+                mainCharacters: ["Shadow", "Void", "Mirage"],
+                createdAt: "2025-07-30T09:00:00.000Z"
+            },
+            {
+                id: "series_003",
+                name: "Cyberpunk Chronicles",
+                description: "A dystopian future series where technology and humanity collide.",
+                genre: "Cyberpunk",
+                artStyle: "Futuristic",
+                tone: "Dark",
+                setting: "Future dystopian city",
+                targetAudience: "Adult",
+                themes: ["Technology", "Corporate control", "Human enhancement"],
+                mainCharacters: ["Cyber", "Corruptor"],
+                createdAt: "2025-07-30T10:00:00.000Z"
+            },
+            {
+                id: "series_004",
+                name: "Mystic Realms",
+                description: "A fantasy series with magic and dimensional travel.",
+                genre: "Fantasy",
+                artStyle: "Fantasy Art",
+                tone: "Epic",
+                setting: "Multiple mystical dimensions",
+                targetAudience: "All Ages",
+                themes: ["Magic", "Dimensional travel", "Good vs evil"],
+                mainCharacters: ["Zara", "Nexus", "Chaos"],
+                createdAt: "2025-07-30T11:00:00.000Z"
+            },
+            {
+                id: "series_005",
+                name: "Ninja Punk Girls",
+                description: "A modern martial arts series featuring female ninjas in punk aesthetic.",
+                genre: "Martial Arts",
+                artStyle: "Anime-Inspired",
+                tone: "Action-Packed",
+                setting: "Modern city with hidden ninja clans",
+                targetAudience: "Teen to Adult",
+                themes: ["Female empowerment", "Martial arts", "Tradition vs modernity"],
+                mainCharacters: ["Kunoichi", "Shadow Blade", "Neon Fist"],
+                createdAt: "2025-07-30T12:00:00.000Z"
+            }
+        ];
+
+        // Functions
+        function addDummyCharacters() {
+            try {
+                const existingCharacters = JSON.parse(localStorage.getItem('characterProfiles') || '[]');
+                const existingIds = existingCharacters.map(char => char.id);
+                const newCharacters = dummyCharacters.filter(char => !existingIds.includes(char.id));
+                const allCharacters = [...existingCharacters, ...newCharacters];
+                
+                localStorage.setItem('characterProfiles', JSON.stringify(allCharacters));
+                
+                showStatus('characterStatus', `✅ Added ${newCharacters.length} new characters! Total: ${allCharacters.length}`, 'success');
+                displayCharacters(allCharacters);
+            } catch (error) {
+                showStatus('characterStatus', `❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        function addDummySeries() {
+            try {
+                const existingSeries = JSON.parse(localStorage.getItem('savedSeries') || '[]');
+                const existingIds = existingSeries.map(series => series.id);
+                const newSeries = dummySeries.filter(series => !existingIds.includes(series.id));
+                const allSeries = [...existingSeries, ...newSeries];
+                
+                localStorage.setItem('savedSeries', JSON.stringify(allSeries));
+                
+                showStatus('seriesStatus', `✅ Added ${newSeries.length} new series! Total: ${allSeries.length}`, 'success');
+                displaySeries(allSeries);
+            } catch (error) {
+                showStatus('seriesStatus', `❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        function addEverything() {
+            addDummyCharacters();
+            addDummySeries();
+            setTimeout(() => {
+                checkSetup();
+            }, 500);
+        }
+
+        function showCurrentCharacters() {
+            const characters = JSON.parse(localStorage.getItem('characterProfiles') || '[]');
+            displayCharacters(characters);
+            showStatus('characterStatus', `📚 Showing ${characters.length} characters`, 'info');
+        }
+
+        function showCurrentSeries() {
+            const series = JSON.parse(localStorage.getItem('savedSeries') || '[]');
+            displaySeries(series);
+            showStatus('seriesStatus', `📚 Showing ${series.length} series`, 'info');
+        }
+
+        function clearAllCharacters() {
+            if (confirm('Are you sure you want to clear all characters?')) {
+                localStorage.removeItem('characterProfiles');
+                document.getElementById('characterList').innerHTML = '';
+                showStatus('characterStatus', '🗑️ All characters cleared', 'info');
+            }
+        }
+
+        function clearAllSeries() {
+            if (confirm('Are you sure you want to clear all series?')) {
+                localStorage.removeItem('savedSeries');
+                document.getElementById('seriesList').innerHTML = '';
+                showStatus('seriesStatus', '🗑️ All series cleared', 'info');
+            }
+        }
+
+        function checkSetup() {
+            const characters = JSON.parse(localStorage.getItem('characterProfiles') || '[]');
+            const series = JSON.parse(localStorage.getItem('savedSeries') || '[]');
+            const heroes = characters.filter(char => char.type === 'hero').length;
+            const villains = characters.filter(char => char.type === 'villain').length;
+            
+            const status = `
+                📊 Current Setup:
+                👥 Characters: ${characters.length} (${heroes} heroes, ${villains} villains)
+                📖 Series: ${series.length}
+                🎭 Ready for story generation: ${characters.length > 0 && series.length > 0 ? '✅ Yes' : '❌ No'}
+            `;
+            
+            showStatus('setupStatus', status, 'info');
+        }
+
+        function displayCharacters(characters) {
+            const container = document.getElementById('characterList');
+            container.innerHTML = characters.map(char => `
+                <div class="card">
+                    <h3>${char.name}</h3>
+                    <span class="badge ${char.type}">${char.type}</span>
+                    <span class="badge genre">${char.series}</span>
+                    <p><strong>Powers:</strong> ${char.powers}</p>
+                    <p><strong>Description:</strong> ${char.description}</p>
+                </div>
+            `).join('');
+        }
+
+        function displaySeries(series) {
+            const container = document.getElementById('seriesList');
+            container.innerHTML = series.map(s => `
+                <div class="card">
+                    <h3>${s.name}</h3>
+                    <span class="badge genre">${s.genre}</span>
+                    <p><strong>Description:</strong> ${s.description}</p>
+                    <p><strong>Setting:</strong> ${s.setting}</p>
+                    <p><strong>Characters:</strong> ${s.mainCharacters.join(', ')}</p>
+                </div>
+            `).join('');
+        }
+
+        function showStatus(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        // Initialize
+        window.onload = function() {
+            checkSetup();
+        };
+    </script>
+</body>
+</html> 

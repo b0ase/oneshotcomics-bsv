@@ -1,0 +1,34 @@
+Character: Storm - The Weather Controller
+Series: Quantum Paradox
+Type: Hero
+Alignment: Hero
+Pose: 3 - Action (Weather Apocalypse)
+
+IMAGE PROMPT:
+A medium-height hero with very specific physical features: PURE SILVER hair (not blonde, not white, not gray) that flows like wind, styled in LONG WAVES down to her shoulders with natural movement and wind-swept appearance. Her skin is PALE IVORY with cool undertones, giving an ethereal, storm-like appearance. Her eyes are PIERCING ICE BLUE with silver flecks, shaped ROUND with a COMMANDING GAZE, and they reflect storm clouds. Her face is HEART-SHAPED with DELICATE FEATURES, HIGH ARCHED EYEBROWS, and a SMALL POINTED CHIN. She has a SLENDER, GRACEFUL BUILD, standing at 5'6" with ELEGANT POSTURE and LONG FINGERS. She wears a flowing blue and white costume that is ELECTRIC BLUE and PURE WHITE with SILVER accents, featuring cloud patterns, lightning motifs, and weather symbols. The costume has FLOWING SLEEVES, a CINCHED WAIST, and BILLOWING PANELS.
+
+ACTION POSE: Storm is in a WEATHER APOCALYPSE STANCE, her form COMMANDING ALL ELEMENTS as she CREATES A MASSIVE WEATHER APOCALYPSE. She's positioned in a DOMINATING POSE, with her PURE SILVER hair flowing dramatically and her entire form GLOWING with weather energy. Her PIERCING ICE BLUE EYES are glowing with apocalyptic power, and she's summoning EVERY WEATHER ELEMENT simultaneously (hurricanes, tornadoes, lightning storms, blizzards, earthquakes). She's creating a WEATHER APOCALYPSE that affects the entire region, with multiple weather systems converging around her. Background shows WEATHER APOCALYPSE with hurricanes, tornadoes, lightning, snow, and earthquakes all happening simultaneously. Art style: modern comic book, apocalyptic weather effects, elemental chaos, epic scale destruction.
+
+KEY VISUAL ELEMENTS:
+- PURE SILVER hair (long waves, shoulder-length)
+- PALE IVORY skin with cool undertones
+- PIERCING ICE BLUE eyes with silver flecks
+- HEART-SHAPED face with delicate features
+- SLENDER, GRACEFUL build, 5'6"
+- ELECTRIC BLUE and PURE WHITE costume with silver accents
+- WEATHER APOCALYPSE STANCE with elemental command
+- DOMINATING POSE with weather energy
+- Every weather element simultaneously
+- Multiple weather systems converging
+- Weather apocalypse with elemental chaos background
+
+ART STYLE: Modern comic book, apocalyptic weather effects, elemental chaos, epic scale destruction
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be PURE SILVER, never blonde, white, or gray
+- Hair must be LONG WAVES to shoulders, never short or straight
+- Skin must be PALE IVORY with cool undertones, not tan or dark
+- Eyes must be PIERCING ICE BLUE with silver flecks
+- Face shape must be HEART-SHAPED with delicate features
+- Build must be SLENDER and GRACEFUL, not muscular or curvy
+- Pose must show WEATHER APOCALYPSE STANCE with elemental command

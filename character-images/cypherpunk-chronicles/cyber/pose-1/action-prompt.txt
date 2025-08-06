@@ -1,0 +1,34 @@
+Character: Cyber - The Digital Warrior
+Series: Cypherpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 1 - Action (Cybernetic Combat)
+
+IMAGE PROMPT:
+A cyborg warrior with very specific physical features: Their remaining human parts have MEDIUM TAN skin (not pale, not dark) with warm undertones, and DARK BROWN EYES (not blue, not green) with a determined, defiant gaze. Their face is SQUARE-SHAPED with STRONG JAWLINE and BROAD FOREHEAD. They have a BROAD SHOULDERS, MUSCULAR BUILD, standing at 6'0" with POWERFUL ARMS and CHEST. Their cybernetic enhancements are GLOWING ELECTRIC BLUE (not purple, not green) covering their RIGHT EYE (replaced with cybernetic implant), RIGHT ARM (from shoulder down), and LEFT LEG (from knee down). They wear tactical combat gear that is DARK GRAY and BLACK with ELECTRIC BLUE accents, featuring holographic displays, energy weapons, and advanced technology integrated throughout. The gear has a HIGH COLLAR, ARMORED PLATES, and COMBAT BOOTS.
+
+ACTION POSE: Cyber is in a CYBERNETIC COMBAT STANCE, ENGAGING in high-speed combat with their GLOWING ELECTRIC BLUE cybernetics at full power. They're positioned in a DYNAMIC FIGHTING POSE, with their cybernetic right arm extended and energy weapons deployed. Their cybernetic eye is scanning and targeting, while their human parts show determination and strength. They're using ADVANCED COMBAT TECHNOLOGY to outmaneuver opponents. Background shows a FUTURISTIC BATTLEFIELD with neon lights, flying cars, and corporate towers under attack. Art style: futuristic and high-tech, neon lighting, cypherpunk aesthetic, detailed technology.
+
+KEY VISUAL ELEMENTS:
+- MEDIUM TAN skin with warm undertones
+- DARK BROWN EYES with determined gaze
+- SQUARE face with strong jawline
+- BROAD SHOULDERS, MUSCULAR build, 6'0"
+- GLOWING ELECTRIC BLUE cybernetics (right eye, right arm, left leg)
+- DARK GRAY and BLACK tactical gear with electric blue accents
+- CYBERNETIC COMBAT STANCE with energy weapons deployed
+- DYNAMIC FIGHTING POSE
+- Cybernetic eye scanning and targeting
+- Futuristic battlefield with neon lights background
+
+ART STYLE: Futuristic and high-tech, neon lighting, cypherpunk aesthetic, detailed technology
+
+CRITICAL CONSISTENCY NOTES:
+- Skin must be MEDIUM TAN with warm undertones, not pale or dark
+- Eyes must be DARK BROWN, never blue or green
+- Face shape must be SQUARE with strong jawline
+- Build must be BROAD SHOULDERS and MUSCULAR, not slim
+- Cybernetics must be GLOWING ELECTRIC BLUE, never purple or green
+- Cybernetics must cover RIGHT EYE, RIGHT ARM, and LEFT LEG specifically
+- Gear must be DARK GRAY and BLACK with ELECTRIC BLUE accents
+- Pose must show CYBERNETIC COMBAT STANCE with advanced technology 

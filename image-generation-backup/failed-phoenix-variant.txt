@@ -1,0 +1,27 @@
+Character: Phoenix - The Fire Guardian
+Series: Quantum Paradox
+Type: Hero
+Alignment: Hero
+
+IMAGE PROMPT:
+A tall, athletic hero with very specific physical features: VIBRANT ORANGE-RED hair (not blonde, not brown, not dark red) that burns like actual flames, styled in a SHORT PIXIE CUT with spiky, flame-like ends that glow with fire. His skin is MEDIUM TAN with golden undertones, giving a sun-kissed appearance. His eyes are BRIGHT ORANGE with amber centers, shaped ALMOND with a FIERCE GAZE, and they radiate heat. His face is SQUARE-SHAPED with STRONG JAWLINE, BROAD FOREHEAD, and PROMINENT CHEEKBONES. He has a BROAD SHOULDERS, MUSCULAR BUILD, standing at 6'2" with POWERFUL ARMS and CHEST. He wears a flame-patterned suit that is BRIGHT ORANGE and CRIMSON RED with GOLDEN accents, featuring flame motifs and protective armor plates. The suit has a HIGH COLLAR, SHORT SLEEVES showing muscular arms, and COMBAT BOOTS. His pose should be dynamic and protective, with flames erupting from his hands and surrounding his body. Background should feature intense fire effects, ash particles, and a cityscape being protected. Art style: modern comic book, dramatic lighting, intense colors, action-packed composition.
+
+KEY VISUAL ELEMENTS:
+- VIBRANT ORANGE-RED hair (short pixie cut, spiky)
+- MEDIUM TAN skin with golden undertones
+- BRIGHT ORANGE eyes with amber centers
+- SQUARE face with strong jawline
+- BROAD SHOULDERS, MUSCULAR build, 6'2"
+- BRIGHT ORANGE and CRIMSON RED suit with golden accents
+- Living fire effects
+- Intense fire background
+
+ART STYLE: Modern comic book, dramatic lighting, intense colors, action-packed composition
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be VIBRANT ORANGE-RED, never blonde, brown, or dark red
+- Hair must be SHORT PIXIE CUT, never long
+- Skin must be MEDIUM TAN with golden undertones, not pale or dark
+- Eyes must be BRIGHT ORANGE with amber centers
+- Face shape must be SQUARE with strong jawline
+- Build must be BROAD SHOULDERS and MUSCULAR, not slim or average

@@ -1,0 +1,32 @@
+Character: Pulse - The Bio-Electric Healer
+Series: Cypherpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 2 - Action (Life Force Manipulation)
+
+IMAGE PROMPT:
+A woman in her mid-20s with ELECTRIC BLUE hair that is long and flowing, with natural waves that seem to conduct energy. Her skin is PALE WHITE with a cool undertone, and her eyes are BRIGHT GREEN that glow with healing energy. Her face is OVAL-SHAPED with HIGH CHEEKBONES, a SMALL NOSE, and THIN LIPS. She has a SLIM GRACEFUL BUILD, standing at 5'7" with gentle movements. She wears medical scrubs enhanced with tech: LIGHT BLUE SCRUBS with GREEN ACCENTS, featuring GLOWING GREEN CIRCUITS and HEALING SYMBOLS. The scrubs have a V-NECK, LONG SLEEVES, and MULTIPLE MEDICAL PATCHES.
+
+ACTION POSE: Pulse is in a LIFE FORCE STANCE, standing in the center of a BIOLOGICAL NETWORK as she MANIPULATES THE ELECTRICAL IMPULSES of living beings. She's surrounded by FLOWING LIFE ENERGY and BIOLOGICAL CIRCUITS that connect her to all living things in the area. Her body glows with life force as she channels the energy to protect and heal. She's positioned in a PROTECTIVE POSE, showing both her connection to life and her ability to manipulate it. Background shows LIVING ORGANISMS responding to her energy, plants growing rapidly, and people being revitalized by her life force manipulation. Art style: modern comic book, highly detailed, medical lighting, healing atmosphere.
+
+KEY VISUAL ELEMENTS:
+- ELECTRIC BLUE long flowing hair
+- PALE WHITE skin with cool undertone
+- BRIGHT GREEN glowing eyes
+- OVAL face with high cheekbones
+- SLIM GRACEFUL build, 5'7"
+- LIGHT BLUE scrubs with green accents
+- LIFE FORCE STANCE with biological network
+- FLOWING LIFE ENERGY and biological circuits
+- Living organisms responding to her energy
+- Glowing green circuits and healing symbols
+
+ART STYLE: Modern comic book, highly detailed, medical lighting, healing atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be ELECTRIC BLUE, never natural colors
+- Skin must be PALE WHITE, not tan or dark
+- Eyes must be BRIGHT GREEN and glowing
+- Face shape must be OVAL with high cheekbones
+- Build must be SLIM GRACEFUL, not muscular or heavy
+- Pose must show LIFE FORCE STANCE with biological manipulation 

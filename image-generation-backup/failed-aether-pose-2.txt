@@ -1,0 +1,32 @@
+Character: Aether - The Spirit Guardian
+Series: Mystic Realms
+Type: Hero
+Alignment: Hero
+Pose: 2 - Action (Soul Binding)
+
+IMAGE PROMPT:
+A woman in her mid-20s with ETHEREAL WHITE hair that is long and flowing, with a mystical glow that seems to shimmer with spirit energy. Her skin is PALE WHITE with a mystical undertone, and her eyes are BRIGHT VIOLET that glow with spirit energy. Her face is HEART-SHAPED with HIGH CHEEKBONES, a SMALL NOSE, and FULL LIPS. She has a SLIM GRACEFUL BUILD, standing at 5'7" with ethereal movements. She wears spirit-touched robes that are WHITE and VIOLET, featuring SPIRIT PATTERNS and ETHEREAL RUNES. The robes have a V-NECK, LONG FLOWING SLEEVES, and SPIRIT-TOUCHED ACCENTS.
+
+ACTION POSE: Aether is in a SOUL BINDING STANCE, standing in the center of a SPIRIT CIRCLE as she BINDS SOULS and PROTECTS THE LIVING from malevolent spirits. She's surrounded by BOUND SPIRITS and SOUL ENERGY that she's controlling for protection. Her body glows with soul-binding power as she channels the energy to protect and guide. She's positioned in a PROTECTIVE POSE, showing both her connection to spirits and her ability to control them. Background shows SPIRITS BEING BOUND, protective barriers forming around the living, and a mystical realm where souls are guided to their proper place. Art style: modern comic book, highly detailed, mystical lighting, spirit atmosphere.
+
+KEY VISUAL ELEMENTS:
+- ETHEREAL WHITE long flowing hair with mystical glow
+- PALE WHITE skin with mystical undertone
+- BRIGHT VIOLET glowing eyes
+- HEART-SHAPED face with high cheekbones
+- SLIM GRACEFUL build, 5'7"
+- WHITE and VIOLET spirit-touched robes
+- SOUL BINDING STANCE with spirit circle
+- BOUND SPIRITS and soul energy
+- Spirits being bound and protected
+- Spirit patterns and ethereal runes
+
+ART STYLE: Modern comic book, highly detailed, mystical lighting, spirit atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be ETHEREAL WHITE with mystical glow
+- Skin must be PALE WHITE, not tan or dark
+- Eyes must be BRIGHT VIOLET and glowing
+- Face shape must be HEART-SHAPED with high cheekbones
+- Build must be SLIM GRACEFUL, not muscular or heavy
+- Pose must show SOUL BINDING STANCE with spirit control

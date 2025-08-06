@@ -1,0 +1,33 @@
+Character: Shadow - The Night Guardian
+Series: Street Justice
+Type: Hero
+Alignment: Anti-Hero
+Pose: 1 - Action (Stealth Takedown)
+
+IMAGE PROMPT:
+A tall, lean vigilante with very specific physical features: His face is completely hidden by a BLACK COWL and MASK, revealing only PIERCING GREEN EYES with a fierce, determined gaze. His skin tone is MEDIUM TAN with olive undertones (visible only around eyes). He has a TALL, LEAN BUILD, standing at 6'1" with LONG LIMBS and ATHLETIC POSTURE. He wears a tactical black costume that is MATTE BLACK (not dark gray, not navy) with NO REFLECTIVE SURFACES. The costume includes a HOODED COWL that covers his entire head, a FULL-FACE MASK with NIGHT VISION GOGGLES, a UTILITY BELT with multiple pouches, and COMBAT BOOTS. The costume features STEALTH TECHNOLOGY with subtle dark gray accents, various weapons holsters, and NO BRIGHT COLORS.
+
+ACTION POSE: Shadow is in a STEALTH TAKEDOWN STANCE, LEAPING from the shadows to ambush a criminal. He's positioned in a DYNAMIC MID-AIR POSE, with his body coiled for maximum impact. His PIERCING GREEN EYES are the only visible feature, glowing with determination. He's using his STEALTH TECHNOLOGY to remain nearly invisible, with shadows clinging to his form. He's about to execute a PRECISION STRIKE on an unsuspecting target. Background shows a DARK ALLEY with minimal lighting, creating dramatic shadows and atmosphere. Art style: gritty and realistic, high contrast lighting, urban atmosphere, noir aesthetic.
+
+KEY VISUAL ELEMENTS:
+- BLACK COWL and MASK covering entire face
+- PIERCING GREEN EYES (only visible feature)
+- MEDIUM TAN skin with olive undertones
+- TALL, LEAN build, 6'1"
+- MATTE BLACK tactical costume
+- STEALTH TAKEDOWN STANCE while leaping
+- DYNAMIC MID-AIR POSE
+- Shadows clinging to his form
+- Precision strike about to be executed
+- Dark alley background with minimal lighting
+
+ART STYLE: Gritty and realistic, high contrast lighting, urban atmosphere, noir aesthetic
+
+CRITICAL CONSISTENCY NOTES:
+- Face must be COMPLETELY HIDDEN by black cowl and mask
+- Only PIERCING GREEN EYES should be visible
+- Costume must be MATTE BLACK, never dark gray or navy
+- Build must be TALL and LEAN, not muscular or stocky
+- NO BRIGHT COLORS anywhere on costume
+- Skin tone must be MEDIUM TAN with olive undertones
+- Pose must show STEALTH TAKEDOWN STANCE with stealth technology

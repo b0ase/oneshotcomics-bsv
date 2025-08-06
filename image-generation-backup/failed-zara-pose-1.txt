@@ -1,0 +1,33 @@
+Character: Zara - The Mystic Guardian
+Series: Mystic Realms
+Type: Hero
+Alignment: Hero
+Pose: 1 - Action (Mystical Battle)
+
+IMAGE PROMPT:
+An ethereal sorceress with very specific physical features: She has LONG FLOWING HAIR that is PURE WHITE (not blonde, not silver) and seems to be made of pure magic, reaching down to her waist with natural waves and mystical energy. Her skin is PALE PEARL (not white, not tan) with an otherworldly glow and slight iridescence. Her eyes are VIOLET PURPLE (not blue, not pink) with golden flecks, shaped ALMOND with a MYSTICAL GAZE, and they reflect other dimensions. Her face is OVAL-SHAPED with HIGH CHEEKBONES, DELICATE FEATURES, and FULL LIPS. She has a SLENDER, GRACEFUL BUILD, standing at 5'8" with ELEGANT POSTURE and LONG FINGERS. She wears flowing robes that are DEEP PURPLE and SILVER with GOLDEN accents, featuring mystical symbols, protective runes, and dimensional patterns. The robes have FLOWING SLEEVES, a CINCHED WAIST, and BILLOWING PANELS.
+
+ACTION POSE: Zara is in a MYSTICAL BATTLE STANCE, FLOATING above the ground as she CASTS POWERFUL MAGIC SPELLS. She's positioned in a GRACEFUL COMBAT POSE, with her arms outstretched and MAGICAL ENERGY swirling around her hands and body. Her PURE WHITE hair flows dramatically with mystical energy, and her robes billow around her. She's creating PROTECTIVE SPELLS and DIMENSIONAL PORTALS to defend against dark forces. Background shows MYSTICAL REALMS with floating islands, magical creatures, and dimensional energy swirling around her. Art style: fantasy and ethereal, magical lighting, otherworldly beauty, epic fantasy atmosphere.
+
+KEY VISUAL ELEMENTS:
+- PURE WHITE flowing hair (long, wavy, waist-length)
+- PALE PEARL skin with otherworldly glow
+- VIOLET PURPLE eyes with golden flecks
+- OVAL face with high cheekbones
+- SLENDER, GRACEFUL build, 5'8"
+- DEEP PURPLE and SILVER robes with golden accents
+- MYSTICAL BATTLE STANCE while floating
+- GRACEFUL COMBAT POSE with outstretched arms
+- Magical energy swirling around hands and body
+- Mystical realms with floating islands background
+
+ART STYLE: Fantasy and ethereal, magical lighting, otherworldly beauty, epic fantasy atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must be PURE WHITE, never blonde or silver
+- Skin must be PALE PEARL with otherworldly glow, not white or tan
+- Eyes must be VIOLET PURPLE with golden flecks, never blue or pink
+- Face shape must be OVAL with high cheekbones
+- Build must be SLENDER and GRACEFUL, not muscular or curvy
+- Robes must be DEEP PURPLE and SILVER with GOLDEN accents
+- Pose must show MYSTICAL BATTLE STANCE with magical spells

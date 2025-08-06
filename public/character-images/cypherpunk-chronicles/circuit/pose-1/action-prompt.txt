@@ -1,0 +1,32 @@
+Character: Circuit - The Tech Controller
+Series: Cypherpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 1 - Action (Electronic Control Battle)
+
+IMAGE PROMPT:
+A man in his late 20s with DARK BROWN hair that is short and neat, with GLOWING BLUE cybernetic implants visible on his scalp. His skin is LIGHT TAN with a neutral undertone, and his eyes are BRIGHT BLUE that glow with electronic energy. His face is SQUARE-SHAPED with HIGH CHEEKBONES, a STRAIGHT NOSE, and THIN LIPS. He has a MUSCULAR BUILD, standing at 6'0" with commanding presence. He wears tactical gear that is DARK BLUE and BLACK, featuring corporate insignia and GLOWING BLUE CYBERNETIC PARTS. The gear has a HIGH COLLAR, FULL COVERAGE, and MULTIPLE TECH INTERFACES.
+
+ACTION POSE: Circuit is in a CONTROL STANCE, his hands outstretched as he MANIPULATES ELECTRONIC DEVICES with his mind. He's surrounded by FLYING DRONES and SECURITY SYSTEMS that he's taken control of, turning them against their corporate masters. His cybernetic implants pulse with energy as he channels his electronic control abilities. He's positioned in a COMMANDING POSE, showing both his tactical expertise and his technological mastery. Background shows a CORPORATE FACILITY with security systems under his control, electronic devices floating around him, and corporate guards being overwhelmed by their own technology. Art style: modern comic book, highly detailed, tech lighting, corporate atmosphere.
+
+KEY VISUAL ELEMENTS:
+- DARK BROWN short neat hair with blue implants
+- LIGHT TAN skin with neutral undertone
+- BRIGHT BLUE glowing eyes
+- SQUARE face with high cheekbones
+- MUSCULAR build, 6'0"
+- DARK BLUE and BLACK tactical gear
+- CONTROL STANCE with outstretched hands
+- FLYING DRONES and security systems under control
+- Corporate facility background with electronic chaos
+- Glowing blue cybernetic parts
+
+ART STYLE: Modern comic book, highly detailed, tech lighting, corporate atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be DARK BROWN with blue implants
+- Skin must be LIGHT TAN, not pale white or dark
+- Eyes must be BRIGHT BLUE and glowing
+- Face shape must be SQUARE with high cheekbones
+- Build must be MUSCULAR, not slim or average
+- Pose must show CONTROL STANCE with electronic manipulation 

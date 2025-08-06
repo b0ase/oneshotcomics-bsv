@@ -1,0 +1,27 @@
+Character: Nexus - The Dimensional Protector
+Series: Mystic Realms
+Type: Hero
+Alignment: Hero
+
+IMAGE PROMPT:
+A tall hero with very specific physical features: His skin is COVERED IN GEOMETRIC PATTERNS that are ELECTRIC BLUE (not purple, not green) and seem to shift and change, creating a dimensional effect. His eyes are PORTAL-LIKE with ELECTRIC BLUE IRISES and DARK PUPILS that show glimpses of other dimensions. His face is SQUARE-SHAPED with STRONG JAWLINE and BROAD FOREHEAD. He has a TALL, POWERFUL BUILD, standing at 6'3" with BROAD SHOULDERS and MUSCULAR FRAME. He wears dimensional armor that appears to be made of pure space-time, featuring ELECTRIC BLUE and DARK GRAY with GOLDEN accents. The armor has PORTAL SYMBOLS, DIMENSIONAL RUNES, and REALITY-STABILIZING TECHNOLOGY. The armor includes a HIGH COLLAR, FULL PLATE DESIGN, and DIMENSIONAL DECORATIONS. His form seems to exist partially in multiple dimensions at once. The pose should be stable and protective, with dimensional energy flowing around them and reality anchors visible. Background should feature multiple dimensions overlapping, portal networks, and dimensional stability effects. Art style: dimensional and geometric, portal effects, reality-bending visuals, cosmic scale.
+
+KEY VISUAL ELEMENTS:
+- ELECTRIC BLUE geometric patterns covering skin
+- PORTAL-LIKE ELECTRIC BLUE eyes with dark pupils
+- SQUARE face with strong jawline
+- TALL, POWERFUL build, 6'3"
+- ELECTRIC BLUE and DARK GRAY armor with golden accents
+- Portal symbols
+- Dimensional runes
+- Reality anchors
+
+ART STYLE: Dimensional and geometric, portal effects, reality-bending visuals, cosmic scale
+
+CRITICAL CONSISTENCY NOTES:
+- Geometric patterns must be ELECTRIC BLUE, never purple or green
+- Eyes must be PORTAL-LIKE with ELECTRIC BLUE irises and dark pupils
+- Face shape must be SQUARE with strong jawline
+- Build must be TALL and POWERFUL, not slim or average
+- Armor must be ELECTRIC BLUE and DARK GRAY with GOLDEN accents
+- Skin must be covered in shifting geometric patterns 

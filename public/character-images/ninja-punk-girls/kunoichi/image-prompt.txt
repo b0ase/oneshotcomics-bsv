@@ -1,0 +1,28 @@
+Character: Kunoichi - The Shadow Blade
+Series: Ninja Punk Girls
+Type: Hero
+Alignment: Hero
+
+IMAGE PROMPT:
+A female ninja warrior with very specific physical features: She has DYED PINK HAIR (not blonde, not red, not purple) styled in a SHORT PIXIE CUT with spiky, punk-style ends. Her skin is LIGHT TAN (not pale, not dark) with warm undertones. Her eyes are DARK BROWN (not blue, not green) with a fierce, determined gaze, shaped ALMOND with a WARRIOR'S INTENSITY. Her face is HEART-SHAPED with HIGH CHEEKBONES, SMALL NOSE, and FULL LIPS. She has a SLIM BUT ATHLETIC BUILD, standing at 5'5" with TONED MUSCLES and FLEXIBLE POSTURE. She wears traditional ninja garb modified with punk elements: BLACK BASE with HOT PINK accents, featuring studs, chains, and modern tactical gear. The costume includes a HOODED TOP, TACTICAL PANTS, and COMBAT BOOTS. She carries traditional ninja weapons alongside modern technology, with a mix of ancient and contemporary fighting styles. Her pose should be agile and fierce, with ninja techniques and punk energy combining in a unique fighting style. Background should feature a modern cityscape with traditional Japanese elements, neon lights, and urban ninja training grounds. Art style: anime-inspired with punk elements, dynamic action poses, vibrant colors, modern-traditional fusion.
+
+KEY VISUAL ELEMENTS:
+- DYED PINK HAIR (short pixie cut, spiky)
+- LIGHT TAN skin with warm undertones
+- DARK BROWN EYES with fierce gaze
+- HEART-SHAPED face with high cheekbones
+- SLIM BUT ATHLETIC build, 5'5"
+- BLACK BASE costume with HOT PINK accents
+- Traditional weapons
+- Modern technology
+
+ART STYLE: Anime-inspired with punk elements, dynamic action poses, vibrant colors, modern-traditional fusion
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must be DYED PINK, never blonde, red, or purple
+- Hair must be SHORT PIXIE CUT, never long
+- Skin must be LIGHT TAN with warm undertones, not pale or dark
+- Eyes must be DARK BROWN, never blue or green
+- Face shape must be HEART-SHAPED with high cheekbones
+- Build must be SLIM BUT ATHLETIC, not muscular or curvy
+- Costume must be BLACK BASE with HOT PINK accents 

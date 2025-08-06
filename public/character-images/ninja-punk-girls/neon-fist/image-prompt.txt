@@ -1,0 +1,28 @@
+Character: Neon Fist - The Energy Warrior
+Series: Ninja Punk Girls
+Type: Hero
+Alignment: Hero
+
+IMAGE PROMPT:
+A ninja warrior with very specific physical features: She has DYED ELECTRIC BLUE HAIR (not purple, not green, not pink) styled in a LONG PONYTAIL that reaches her waist, with neon energy flowing through it. Her skin is LIGHT TAN (not pale, not dark) with warm undertones. Her eyes are BRIGHT CYAN (not blue, not green) with a fierce, energetic gaze, shaped ROUND with a WARRIOR'S INTENSITY. Her face is HEART-SHAPED with HIGH CHEEKBONES, SMALL NOSE, and FULL LIPS. She has a SLIM BUT TONED BUILD, standing at 5'6" with ATHLETIC MUSCLES and ENERGETIC POSTURE. She wears a costume that combines traditional ninja elements with futuristic energy technology: BLACK BASE with ELECTRIC BLUE and NEON PINK accents, featuring glowing neon patterns on her skin and costume. The costume includes a HOODED TOP, TACTICAL PANTS, and ENERGY BOOTS. She has energy-based martial arts techniques that create spectacular light shows. The pose should be dynamic and energetic, with neon energy flowing around her and martial arts techniques creating light trails. Background should feature neon-lit urban environments, energy training grounds, and futuristic cityscapes. Art style: neon and energetic, dynamic lighting, martial arts action, futuristic ninja aesthetic.
+
+KEY VISUAL ELEMENTS:
+- DYED ELECTRIC BLUE HAIR (long ponytail, waist-length)
+- LIGHT TAN skin with warm undertones
+- BRIGHT CYAN EYES with energetic gaze
+- HEART-SHAPED face with high cheekbones
+- SLIM BUT TONED build, 5'6"
+- BLACK BASE costume with ELECTRIC BLUE and NEON PINK accents
+- Glowing neon patterns
+- Energy-based techniques
+
+ART STYLE: Neon and energetic, dynamic lighting, martial arts action, futuristic ninja aesthetic
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must be DYED ELECTRIC BLUE, never purple, green, or pink
+- Hair must be LONG PONYTAIL to waist, never short
+- Skin must be LIGHT TAN with warm undertones, not pale or dark
+- Eyes must be BRIGHT CYAN, never blue or green
+- Face shape must be HEART-SHAPED with high cheekbones
+- Build must be SLIM BUT TONED, not muscular or curvy
+- Costume must be BLACK BASE with ELECTRIC BLUE and NEON PINK accents 

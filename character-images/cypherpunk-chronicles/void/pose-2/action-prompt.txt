@@ -1,0 +1,32 @@
+Character: Void - The Digital Destroyer
+Series: Cypherpunk Chronicles
+Type: Villain
+Alignment: Villain
+Pose: 2 - Action (System Disruption)
+
+IMAGE PROMPT:
+A tall, imposing figure with BLACK hair that is long and wild, often appearing to be made of digital static. His skin is PALE WHITE with a cold undertone, and his eyes are BRIGHT RED that glow with destructive energy. His face is SQUARE-SHAPED with SHARP FEATURES, HIGH CHEEKBONES, and a PROMINENT CHIN. He has a MUSCULAR BUILD, standing at 6'2" with intimidating presence. He wears a dark costume that is BLACK and DARK RED, featuring DIGITAL CORRUPTION PATTERNS and GLOWING RED CYBERNETIC PARTS. The costume has a HIGH COLLAR, FULL COVERAGE, and DIGITAL STATIC EFFECTS.
+
+ACTION POSE: Void is in a DISRUPTION STANCE, standing in the center of a FAILING NETWORK as he CAUSES MASSIVE SYSTEM FAILURES across the city. He's surrounded by DISRUPTION WAVES and FAILING TECHNOLOGY that crashes and burns around him. His body glows with destructive energy as he brings down corporate systems. He's positioned in a DESTRUCTIVE POSE, showing both his power to destroy and his hatred for control. Background shows ENTIRE CITY SYSTEMS failing, power grids going dark, and technological chaos spreading as his disruption grows. Art style: modern comic book, highly detailed, dark tech lighting, corruption atmosphere.
+
+KEY VISUAL ELEMENTS:
+- BLACK long wild hair made of digital static
+- PALE WHITE skin with cold undertone
+- BRIGHT RED glowing eyes
+- SQUARE face with sharp features
+- MUSCULAR build, 6'2"
+- BLACK and DARK RED dark costume
+- DISRUPTION STANCE with failing network
+- DISRUPTION WAVES and failing technology
+- Entire city systems failing
+- Digital corruption patterns and red cybernetics
+
+ART STYLE: Modern comic book, highly detailed, dark tech lighting, corruption atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be BLACK with digital static
+- Skin must be PALE WHITE, not tan or dark
+- Eyes must be BRIGHT RED and glowing
+- Face shape must be SQUARE with sharp features
+- Build must be MUSCULAR, not slim or average
+- Pose must show DISRUPTION STANCE with system failures 

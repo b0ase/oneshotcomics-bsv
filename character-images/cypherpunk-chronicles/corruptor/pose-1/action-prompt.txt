@@ -1,0 +1,33 @@
+Character: Corruptor - The Mind Controller
+Series: Cypherpunk Chronicles
+Type: Villain
+Alignment: Villain
+Pose: 1 - Action (Mind Control Attack)
+
+IMAGE PROMPT:
+A well-dressed corporate villain with very specific physical features: He has GLOWING EMERALD GREEN EYES (not blue, not yellow) that pulse with mind-control energy, shaped ALMOND with a COLD, CALCULATING GAZE. His skin is PALE IVORY (not tan, not dark) with cool undertones, giving a polished, corporate appearance. He has a TALL, SLIM BUILD, standing at 6'2" with ELEGANT POSTURE and LONG FINGERS. He wears an expensive business suit that is DEEP NAVY BLUE (not black, not gray) with EMERALD GREEN accents, featuring hidden technology and control devices. The suit has a TAILORED FIT, SILK TIE, and POLISHED SHOES.
+
+ACTION POSE: Corruptor is in a CALCULATING ATTACK STANCE, his GLOWING EMERALD GREEN EYES pulsing with mind-control energy as he TARGETS his victims. He's positioned in a CONTROLLING POSE, with one hand raised and MIND-CONTROL ENERGY radiating from his form. His polished appearance contrasts with the sinister nature of his attack. He's using ADVANCED MIND-CONTROL TECHNOLOGY to take control of multiple targets simultaneously. Background shows CORPORATE HEADQUARTERS with mind-control victims under his influence and technological corruption spreading. Art style: corporate and sinister, green lighting effects, professional appearance, technological corruption.
+
+KEY VISUAL ELEMENTS:
+- GLOWING EMERALD GREEN EYES with cold gaze
+- PALE IVORY skin with cool undertones
+- TALL, SLIM build, 6'2"
+- DEEP NAVY BLUE business suit with emerald green accents
+- Tailored fit with silk tie
+- CALCULATING ATTACK STANCE with mind control
+- CONTROLLING POSE with raised hand
+- Mind-control energy radiating from form
+- Advanced mind-control technology
+- Corporate headquarters with mind-control victims background
+
+ART STYLE: Corporate and sinister, green lighting effects, professional appearance, technological corruption
+
+CRITICAL CONSISTENCY NOTES:
+- Eyes must be GLOWING EMERALD GREEN, never blue or yellow
+- Skin must be PALE IVORY with cool undertones, not tan or dark
+- Build must be TALL and SLIM, not muscular or stocky
+- Suit must be DEEP NAVY BLUE with EMERALD GREEN accents
+- Appearance must be POLISHED and PROFESSIONAL
+- NO BRIGHT COLORS except emerald green eyes and accents
+- Pose must show CALCULATING ATTACK STANCE with mind control 

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Shot Comics - Animated Logo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Mouse Memoirs', sans-serif;
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 100%);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .animation-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-main {
+            position: absolute;
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0.5) rotate(-10deg);
+            animation: logoEntrance 3s ease-out 1s forwards;
+        }
+        
+        .logo-compact {
+            position: absolute;
+            z-index: 5;
+            opacity: 0;
+            transform: scale(2) rotate(180deg);
+            animation: compactSpin 2s ease-in-out 4s forwards;
+        }
+        
+        /* Background particles */
+        .particle {
+            position: absolute;
+            background: #FCA311;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .particle:nth-child(odd) {
+            background: #E63946;
+        }
+        
+        .particle:nth-child(3n) {
+            background: #1D3557;
+        }
+        
+        /* Comic book style bursts */
+        .burst {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #FCA311 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: burstPulse 2s ease-in-out infinite;
+        }
+        
+        .burst:nth-child(even) {
+            background: radial-gradient(circle, #E63946 0%, transparent 70%);
+            animation-delay: 1s;
+        }
+        
+        .burst:nth-child(3n) {
+            background: radial-gradient(circle, #1D3557 0%, transparent 70%);
+            animation-delay: 0.5s;
+        }
+        
+        /* Text effects */
+        .tagline {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #FFFFFF;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 6s forwards;
+        }
+        
+        /* Lightning effects */
+        .lightning {
+            position: absolute;
+            width: 4px;
+            height: 200px;
+            background: linear-gradient(to bottom, #FFFFFF, #FCA311);
+            opacity: 0;
+            animation: lightning 0.3s ease-in-out infinite;
+            box-shadow: 0 0 20px #FCA311;
+        }
+        
+        .lightning:nth-child(2n) {
+            animation-delay: 0.1s;
+            background: linear-gradient(to bottom, #FFFFFF, #E63946);
+            box-shadow: 0 0 20px #E63946;
+        }
+        
+        /* Sound waves */
+        .soundwave {
+            position: absolute;
+            border: 2px solid #1D3557;
+            border-radius: 50%;
+            opacity: 0;
+            animation: soundWave 3s ease-out infinite;
+        }
+        
+        .soundwave:nth-child(2n) {
+            border-color: #FCA311;
+            animation-delay: 1s;
+        }
+        
+        .soundwave:nth-child(3n) {
+            border-color: #E63946;
+            animation-delay: 2s;
+        }
+        
+        /* Keyframe animations */
+        @keyframes logoEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-10deg) translateY(100px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2) rotate(5deg) translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg) translateY(0);
+            }
+        }
+        
+        @keyframes compactSpin {
+            0% {
+                opacity: 0;
+                transform: scale(2) rotate(180deg);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(0.8) rotate(90deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.3) rotate(0deg);
+            }
+        }
+        
+        @keyframes burstPulse {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.5);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+        
+        @keyframes lightning {
+            0%, 90%, 100% {
+                opacity: 0;
+            }
+            5%, 85% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes soundWave {
+            0% {
+                opacity: 1;
+                transform: scale(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(3);
+            }
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Glow effect */
+        .glow {
+            filter: drop-shadow(0 0 20px #FCA311) drop-shadow(0 0 40px #E63946);
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px #FCA311) drop-shadow(0 0 40px #E63946);
+            }
+            50% {
+                filter: drop-shadow(0 0 40px #FCA311) drop-shadow(0 0 80px #E63946) drop-shadow(0 0 20px #1D3557);
+            }
+        }
+        
+        /* Screen shake */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10% { transform: translateX(-5px); }
+            20% { transform: translateX(5px); }
+            30% { transform: translateX(-3px); }
+            40% { transform: translateX(3px); }
+            50% { transform: translateX(-2px); }
+            60% { transform: translateX(2px); }
+            70% { transform: translateX(-1px); }
+            80% { transform: translateX(1px); }
+            90% { transform: translateX(0); }
+        }
+        
+        .shake-effect {
+            animation: shake 0.5s ease-in-out 3s;
+        }
+        
+        /* Restart button */
+        .restart-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #E63946, #FCA311);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-family: 'Mouse Memoirs', sans-serif;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+            z-index: 100;
+        }
+        
+        .restart-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .restart-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="animation-container">
+        <!-- Background particles -->
+        <div class="particles-container"></div>
+        
+        <!-- Comic bursts -->
+        <div class="burst" style="top: 10%; left: 10%;"></div>
+        <div class="burst" style="top: 20%; right: 15%;"></div>
+        <div class="burst" style="bottom: 25%; left: 20%;"></div>
+        <div class="burst" style="bottom: 15%; right: 10%;"></div>
+        
+        <!-- Lightning effects -->
+        <div class="lightning" style="top: 0; left: 20%; transform: rotate(15deg);"></div>
+        <div class="lightning" style="top: 0; right: 25%; transform: rotate(-20deg);"></div>
+        
+        <!-- Sound waves -->
+        <div class="soundwave" style="width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        <div class="soundwave" style="width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        <div class="soundwave" style="width: 400px; height: 400px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        
+        <!-- Main logo -->
+        <div class="logo-main glow shake-effect">
+            <svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FF4757;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#E63946;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="yellowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FFD32A;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FCA311;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2F4858;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1D3557;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Background burst/explosion effect -->
+                <g opacity="0.1">
+                    <path d="M400,100 L420,80 L440,100 L420,120 Z" fill="#FCA311"/>
+                    <path d="M400,100 L380,80 L360,100 L380,120 Z" fill="#E63946"/>
+                    <path d="M400,100 L400,70 L420,90 L400,110 Z" fill="#1D3557"/>
+                    <path d="M400,100 L400,130 L380,110 L400,90 Z" fill="#FCA311"/>
+                    <circle cx="400" cy="100" r="8" fill="#FFFFFF" opacity="0.3"/>
+                </g>
+                
+                <!-- Black outline layer (bottom) -->
+                <text x="400" y="130" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="72" 
+                      font-weight="900" 
+                      fill="#000000" 
+                      transform="translate(6,6)">ONE-SHOT COMICS</text>
+                
+                <!-- Blue layer -->
+                <text x="400" y="130" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="72" 
+                      font-weight="900" 
+                      fill="url(#blueGradient)" 
+                      transform="translate(4,4)">ONE-SHOT COMICS</text>
+                
+                <!-- Yellow layer -->
+                <text x="400" y="130" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="72" 
+                      font-weight="900" 
+                      fill="url(#yellowGradient)" 
+                      transform="translate(2,2)">ONE-SHOT COMICS</text>
+                
+                <!-- Main red text -->
+                <text x="400" y="130" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="72" 
+                      font-weight="900" 
+                      fill="url(#redGradient)">ONE-SHOT COMICS</text>
+                
+                <!-- White highlight overlay -->
+                <text x="400" y="130" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="72" 
+                      font-weight="900" 
+                      fill="none" 
+                      stroke="#FFFFFF" 
+                      stroke-width="1" 
+                      opacity="0.6">ONE-SHOT COMICS</text>
+                
+                <!-- Comic book style burst elements -->
+                <g opacity="0.8">
+                    <path d="M50,100 L70,90 L90,100 L70,110 Z" fill="#FCA311" transform="rotate(-15 70 100)"/>
+                    <path d="M60,100 L80,85 L100,100 L80,115 Z" fill="#E63946" transform="rotate(-15 80 100)"/>
+                    <path d="M710,100 L730,90 L750,100 L730,110 Z" fill="#1D3557" transform="rotate(15 730 100)"/>
+                    <path d="M700,100 L720,85 L740,100 L720,115 Z" fill="#FCA311" transform="rotate(15 720 100)"/>
+                </g>
+                
+                <!-- Small decorative stars -->
+                <g fill="#FFFFFF" opacity="0.7">
+                    <path d="M150,60 L152,66 L158,66 L153,70 L155,76 L150,72 L145,76 L147,70 L142,66 L148,66 Z"/>
+                    <path d="M650,60 L652,66 L658,66 L653,70 L655,76 L650,72 L645,76 L647,70 L642,66 L648,66 Z"/>
+                    <path d="M200,160 L202,166 L208,166 L203,170 L205,176 L200,172 L195,176 L197,170 L192,166 L198,166 Z"/>
+                    <path d="M600,160 L602,166 L608,166 L603,170 L605,176 L600,172 L595,176 L597,170 L592,166 L598,166 Z"/>
+                </g>
+            </svg>
+        </div>
+        
+        <!-- Compact logo for transition effect -->
+        <div class="logo-compact">
+            <svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FF4757;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#E63946;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FFD32A;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FCA311;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2F4858;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1D3557;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                
+                <circle cx="200" cy="60" r="15" fill="#FCA311" opacity="0.1"/>
+                <circle cx="200" cy="60" r="10" fill="#E63946" opacity="0.1"/>
+                <circle cx="200" cy="60" r="5" fill="#FFFFFF" opacity="0.2"/>
+                
+                <text x="200" y="75" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="36" 
+                      font-weight="900" 
+                      fill="#000000" 
+                      transform="translate(3,3)">ONE-SHOT COMICS</text>
+                
+                <text x="200" y="75" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="36" 
+                      font-weight="900" 
+                      fill="url(#blueGrad)" 
+                      transform="translate(2,2)">ONE-SHOT COMICS</text>
+                
+                <text x="200" y="75" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="36" 
+                      font-weight="900" 
+                      fill="url(#yellowGrad)" 
+                      transform="translate(1,1)">ONE-SHOT COMICS</text>
+                
+                <text x="200" y="75" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="36" 
+                      font-weight="900" 
+                      fill="url(#redGrad)">ONE-SHOT COMICS</text>
+                
+                <text x="200" y="75" text-anchor="middle" 
+                      font-family="Impact, Arial Black, sans-serif" 
+                      font-size="36" 
+                      font-weight="900" 
+                      fill="none" 
+                      stroke="#FFFFFF" 
+                      stroke-width="0.5" 
+                      opacity="0.5">ONE-SHOT COMICS</text>
+            </svg>
+        </div>
+        
+        <!-- Tagline -->
+        <div class="tagline">
+            STRAIGHT OUTTA THE DOJO!
+        </div>
+    </div>
+    
+    <!-- Restart button -->
+    <button class="restart-btn" onclick="restartAnimation()">🔄 REPLAY</button>
+    
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.querySelector('.particles-container');
+            const colors = ['#FCA311', '#E63946', '#1D3557'];
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.width = particle.style.height = (Math.random() * 8 + 2) + 'px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animation = `particleFloat ${Math.random() * 10 + 5}s linear infinite`;
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Restart animation
+        function restartAnimation() {
+            location.reload();
+        }
+        
+        // Sound effects (if you want to add them later)
+        function playSound(type) {
+            // Placeholder for sound effects
+            console.log('Playing sound:', type);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Trigger sound effects at key moments
+            setTimeout(() => playSound('whoosh'), 1000);
+            setTimeout(() => playSound('impact'), 3000);
+            setTimeout(() => playSound('sparkle'), 4000);
+        });
+        
+        // Add click interaction
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName !== 'BUTTON') {
+                // Create click burst effect
+                const burst = document.createElement('div');
+                burst.style.position = 'absolute';
+                burst.style.left = e.clientX + 'px';
+                burst.style.top = e.clientY + 'px';
+                burst.style.width = '20px';
+                burst.style.height = '20px';
+                burst.style.background = 'radial-gradient(circle, #FCA311 0%, transparent 70%)';
+                burst.style.borderRadius = '50%';
+                burst.style.pointerEvents = 'none';
+                burst.style.animation = 'burstPulse 0.5s ease-out forwards';
+                burst.style.transform = 'translate(-50%, -50%)';
+                
+                document.body.appendChild(burst);
+                
+                setTimeout(() => {
+                    document.body.removeChild(burst);
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>

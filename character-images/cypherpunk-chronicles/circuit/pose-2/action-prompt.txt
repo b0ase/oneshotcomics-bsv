@@ -1,0 +1,32 @@
+Character: Circuit - The Tech Controller
+Series: Cypherpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 2 - Action (Energy Absorption)
+
+IMAGE PROMPT:
+A man in his late 20s with DARK BROWN hair that is short and neat, with GLOWING BLUE cybernetic implants visible on his scalp. His skin is LIGHT TAN with a neutral undertone, and his eyes are BRIGHT BLUE that glow with electronic energy. His face is SQUARE-SHAPED with HIGH CHEEKBONES, a STRAIGHT NOSE, and THIN LIPS. He has a MUSCULAR BUILD, standing at 6'0" with commanding presence. He wears tactical gear that is DARK BLUE and BLACK, featuring corporate insignia and GLOWING BLUE CYBERNETIC PARTS. The gear has a HIGH COLLAR, FULL COVERAGE, and MULTIPLE TECH INTERFACES.
+
+ACTION POSE: Circuit is in an ABSORPTION STANCE, standing in the center of an ENERGY STORM as he DRAINS POWER from corporate systems. He's surrounded by FLOWING ENERGY STREAMS and ELECTRICAL ARCS that are being absorbed into his cybernetic implants. His body glows with increasing intensity as he channels the stolen energy to power the resistance. He's positioned in a POWER STANCE, showing both his energy absorption abilities and his growing strength. Background shows CORPORATE POWER GRIDS being drained, energy flowing toward him, and corporate facilities going dark as he steals their power. Art style: modern comic book, highly detailed, tech lighting, corporate atmosphere.
+
+KEY VISUAL ELEMENTS:
+- DARK BROWN short neat hair with blue implants
+- LIGHT TAN skin with neutral undertone
+- BRIGHT BLUE glowing eyes
+- SQUARE face with high cheekbones
+- MUSCULAR build, 6'0"
+- DARK BLUE and BLACK tactical gear
+- ABSORPTION STANCE with energy storm
+- FLOWING ENERGY STREAMS and electrical arcs
+- Corporate power grids being drained
+- Glowing blue cybernetic parts
+
+ART STYLE: Modern comic book, highly detailed, tech lighting, corporate atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be DARK BROWN with blue implants
+- Skin must be LIGHT TAN, not pale white or dark
+- Eyes must be BRIGHT BLUE and glowing
+- Face shape must be SQUARE with high cheekbones
+- Build must be MUSCULAR, not slim or average
+- Pose must show ABSORPTION STANCE with energy draining 

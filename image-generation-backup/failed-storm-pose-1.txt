@@ -1,0 +1,33 @@
+Character: Storm - The Weather Controller
+Series: Quantum Paradox
+Type: Hero
+Alignment: Hero
+Pose: 1 - Action (Weather Control Battle)
+
+IMAGE PROMPT:
+A medium-height hero with very specific physical features: PURE SILVER hair (not blonde, not white, not gray) that flows like wind, styled in LONG WAVES down to her shoulders with natural movement and wind-swept appearance. Her skin is PALE IVORY with cool undertones, giving an ethereal, storm-like appearance. Her eyes are PIERCING ICE BLUE with silver flecks, shaped ROUND with a COMMANDING GAZE, and they reflect storm clouds. Her face is HEART-SHAPED with DELICATE FEATURES, HIGH ARCHED EYEBROWS, and a SMALL POINTED CHIN. She has a SLENDER, GRACEFUL BUILD, standing at 5'6" with ELEGANT POSTURE and LONG FINGERS. She wears a flowing blue and white costume that is ELECTRIC BLUE and PURE WHITE with SILVER accents, featuring cloud patterns, lightning motifs, and weather symbols. The costume has FLOWING SLEEVES, a CINCHED WAIST, and BILLOWING PANELS.
+
+ACTION POSE: Storm is in a COMMANDING BATTLE STANCE, FLOATING above the ground as she SUMMONS A MASSIVE THUNDERSTORM. She's positioned with her arms raised to the sky, lightning crackling between her hands and the storm clouds above. Her hair flows dramatically in the wind, and her costume billows around her. She's creating a LIGHTNING STORM to protect the city from an approaching threat. Background shows DARK STORM CLOUDS, RAIN, and LIGHTNING illuminating the cityscape below. Art style: modern comic book, atmospheric lighting, dynamic weather effects, epic scale.
+
+KEY VISUAL ELEMENTS:
+- PURE SILVER hair (long waves, shoulder-length)
+- PALE IVORY skin with cool undertones
+- PIERCING ICE BLUE eyes with silver flecks
+- HEART-SHAPED face with delicate features
+- SLENDER, GRACEFUL build, 5'6"
+- ELECTRIC BLUE and PURE WHITE costume with silver accents
+- COMMANDING BATTLE STANCE while floating
+- LIGHTNING CRACKLING between hands and clouds
+- Massive thunderstorm being summoned
+- Dark storm clouds and rain background
+
+ART STYLE: Modern comic book, atmospheric lighting, dynamic weather effects, epic scale
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be PURE SILVER, never blonde, white, or gray
+- Hair must be LONG WAVES to shoulders, never short or straight
+- Skin must be PALE IVORY with cool undertones, not tan or dark
+- Eyes must be PIERCING ICE BLUE with silver flecks
+- Face shape must be HEART-SHAPED with delicate features
+- Build must be SLENDER and GRACEFUL, not muscular or curvy
+- Pose must show COMMANDING BATTLE STANCE with weather control

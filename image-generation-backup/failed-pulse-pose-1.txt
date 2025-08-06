@@ -1,0 +1,32 @@
+Character: Pulse - The Bio-Electric Healer
+Series: Cypherpunk Chronicles
+Type: Hero
+Alignment: Hero
+Pose: 1 - Action (Bio-Electric Healing)
+
+IMAGE PROMPT:
+A woman in her mid-20s with ELECTRIC BLUE hair that is long and flowing, with natural waves that seem to conduct energy. Her skin is PALE WHITE with a cool undertone, and her eyes are BRIGHT GREEN that glow with healing energy. Her face is OVAL-SHAPED with HIGH CHEEKBONES, a SMALL NOSE, and THIN LIPS. She has a SLIM GRACEFUL BUILD, standing at 5'7" with gentle movements. She wears medical scrubs enhanced with tech: LIGHT BLUE SCRUBS with GREEN ACCENTS, featuring GLOWING GREEN CIRCUITS and HEALING SYMBOLS. The scrubs have a V-NECK, LONG SLEEVES, and MULTIPLE MEDICAL PATCHES.
+
+ACTION POSE: Pulse is in a HEALING STANCE, her hands gently placed on a wounded person as she CHANNELS BIO-ELECTRIC ENERGY to heal their injuries. She's surrounded by FLOWING HEALING ENERGY and GREEN ELECTRICAL PULSES that emanate from her body. Her hair flows with healing energy as she concentrates on the healing process. She's positioned in a COMPASSIONATE POSE, showing both her gentle nature and her powerful healing abilities. Background shows a MEDICAL FACILITY with other patients being healed, healing energy flowing through the room, and medical technology enhanced by her abilities. Art style: modern comic book, highly detailed, medical lighting, healing atmosphere.
+
+KEY VISUAL ELEMENTS:
+- ELECTRIC BLUE long flowing hair
+- PALE WHITE skin with cool undertone
+- BRIGHT GREEN glowing eyes
+- OVAL face with high cheekbones
+- SLIM GRACEFUL build, 5'7"
+- LIGHT BLUE scrubs with green accents
+- HEALING STANCE with gentle hands
+- FLOWING HEALING ENERGY and green electrical pulses
+- Medical facility background with healing effects
+- Glowing green circuits and healing symbols
+
+ART STYLE: Modern comic book, highly detailed, medical lighting, healing atmosphere
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be ELECTRIC BLUE, never natural colors
+- Skin must be PALE WHITE, not tan or dark
+- Eyes must be BRIGHT GREEN and glowing
+- Face shape must be OVAL with high cheekbones
+- Build must be SLIM GRACEFUL, not muscular or heavy
+- Pose must show HEALING STANCE with bio-electric energy

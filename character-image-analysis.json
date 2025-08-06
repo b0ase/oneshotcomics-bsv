@@ -1,0 +1,604 @@
+[
+  {
+    "id": 1,
+    "name": "Nova",
+    "series": "quantum-paradox",
+    "expectedPath": "nova",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/quantum-paradox/nova/nova-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/quantum-paradox/nova/pose-1/nova-pose-1-main.jpg",
+        "/character-images/quantum-paradox/nova/pose-1/nova-pose-1-variant-1.jpg",
+        "/character-images/quantum-paradox/nova/pose-1/nova-pose-1-variant-2.jpg",
+        "/character-images/quantum-paradox/nova/pose-1/nova-pose-1-variant-3.jpg",
+        "/character-images/quantum-paradox/nova/pose-1/nova-pose-1-variant-4.jpg"
+      ],
+      "pose2": [
+        "/character-images/quantum-paradox/nova/pose-2/nova-pose-2-main.jpg",
+        "/character-images/quantum-paradox/nova/pose-2/nova-pose-2-variant-1.jpg",
+        "/character-images/quantum-paradox/nova/pose-2/nova-pose-2-variant-2.jpg"
+      ],
+      "pose3": [
+        "/character-images/quantum-paradox/nova/pose-3/nova-pose-3-main.jpg",
+        "/character-images/quantum-paradox/nova/pose-3/nova-pose-3-variant-1.jpg",
+        "/character-images/quantum-paradox/nova/pose-3/nova-pose-3-variant-2.jpg"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "name": "Phoenix",
+    "series": "quantum-paradox",
+    "expectedPath": "phoenix",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/quantum-paradox/phoenix/phoenix-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/quantum-paradox/phoenix/pose-1/phoenix-pose-1-main.jpg",
+        "/character-images/quantum-paradox/phoenix/pose-1/phoenix-pose-1-variant-1.jpg",
+        "/character-images/quantum-paradox/phoenix/pose-1/phoenix-pose-1-variant-2.jpg",
+        "/character-images/quantum-paradox/phoenix/pose-1/phoenix-pose-1-variant-3.jpg",
+        "/character-images/quantum-paradox/phoenix/pose-1/phoenix-pose-1-variant-4.jpg",
+        "/character-images/quantum-paradox/phoenix/pose-1/phoenix-pose-1-variant-5.jpg",
+        "/character-images/quantum-paradox/phoenix/pose-1/phoenix-pose-1-variant-6.jpg"
+      ],
+      "pose2": [
+        "/character-images/quantum-paradox/phoenix/pose-2/phoenix-pose-2-variant-1.jpg",
+        "/character-images/quantum-paradox/phoenix/pose-2/phoenix-pose-2-variant-2.jpg",
+        "/character-images/quantum-paradox/phoenix/pose-2/phoenix-pose-2-variant-3.jpg"
+      ],
+      "pose3": [
+        "/character-images/quantum-paradox/phoenix/pose-3/phoenix-pose-3-main.jpg"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Storm",
+    "series": "quantum-paradox",
+    "expectedPath": "storm",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/quantum-paradox/storm/storm-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/quantum-paradox/storm/pose-1/download.jpg"
+      ],
+      "pose2": [
+        "/character-images/quantum-paradox/storm/pose-2/storm-pose-2-main.jpg"
+      ],
+      "pose3": [
+        "/character-images/quantum-paradox/storm/pose-3/download.jpg",
+        "/character-images/quantum-paradox/storm/pose-3/storm-pose-3-main.jpg",
+        "/character-images/quantum-paradox/storm/pose-3/storm-pose-3-variant-1.jpg"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "name": "Tempus",
+    "series": "quantum-paradox",
+    "expectedPath": "tempus",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/quantum-paradox/tempus/tempus-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/quantum-paradox/tempus/pose-1/download.jpg",
+        "/character-images/quantum-paradox/tempus/pose-1/tempus-pose-1-main.jpg",
+        "/character-images/quantum-paradox/tempus/pose-1/tempus-pose-1-variant-1.jpg",
+        "/character-images/quantum-paradox/tempus/pose-1/tempus-pose-1-variant-2.jpg",
+        "/character-images/quantum-paradox/tempus/pose-1/tempus-pose-1-variant-3.jpg",
+        "/character-images/quantum-paradox/tempus/pose-1/tempus-pose-1-variant-4.jpg",
+        "/character-images/quantum-paradox/tempus/pose-1/tempus-pose-1-variant-5.jpg",
+        "/character-images/quantum-paradox/tempus/pose-1/tempus-pose-1-variant-6.jpg"
+      ],
+      "pose2": [
+        "/character-images/quantum-paradox/tempus/pose-2/download.jpg",
+        "/character-images/quantum-paradox/tempus/pose-2/tempus-pose-2-main.jpg",
+        "/character-images/quantum-paradox/tempus/pose-2/tempus-pose-2-variant-1.jpg",
+        "/character-images/quantum-paradox/tempus/pose-2/tempus-pose-2-variant-2.jpg",
+        "/character-images/quantum-paradox/tempus/pose-2/tempus-pose-2-variant-3.jpg",
+        "/character-images/quantum-paradox/tempus/pose-2/tempus-pose-2-variant-4.jpg"
+      ],
+      "pose3": [
+        "/character-images/quantum-paradox/tempus/pose-3/download.jpg",
+        "/character-images/quantum-paradox/tempus/pose-3/tempus-pose-3-main.jpg",
+        "/character-images/quantum-paradox/tempus/pose-3/tempus-pose-3-variant-1.jpg",
+        "/character-images/quantum-paradox/tempus/pose-3/tempus-pose-3-variant-2.jpg"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Shadow",
+    "series": "street-justice",
+    "expectedPath": "shadow",
+    "hasMainImage": false,
+    "mainImagePath": null,
+    "hasPoseImages": {
+      "pose1": false,
+      "pose2": false,
+      "pose3": false
+    },
+    "poseImagePaths": {
+      "pose1": [],
+      "pose2": [],
+      "pose3": []
+    }
+  },
+  {
+    "id": 6,
+    "name": "Void",
+    "series": "street-justice",
+    "expectedPath": "void",
+    "hasMainImage": false,
+    "mainImagePath": null,
+    "hasPoseImages": {
+      "pose1": false,
+      "pose2": false,
+      "pose3": false
+    },
+    "poseImagePaths": {
+      "pose1": [],
+      "pose2": [],
+      "pose3": []
+    }
+  },
+  {
+    "id": 7,
+    "name": "Mirage",
+    "series": "street-justice",
+    "expectedPath": "mirage",
+    "hasMainImage": false,
+    "mainImagePath": null,
+    "hasPoseImages": {
+      "pose1": false,
+      "pose2": false,
+      "pose3": false
+    },
+    "poseImagePaths": {
+      "pose1": [],
+      "pose2": [],
+      "pose3": []
+    }
+  },
+  {
+    "id": 8,
+    "name": "Neon",
+    "series": "cypherpunk-chronicles",
+    "expectedPath": "neon",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/cypherpunk-chronicles/neon/neon-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/cypherpunk-chronicles/neon/pose-1/neon-pose-1-main.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-1/neon-pose-1-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-1/neon-pose-1-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-1/neon-pose-1-variant-3.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-1/neon-pose-1-variant-4.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-1/neon-pose-1-variant-5.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-1/neon-pose-1-variant-6.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-1/neon-pose-1-variant-7.jpg"
+      ],
+      "pose2": [
+        "/character-images/cypherpunk-chronicles/neon/pose-2/neon-pose-2-main.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-2/neon-pose-2-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-2/neon-pose-2-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-2/neon-pose-2-variant-3.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-2/neon-pose-2-variant-4.jpg"
+      ],
+      "pose3": [
+        "/character-images/cypherpunk-chronicles/neon/pose-3/neon-pose-3-main.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-3/neon-pose-3-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-3/neon-pose-3-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-3/neon-pose-3-variant-3.jpg",
+        "/character-images/cypherpunk-chronicles/neon/pose-3/neon-pose-3-variant-4.jpg"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "name": "Circuit",
+    "series": "cypherpunk-chronicles",
+    "expectedPath": "circuit",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/cypherpunk-chronicles/circuit/circuit-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/cypherpunk-chronicles/circuit/pose-1/circuit-pose-1-main.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-1/circuit-pose-1-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-1/circuit-pose-1-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-1/circuit-pose-1-variant-3.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-1/circuit-pose-1-variant-4.jpg"
+      ],
+      "pose2": [
+        "/character-images/cypherpunk-chronicles/circuit/pose-2/circuit-pose-2-main.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-2/circuit-pose-2-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-2/circuit-pose-2-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-2/circuit-pose-2-variant-3.jpg"
+      ],
+      "pose3": [
+        "/character-images/cypherpunk-chronicles/circuit/pose-3/circuit-pose-3-main.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-3/circuit-pose-3-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-3/circuit-pose-3-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/circuit/pose-3/circuit-pose-3-variant-3.jpg"
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "name": "Pulse",
+    "series": "cypherpunk-chronicles",
+    "expectedPath": "pulse",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/cypherpunk-chronicles/pulse/pulse-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/cypherpunk-chronicles/pulse/pose-1/pulse-pose-1-main.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-1/pulse-pose-1-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-1/pulse-pose-1-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-1/pulse-pose-1-variant-3.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-1/pulse-pose-1-variant-4.jpg"
+      ],
+      "pose2": [
+        "/character-images/cypherpunk-chronicles/pulse/pose-2/pulse-pose-2-main.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-2/pulse-pose-2-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-2/pulse-pose-2-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-2/pulse-pose-2-variant-3.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-2/pulse-pose-2-variant-4.jpg"
+      ],
+      "pose3": [
+        "/character-images/cypherpunk-chronicles/pulse/pose-3/pulse-pose-3-main.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-3/pulse-pose-3-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/pulse/pose-3/pulse-pose-3-variant-2.jpg"
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "name": "Void",
+    "series": "cypherpunk-chronicles",
+    "expectedPath": "void",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/cypherpunk-chronicles/void/void-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/cypherpunk-chronicles/void/pose-1/download.jpg",
+        "/character-images/cypherpunk-chronicles/void/pose-1/void-pose-1-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/void/pose-1/void-pose-1-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/void/pose-1/void-pose-1-variant-3.jpg"
+      ],
+      "pose2": [
+        "/character-images/cypherpunk-chronicles/void/pose-2/void-pose-2-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/void/pose-2/void-pose-2-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/void/pose-2/void-pose-2-variant-3.jpg"
+      ],
+      "pose3": [
+        "/character-images/cypherpunk-chronicles/void/pose-3/void-pose-3-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/void/pose-3/void-pose-3-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/void/pose-3/void-pose-3-variant-3.jpg"
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "name": "Corruptor",
+    "series": "cypherpunk-chronicles",
+    "expectedPath": "corruptor",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/cypherpunk-chronicles/corruptor/corruptor-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/cypherpunk-chronicles/corruptor/pose-1/corruptor-pose-1-main.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-1/corruptor-pose-1-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-1/corruptor-pose-1-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-1/corruptor-pose-1-variant-3.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-1/corruptor-pose-1-variant-4.jpg"
+      ],
+      "pose2": [
+        "/character-images/cypherpunk-chronicles/corruptor/pose-2/corruptor-pose-2-main.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-2/corruptor-pose-2-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-2/corruptor-pose-2-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-2/corruptor-pose-2-variant-3.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-2/corruptor-pose-2-variant-4.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-2/corruptor-pose-2-variant-5.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-2/corruptor-pose-2-variant-6.jpg"
+      ],
+      "pose3": [
+        "/character-images/cypherpunk-chronicles/corruptor/pose-3/corruptor-pose-3-main.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-3/corruptor-pose-3-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-3/corruptor-pose-3-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/corruptor/pose-3/corruptor-pose-3-variant-3.jpg"
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "name": "Cyber",
+    "series": "cypherpunk-chronicles",
+    "expectedPath": "cyber",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/cypherpunk-chronicles/cyber/cyber-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/cypherpunk-chronicles/cyber/pose-1/cyber-pose-1-main.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-1/cyber-pose-1-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-1/cyber-pose-1-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-1/cyber-pose-1-variant-3.jpg"
+      ],
+      "pose2": [
+        "/character-images/cypherpunk-chronicles/cyber/pose-2/cyber-pose-2-main.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-2/cyber-pose-2-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-2/cyber-pose-2-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-2/cyber-pose-2-variant-3.jpg"
+      ],
+      "pose3": [
+        "/character-images/cypherpunk-chronicles/cyber/pose-3/cyber-pose-3-main.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-3/cyber-pose-3-variant-1.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-3/cyber-pose-3-variant-2.jpg",
+        "/character-images/cypherpunk-chronicles/cyber/pose-3/cyber-pose-3-variant-3.jpg"
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "name": "Zara",
+    "series": "mystic-realms",
+    "expectedPath": "zara",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/mystic-realms/zara/zara-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-1.jpg",
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-2.jpg",
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-3.jpg",
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-4.jpg",
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-5.jpg",
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-6.jpg",
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-7.jpg",
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-8.jpg",
+        "/character-images/mystic-realms/zara/pose-1/zara-pose-1-variant-9.jpg"
+      ],
+      "pose2": [
+        "/character-images/mystic-realms/zara/pose-2/zara-pose-2-variant-1.jpg",
+        "/character-images/mystic-realms/zara/pose-2/zara-pose-2-variant-2.jpg",
+        "/character-images/mystic-realms/zara/pose-2/zara-pose-2-variant-3.jpg",
+        "/character-images/mystic-realms/zara/pose-2/zara-pose-2-variant-4.jpg",
+        "/character-images/mystic-realms/zara/pose-2/zara-pose-2-variant-5.jpg"
+      ],
+      "pose3": [
+        "/character-images/mystic-realms/zara/pose-3/zara-pose-3-variant-1.jpg",
+        "/character-images/mystic-realms/zara/pose-3/zara-pose-3-variant-2.jpg",
+        "/character-images/mystic-realms/zara/pose-3/zara-pose-3-variant-3.jpg",
+        "/character-images/mystic-realms/zara/pose-3/zara-pose-3-variant-4.jpg",
+        "/character-images/mystic-realms/zara/pose-3/zara-pose-3-variant-5.jpg"
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "name": "Nexus",
+    "series": "mystic-realms",
+    "expectedPath": "nexus",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/mystic-realms/nexus/nexus-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/mystic-realms/nexus/pose-1/nexus-pose-1-variant-1.jpg",
+        "/character-images/mystic-realms/nexus/pose-1/nexus-pose-1-variant-2.jpg",
+        "/character-images/mystic-realms/nexus/pose-1/nexus-pose-1-variant-3.jpg",
+        "/character-images/mystic-realms/nexus/pose-1/nexus-pose-1-variant-4.jpg",
+        "/character-images/mystic-realms/nexus/pose-1/nexus-pose-1-variant-5.jpg"
+      ],
+      "pose2": [
+        "/character-images/mystic-realms/nexus/pose-2/nexus-pose-2-variant-1.jpg",
+        "/character-images/mystic-realms/nexus/pose-2/nexus-pose-2-variant-2.jpg",
+        "/character-images/mystic-realms/nexus/pose-2/nexus-pose-2-variant-3.jpg",
+        "/character-images/mystic-realms/nexus/pose-2/nexus-pose-2-variant-4.jpg"
+      ],
+      "pose3": [
+        "/character-images/mystic-realms/nexus/pose-3/nexus-pose-3-variant-1.jpg",
+        "/character-images/mystic-realms/nexus/pose-3/nexus-pose-3-variant-2.jpg",
+        "/character-images/mystic-realms/nexus/pose-3/nexus-pose-3-variant-3.jpg",
+        "/character-images/mystic-realms/nexus/pose-3/nexus-pose-3-variant-4.jpg"
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "name": "Aether",
+    "series": "mystic-realms",
+    "expectedPath": "aether",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/mystic-realms/aether/aether-1.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": false
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/mystic-realms/aether/pose-1/aether-pose-1-1.jpg",
+        "/character-images/mystic-realms/aether/pose-1/aether-pose-1-2.jpg",
+        "/character-images/mystic-realms/aether/pose-1/aether-pose-1-3.jpg"
+      ],
+      "pose2": [
+        "/character-images/mystic-realms/aether/pose-2/aether-pose-2-1.jpg",
+        "/character-images/mystic-realms/aether/pose-2/aether-pose-2-2.jpg",
+        "/character-images/mystic-realms/aether/pose-2/aether-pose-2-3.jpg"
+      ],
+      "pose3": []
+    }
+  },
+  {
+    "id": 17,
+    "name": "Chaos",
+    "series": "mystic-realms",
+    "expectedPath": "chaos",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/mystic-realms/chaos/chaos-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/mystic-realms/chaos/pose-1/chaos-pose-1-variant-1.jpg",
+        "/character-images/mystic-realms/chaos/pose-1/chaos-pose-1-variant-2.jpg",
+        "/character-images/mystic-realms/chaos/pose-1/chaos-pose-1-variant-3.jpg"
+      ],
+      "pose2": [
+        "/character-images/mystic-realms/chaos/pose-2/chaos-pose-2-variant-1.jpg",
+        "/character-images/mystic-realms/chaos/pose-2/chaos-pose-2-variant-2.jpg",
+        "/character-images/mystic-realms/chaos/pose-2/chaos-pose-2-variant-3.jpg",
+        "/character-images/mystic-realms/chaos/pose-2/chaos-pose-2-variant-4.jpg"
+      ],
+      "pose3": [
+        "/character-images/mystic-realms/chaos/pose-3/chaos-pose-3-variant-1.jpg",
+        "/character-images/mystic-realms/chaos/pose-3/chaos-pose-3-variant-2.jpg"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "name": "Kunoichi",
+    "series": "ninja-punk-girls",
+    "expectedPath": "kunoichi",
+    "hasMainImage": true,
+    "mainImagePath": "/character-images/ninja-punk-girls/kunoichi/kunoichi-main.jpg",
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": false,
+      "pose3": false
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/ninja-punk-girls/kunoichi/pose-1/kunoichi-pose-1-variant-1.jpg",
+        "/character-images/ninja-punk-girls/kunoichi/pose-1/kunoichi-pose-1-variant-2.jpg",
+        "/character-images/ninja-punk-girls/kunoichi/pose-1/kunoichi-pose-1-variant-3.jpg",
+        "/character-images/ninja-punk-girls/kunoichi/pose-1/kunoichi-pose-1-variant-4.jpg",
+        "/character-images/ninja-punk-girls/kunoichi/pose-1/kunoichi-pose-1-variant-5.jpg"
+      ],
+      "pose2": [],
+      "pose3": []
+    }
+  },
+  {
+    "id": 19,
+    "name": "Neon Fist",
+    "series": "ninja-punk-girls",
+    "expectedPath": "neon-fist",
+    "hasMainImage": false,
+    "mainImagePath": null,
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/ninja-punk-girls/neon-fist/pose-1/neon-fist-pose-1-variant-1.jpg",
+        "/character-images/ninja-punk-girls/neon-fist/pose-1/neon-fist-pose-1-variant-2.jpg",
+        "/character-images/ninja-punk-girls/neon-fist/pose-1/neon-fist-pose-1-variant-3.jpg",
+        "/character-images/ninja-punk-girls/neon-fist/pose-1/neon-fist-pose-1-variant-4.jpg"
+      ],
+      "pose2": [
+        "/character-images/ninja-punk-girls/neon-fist/pose-2/neon-fist-pose-2-variant-1.jpg",
+        "/character-images/ninja-punk-girls/neon-fist/pose-2/neon-fist-pose-2-variant-2.jpg",
+        "/character-images/ninja-punk-girls/neon-fist/pose-2/neon-fist-pose-2-variant-3.jpg",
+        "/character-images/ninja-punk-girls/neon-fist/pose-2/neon-fist-pose-2-variant-4.jpg"
+      ],
+      "pose3": [
+        "/character-images/ninja-punk-girls/neon-fist/pose-3/neon-fist-pose-3-variant-1.jpg"
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "name": "Shadow Blade",
+    "series": "ninja-punk-girls",
+    "expectedPath": "shadow-blade",
+    "hasMainImage": false,
+    "mainImagePath": null,
+    "hasPoseImages": {
+      "pose1": true,
+      "pose2": true,
+      "pose3": true
+    },
+    "poseImagePaths": {
+      "pose1": [
+        "/character-images/ninja-punk-girls/shadow-blade/pose-1/download-11.jpg",
+        "/character-images/ninja-punk-girls/shadow-blade/pose-1/download-13.jpg"
+      ],
+      "pose2": [
+        "/character-images/ninja-punk-girls/shadow-blade/pose-2/download-14.jpg",
+        "/character-images/ninja-punk-girls/shadow-blade/pose-2/download-15.jpg"
+      ],
+      "pose3": [
+        "/character-images/ninja-punk-girls/shadow-blade/pose-3/download-12.jpg",
+        "/character-images/ninja-punk-girls/shadow-blade/pose-3/download-16.jpg"
+      ]
+    }
+  }
+]

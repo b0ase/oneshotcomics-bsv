@@ -1,0 +1,33 @@
+Character: Phoenix - The Fire Guardian
+Series: Quantum Paradox
+Type: Hero
+Alignment: Hero
+Pose: 2 - Action (Firestorm Creation)
+
+IMAGE PROMPT:
+A tall, athletic hero with very specific physical features: VIBRANT ORANGE-RED hair (not blonde, not brown, not dark red) that burns like actual flames, styled in a SHORT PIXIE CUT with spiky, flame-like ends that glow with fire. His skin is MEDIUM TAN with golden undertones, giving a sun-kissed appearance. His eyes are BRIGHT ORANGE with amber centers, shaped ALMOND with a FIERCE GAZE, and they radiate heat. His face is SQUARE-SHAPED with STRONG JAWLINE, BROAD FOREHEAD, and PROMINENT CHEEKBONES. He has a BROAD SHOULDERS, MUSCULAR BUILD, standing at 6'2" with POWERFUL ARMS and CHEST. He wears a flame-patterned suit that is BRIGHT ORANGE and CRIMSON RED with GOLDEN accents, featuring flame motifs and protective armor plates. The suit has a HIGH COLLAR, SHORT SLEEVES showing muscular arms, and COMBAT BOOTS.
+
+ACTION POSE: Phoenix is in a FIRESTORM CREATION STANCE, his entire body ERUPTING WITH FLAMES as he SUMMONS A MASSIVE FIRE TORNADO. He's positioned in a POWERFUL COMBAT POSE, with his VIBRANT ORANGE-RED hair burning like a torch and FLAMES SPIRALING around his muscular form. His BRIGHT ORANGE EYES are glowing with intense heat, and he's creating a FIRE TORNADO that reaches high into the sky. He's using his fire powers to CREATE A PROTECTIVE FIRE WALL around allies while attacking enemies. Background shows a MASSIVE FIRE TORNADO with Phoenix at its center, surrounded by swirling flames and heat distortion. Art style: modern comic book, intense fire effects, dramatic lighting, epic scale action.
+
+KEY VISUAL ELEMENTS:
+- VIBRANT ORANGE-RED hair (short pixie cut, spiky)
+- MEDIUM TAN skin with golden undertones
+- BRIGHT ORANGE eyes with amber centers
+- SQUARE face with strong jawline
+- BROAD SHOULDERS, MUSCULAR build, 6'2"
+- BRIGHT ORANGE and CRIMSON RED suit with golden accents
+- FIRESTORM CREATION STANCE with fire tornado
+- POWERFUL COMBAT POSE with spiraling flames
+- Massive fire tornado reaching skyward
+- Protective fire wall around allies
+
+ART STYLE: Modern comic book, intense fire effects, dramatic lighting, epic scale action
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be VIBRANT ORANGE-RED, never blonde, brown, or dark red
+- Hair must be SHORT PIXIE CUT, never long
+- Skin must be MEDIUM TAN with golden undertones, not pale or dark
+- Eyes must be BRIGHT ORANGE with amber centers
+- Face shape must be SQUARE with strong jawline
+- Build must be BROAD SHOULDERS and MUSCULAR, not slim or average
+- Pose must show FIRESTORM CREATION STANCE with fire tornado 

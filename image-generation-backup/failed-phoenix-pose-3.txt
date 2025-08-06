@@ -1,0 +1,34 @@
+Character: Phoenix - The Fire Guardian
+Series: Quantum Paradox
+Type: Hero
+Alignment: Hero
+Pose: 3 - Action (Phoenix Rebirth)
+
+IMAGE PROMPT:
+A tall, athletic hero with very specific physical features: VIBRANT ORANGE-RED hair (not blonde, not brown, not dark red) that burns like actual flames, styled in a SHORT PIXIE CUT with spiky, flame-like ends that glow with fire. His skin is MEDIUM TAN with golden undertones, giving a sun-kissed appearance. His eyes are BRIGHT ORANGE with amber centers, shaped ALMOND with a FIERCE GAZE, and they radiate heat. His face is SQUARE-SHAPED with STRONG JAWLINE, BROAD FOREHEAD, and PROMINENT CHEEKBONES. He has a BROAD SHOULDERS, MUSCULAR BUILD, standing at 6'2" with POWERFUL ARMS and CHEST. He wears a flame-patterned suit that is BRIGHT ORANGE and CRIMSON RED with GOLDEN accents, featuring flame motifs and protective armor plates. The suit has a HIGH COLLAR, SHORT SLEEVES showing muscular arms, and COMBAT BOOTS.
+
+ACTION POSE: Phoenix is in a PHOENIX REBIRTH STANCE, his form TRANSFORMING into a MASSIVE PHOENIX as he RISES FROM HIS OWN ASHES. He's positioned in a TRANSFORMING POSE, with his VIBRANT ORANGE-RED hair burning like a torch and his entire body ERUPTING with REBIRTH FLAMES. His BRIGHT ORANGE EYES are glowing with renewed power, and he's using his phoenix powers to REBIRTH HIMSELF with even greater strength. He's creating a MASSIVE PHOENIX FORM that towers above everything, with wings of pure fire and a tail of burning feathers. Background shows PHOENIX REBIRTH with ashes swirling, rebirth flames, and the phoenix rising from destruction. Art style: modern comic book, rebirth effects, phoenix transformation, epic mythological scale.
+
+KEY VISUAL ELEMENTS:
+- VIBRANT ORANGE-RED hair (short pixie cut, spiky)
+- MEDIUM TAN skin with golden undertones
+- BRIGHT ORANGE eyes with amber centers
+- SQUARE face with strong jawline
+- BROAD SHOULDERS, MUSCULAR build, 6'2"
+- BRIGHT ORANGE and CRIMSON RED suit with golden accents
+- PHOENIX REBIRTH STANCE with transformation
+- TRANSFORMING POSE with rebirth flames
+- Massive phoenix form with fire wings
+- Rising from ashes with renewed power
+- Phoenix rebirth with swirling ashes background
+
+ART STYLE: Modern comic book, rebirth effects, phoenix transformation, epic mythological scale
+
+CRITICAL CONSISTENCY NOTES:
+- Hair must ALWAYS be VIBRANT ORANGE-RED, never blonde, brown, or dark red
+- Hair must be SHORT PIXIE CUT, never long
+- Skin must be MEDIUM TAN with golden undertones, not pale or dark
+- Eyes must be BRIGHT ORANGE with amber centers
+- Face shape must be SQUARE with strong jawline
+- Build must be BROAD SHOULDERS and MUSCULAR, not slim or average
+- Pose must show PHOENIX REBIRTH STANCE with transformation
