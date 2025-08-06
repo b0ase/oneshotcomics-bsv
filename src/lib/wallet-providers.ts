@@ -566,8 +566,6 @@ export const getAvailableWallets = (): IWalletProvider[] => {
 
   const providers: IWalletProvider[] = [
     new YoursWalletProvider(),
-    new HandCashWalletProvider(),
-    new MoneyButtonWalletProvider(),
   ];
 
   const availableProviders = providers.filter(provider => provider.isAvailable());
@@ -575,7 +573,7 @@ export const getAvailableWallets = (): IWalletProvider[] => {
   // Always include demo wallet as a fallback option
   availableProviders.push(new DemoWalletProvider());
 
-  console.log('Available wallets:', availableProviders.map(p => p.name));
+  console.log('Yours.org branch - Available wallets:', availableProviders.map(p => p.name));
   console.log('Real wallets detected:', availableProviders.filter(p => p.name !== 'Demo').map(p => p.name));
 
   return availableProviders;
