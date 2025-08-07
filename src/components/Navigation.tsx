@@ -284,19 +284,9 @@ export default function Navigation() {
                     ) : (
                       <div className="dropdown-item text-gray-400">
                         <span className="text-xs">No wallets available</span>
-                        <span className="text-xs block">Install Yours.org or HandCash</span>
+                        <span className="text-xs block">Install Yours.org wallet</span>
                       </div>
                     )}
-                    {/* Demo wallet option - always available */}
-                    <button 
-                      className="dropdown-item text-yellow-400"
-                      onClick={() => { 
-                        connectWallet('Demo'); 
-                        closeDropdown(); 
-                      }}
-                    >
-                      🎭 Demo Mode
-                    </button>
                   </>
                 ) : (
                   <>
@@ -350,23 +340,11 @@ export default function Navigation() {
                     </button>
                   ))
                 ) : (
-                  <button 
-                    className="connect-wallet-nav-btn mobile"
-                    onClick={() => connectWallet('Demo')}
-                    disabled={isConnecting}
-                  >
-                    {isConnecting ? (
-                      <div className="flex items-center gap-2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                        <span>Connecting...</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center gap-2">
-                        <span className="text-lg">🎭</span>
-                        <span>Demo Mode</span>
-                      </div>
-                    )}
-                  </button>
+                  <div className="text-center text-gray-400 text-sm p-4">
+                    <span>No wallets available</span>
+                    <br />
+                    <span className="text-xs">Install Yours.org wallet</span>
+                  </div>
                 )}
               </div>
             ) : (

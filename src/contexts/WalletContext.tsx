@@ -6,8 +6,7 @@ import {
   createWalletManager, 
   BSVUtils, 
   IWalletProvider, 
-  WalletManager,
-  DemoWalletProvider 
+  WalletManager
 } from '@/lib/wallet-providers';
 
 // Bitcoin SV wallet types
@@ -61,6 +60,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [isConnecting, setIsConnecting] = useState(false);
   const [availableWallets, setAvailableWallets] = useState<IWalletProvider[]>([]);
   const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
+  const [walletManager, setWalletManager] = useState<WalletManager | null>(null);
 
   // Check wallet connection and available wallets on component mount
   useEffect(() => {
@@ -160,51 +160,30 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       let walletManager: WalletManager;
       let walletInfo;
       
-      if (walletName === 'Demo') {
-        // Handle demo wallet
-        const demoProvider = new DemoWalletProvider();
-        walletManager = createWalletManager(demoProvider);
-        walletInfo = await walletManager.connect();
-        
-        // Save wallet information
-        setWalletAddress(walletInfo.address);
-        setPublicKey(walletInfo.publicKey);
-        setIsWalletConnected(true);
-        setSelectedWallet('Demo');
-        
-        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-          localStorage.setItem('walletAddress', walletInfo.address);
-          localStorage.setItem('walletPublicKey', walletInfo.publicKey);
-          localStorage.setItem('selectedWallet', 'Demo');
-        }
-        
-        console.log('Connected to Demo wallet:', walletInfo);
-        alert(`🎭 Demo Mode Active\n\nYou're connected to a demo wallet for testing purposes.\n\nTo use a real Bitcoin SV wallet, please install a wallet extension like Yours.org or HandCash.`);
-      } else {
-        // Find the selected wallet provider
-        const selectedWallet = availableWallets.find(w => w.name === walletName);
-        if (!selectedWallet) {
-          throw new Error(`Wallet ${walletName} not found`);
-        }
-
-        // Create wallet manager with the selected provider
-        walletManager = createWalletManager(selectedWallet);
-        walletInfo = await walletManager.connect();
-        
-        // Save wallet information
-        setWalletAddress(walletInfo.address);
-        setPublicKey(walletInfo.publicKey);
-        setIsWalletConnected(true);
-        setSelectedWallet(walletName);
-        
-        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-          localStorage.setItem('walletAddress', walletInfo.address);
-          localStorage.setItem('walletPublicKey', walletInfo.publicKey);
-          localStorage.setItem('selectedWallet', walletName);
-        }
-        
-        console.log(`Connected to ${walletName} wallet:`, walletInfo);
+      // Find the selected wallet provider
+      const selectedWallet = availableWallets.find(w => w.name === walletName);
+      if (!selectedWallet) {
+        throw new Error(`Wallet ${walletName} not found`);
       }
+
+      // Create wallet manager with the selected provider
+      walletManager = createWalletManager(selectedWallet);
+      walletInfo = await walletManager.connect();
+      
+      // Save wallet manager instance and wallet information
+      setWalletManager(walletManager);
+      setWalletAddress(walletInfo.address);
+      setPublicKey(walletInfo.publicKey);
+      setIsWalletConnected(true);
+      setSelectedWallet(walletName);
+      
+      if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+        localStorage.setItem('walletAddress', walletInfo.address);
+        localStorage.setItem('walletPublicKey', walletInfo.publicKey);
+        localStorage.setItem('selectedWallet', walletName);
+      }
+      
+      console.log(`Connected to ${walletName} wallet:`, walletInfo);
     } catch (error) {
       console.error('Error connecting to wallet:', error);
       
@@ -224,7 +203,13 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const disconnectWallet = async () => {
     try {
+      // Disconnect from wallet manager if available
+      if (walletManager) {
+        await walletManager.disconnect();
+      }
+      
       // Clear wallet state
+      setWalletManager(null);
       setWalletAddress(null);
       setPublicKey(null);
       setIsWalletConnected(false);
@@ -243,13 +228,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const signMessage = async (message: string): Promise<string | null> => {
     try {
-      if (!isWalletConnected) {
+      if (!isWalletConnected || !walletManager) {
         throw new Error('Wallet not connected');
       }
 
-      // For now, return a placeholder signature
-      // In a real implementation, you would use the connected wallet provider
-      return `signature_${Date.now()}_${message}`;
+      const signature = await walletManager.signMessage(message);
+      return signature;
     } catch (error) {
       console.error('Error signing message:', error);
       return null;
@@ -258,13 +242,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const sendTransaction = async (transaction: any): Promise<string | null> => {
     try {
-      if (!isWalletConnected) {
+      if (!isWalletConnected || !walletManager) {
         throw new Error('Wallet not connected');
       }
 
-      // For now, return a placeholder transaction ID
-      // In a real implementation, you would use the connected wallet provider
-      return `txid_${Date.now()}_${transaction.to}`;
+      const txid = await walletManager.sendTransaction(transaction);
+      return txid;
     } catch (error) {
       console.error('Error sending transaction:', error);
       return null;

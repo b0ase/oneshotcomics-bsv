@@ -201,7 +201,7 @@ export default function MintPage() {
                 {assembledComics.length === 0 && (
                   <div className="mb-4 p-3 bg-blue-900/30 border border-blue-500/30 rounded-lg">
                     <p className="text-blue-300 text-sm">
-                      💡 <strong>Demo Mode:</strong> Try minting with these sample comics, or create your own!
+                      💡 <strong>Sample Comics:</strong> Try minting with these sample comics, or create your own!
                     </p>
                   </div>
                 )}
