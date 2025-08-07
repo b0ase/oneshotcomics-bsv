@@ -64,14 +64,28 @@ export class YoursWalletProvider implements BSVWalletProvider {
     // Re-check for wallet on each call (in case it loads after page load)
     const yoursWallet = (window as any).yours;
     
-    // Check if Yours.org wallet is available
-    const hasYoursWallet = !!(yoursWallet && yoursWallet.isYours);
+    // More robust detection - check for any of these properties
+    const hasYoursWallet = !!(
+      yoursWallet && (
+        yoursWallet.isYours || 
+        yoursWallet.connect || 
+        yoursWallet.getPublicKey ||
+        yoursWallet.signMessage ||
+        yoursWallet.sendTransaction ||
+        typeof yoursWallet === 'object'
+      )
+    );
     
     // Debug logging
     console.log('Yours.org wallet detection:', {
       yoursWallet: !!yoursWallet,
       yoursIsYours: !!(yoursWallet && yoursWallet.isYours),
-      windowYours: !!(window as any).yours
+      hasConnect: !!(yoursWallet && yoursWallet.connect),
+      hasGetPublicKey: !!(yoursWallet && yoursWallet.getPublicKey),
+      hasSignMessage: !!(yoursWallet && yoursWallet.signMessage),
+      hasSendTransaction: !!(yoursWallet && yoursWallet.sendTransaction),
+      windowYours: !!(window as any).yours,
+      finalResult: hasYoursWallet
     });
     
     return hasYoursWallet;
@@ -96,12 +110,26 @@ export class YoursWalletProvider implements BSVWalletProvider {
     try {
       // Try Yours.org wallet first - get fresh reference
       const yoursWallet = (window as any).yours;
-      if (yoursWallet && yoursWallet.isYours) {
-        console.log('Attempting to connect to Yours.org wallet...');
+      console.log('Attempting to connect to Yours.org wallet...', yoursWallet);
+      
+      if (yoursWallet && yoursWallet.connect) {
+        console.log('Using yoursWallet.connect() method...');
         const response = await yoursWallet.connect();
         console.log('Yours.org wallet connection response:', response);
         return {
           address: response.address,
+          publicKey: response.publicKey,
+          network: 'mainnet'
+        };
+      }
+      
+      // Fallback: try to get public key directly
+      if (yoursWallet && yoursWallet.getPublicKey) {
+        console.log('Using yoursWallet.getPublicKey() method...');
+        const response = await yoursWallet.getPublicKey();
+        console.log('Yours.org wallet getPublicKey response:', response);
+        return {
+          address: response.address || response.publicKey,
           publicKey: response.publicKey,
           network: 'mainnet'
         };

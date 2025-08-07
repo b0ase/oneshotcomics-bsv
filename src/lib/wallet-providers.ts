@@ -49,11 +49,14 @@ export class YoursWalletProvider implements IWalletProvider {
     // Re-check for wallet on each call (in case it loads after page load)
     const yoursWallet = (window as any).yours;
     
-    // Check if Yours.org wallet is available - try multiple detection methods
+    // More robust detection - check for any of these properties
     const hasYoursWallet = !!(
       yoursWallet && (
         yoursWallet.isYours || 
         yoursWallet.connect || 
+        yoursWallet.getPublicKey ||
+        yoursWallet.signMessage ||
+        yoursWallet.sendTransaction ||
         typeof yoursWallet === 'object'
       )
     );
@@ -63,6 +66,9 @@ export class YoursWalletProvider implements IWalletProvider {
       yoursWallet: !!yoursWallet,
       yoursIsYours: !!(yoursWallet && yoursWallet.isYours),
       hasConnect: !!(yoursWallet && yoursWallet.connect),
+      hasGetPublicKey: !!(yoursWallet && yoursWallet.getPublicKey),
+      hasSignMessage: !!(yoursWallet && yoursWallet.signMessage),
+      hasSendTransaction: !!(yoursWallet && yoursWallet.sendTransaction),
       windowYours: !!(window as any).yours,
       finalResult: hasYoursWallet
     });
@@ -79,10 +85,11 @@ export class YoursWalletProvider implements IWalletProvider {
       // Get fresh reference to Yours.org wallet
       const yoursWallet = (window as any).yours;
       
-      if (yoursWallet && yoursWallet.isYours) {
-        console.log('Attempting to connect to Yours.org wallet...');
-        
-        // Call the connect method on the Yours.org wallet
+      console.log('Attempting to connect to Yours.org wallet...', yoursWallet);
+      
+      // Try different connection methods
+      if (yoursWallet && yoursWallet.connect) {
+        console.log('Using yoursWallet.connect() method...');
         const response = await yoursWallet.connect();
         console.log('Yours.org wallet connection response:', response);
         
@@ -93,7 +100,20 @@ export class YoursWalletProvider implements IWalletProvider {
         };
       }
       
-      throw new Error('Yours.org wallet is not properly initialized');
+      // Fallback: try to get public key directly
+      if (yoursWallet && yoursWallet.getPublicKey) {
+        console.log('Using yoursWallet.getPublicKey() method...');
+        const response = await yoursWallet.getPublicKey();
+        console.log('Yours.org wallet getPublicKey response:', response);
+        
+        return {
+          address: response.address || response.publicKey,
+          publicKey: response.publicKey,
+          network: 'mainnet'
+        };
+      }
+      
+      throw new Error('Yours.org wallet is not properly initialized - no connect or getPublicKey method found');
     } catch (error) {
       console.error('Yours.org wallet connection error:', error);
       throw new Error(`Failed to connect to Yours.org wallet: ${error}`);
