@@ -188,9 +188,11 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
       
       // Validate wallet info
-      if (!walletInfo.address) {
-        console.error('Wallet connection returned undefined address!');
-        throw new Error('Wallet connection failed: No address returned');
+      console.log('Wallet info received:', walletInfo);
+      if (!walletInfo.address || walletInfo.address === 'unknown') {
+        console.error('Wallet connection returned invalid address:', walletInfo.address);
+        console.error('Full wallet info:', walletInfo);
+        throw new Error(`Wallet connection failed: Invalid address returned (${walletInfo.address})`);
       }
       
       // Save wallet manager instance and wallet information

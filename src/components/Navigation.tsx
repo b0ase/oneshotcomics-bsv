@@ -224,6 +224,9 @@ export default function Navigation() {
             <Link href="/token" className="nav-link" onClick={closeMobileMenu}>
               $1SHOT Token
             </Link>
+            <Link href="/tokenomics" className="nav-link" onClick={closeMobileMenu}>
+              Tokenomics
+            </Link>
             <Link href="/rank" className="nav-link" onClick={closeMobileMenu}>
               Rank
             </Link>

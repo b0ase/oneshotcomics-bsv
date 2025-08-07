@@ -115,10 +115,33 @@ export class YoursWalletProvider implements IWalletProvider {
           console.log('Using yoursWallet.connect() method...');
           const response = await yoursWallet.connect();
           console.log('Yours.org wallet connection response:', response);
+          console.log('Response type:', typeof response);
+          console.log('Response keys:', response ? Object.keys(response) : 'null/undefined');
+          console.log('Response.address:', response?.address);
+          console.log('Response.publicKey:', response?.publicKey);
+          
+          // Handle different response formats
+          let address = response?.address;
+          let publicKey = response?.publicKey;
+          
+          // If response is a string, it might be the address directly
+          if (typeof response === 'string') {
+            address = response;
+            publicKey = response;
+          }
+          
+          // If response is an array, first element might be the address
+          if (Array.isArray(response) && response.length > 0) {
+            address = response[0];
+            publicKey = response[0];
+          }
+          
+          console.log('Final address:', address);
+          console.log('Final publicKey:', publicKey);
           
           return {
-            address: response.address,
-            publicKey: response.publicKey,
+            address: address || 'unknown',
+            publicKey: publicKey || 'unknown',
             network: 'mainnet'
           };
         }
@@ -126,14 +149,28 @@ export class YoursWalletProvider implements IWalletProvider {
         // Try request method (web3 standard)
         if (yoursWallet.request) {
           console.log('Using yoursWallet.request() method...');
-          const accounts = await yoursWallet.request({ method: 'eth_requestAccounts' });
-          const publicKey = await yoursWallet.request({ method: 'eth_getPublicKey' });
-          
-          return {
-            address: accounts[0],
-            publicKey: publicKey,
-            network: 'mainnet'
-          };
+          try {
+            const accounts = await yoursWallet.request({ method: 'eth_requestAccounts' });
+            console.log('eth_requestAccounts response:', accounts);
+            console.log('Accounts type:', typeof accounts);
+            console.log('Accounts is array:', Array.isArray(accounts));
+            
+            const publicKey = await yoursWallet.request({ method: 'eth_getPublicKey' });
+            console.log('eth_getPublicKey response:', publicKey);
+            
+            const address = Array.isArray(accounts) ? accounts[0] : accounts;
+            console.log('Final address from request:', address);
+            console.log('Final publicKey from request:', publicKey);
+            
+            return {
+              address: address || 'unknown',
+              publicKey: publicKey || 'unknown',
+              network: 'mainnet'
+            };
+          } catch (error) {
+            console.error('Request method failed:', error);
+            throw error;
+          }
         }
         
         // Fallback: try to get public key directly
@@ -141,10 +178,24 @@ export class YoursWalletProvider implements IWalletProvider {
           console.log('Using yoursWallet.getPublicKey() method...');
           const response = await yoursWallet.getPublicKey();
           console.log('Yours.org wallet getPublicKey response:', response);
+          console.log('Response type:', typeof response);
+          console.log('Response keys:', response ? Object.keys(response) : 'null/undefined');
+          
+          let address = response?.address || response?.publicKey;
+          let publicKey = response?.publicKey;
+          
+          // If response is a string, it might be the public key directly
+          if (typeof response === 'string') {
+            address = response;
+            publicKey = response;
+          }
+          
+          console.log('Final address from getPublicKey:', address);
+          console.log('Final publicKey from getPublicKey:', publicKey);
           
           return {
-            address: response.address || response.publicKey,
-            publicKey: response.publicKey,
+            address: address || 'unknown',
+            publicKey: publicKey || 'unknown',
             network: 'mainnet'
           };
         }
