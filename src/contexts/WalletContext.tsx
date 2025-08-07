@@ -215,8 +215,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     } catch (error) {
       console.error('=== WALLET CONNECTION ERROR ===', error);
       console.error('Error details:', {
-        message: error.message,
-        stack: error.stack,
+        message: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined,
         availableWallets: availableWallets.map(w => w.name)
       });
       
