@@ -79,20 +79,105 @@ export default function WalletDebugPage() {
     return () => clearTimeout(timer);
   }, []);
 
-  const testYoursConnection = async () => {
+  const testOurWalletProvider = async () => {
     try {
-      const yours = (window as any).yours;
-      if (yours && yours.connect) {
-        console.log('Testing Yours.org connection...');
-        const result = await yours.connect();
-        console.log('Connection result:', result);
-        alert(`Connection successful! Address: ${result.address}`);
+      console.log('=== TESTING OUR WALLET PROVIDER ===');
+      
+      // Import and test our wallet provider directly
+      const { YoursWalletProvider } = await import('../../lib/wallet-providers');
+      const provider = new YoursWalletProvider();
+      
+      console.log('Provider created:', provider);
+      console.log('Provider available:', provider.isAvailable());
+      
+      if (provider.isAvailable()) {
+        console.log('Attempting to connect...');
+        const result = await provider.connect();
+        console.log('Provider connect result:', result);
+        alert(`Provider connection successful! Address: ${result.address}, PublicKey: ${result.publicKey}`);
       } else {
-        alert('Yours.org wallet not found or connect method not available');
+        alert('Provider reports wallet not available');
       }
     } catch (error) {
-      console.error('Connection error:', error);
-      alert(`Connection failed: ${error}`);
+      console.error('Provider test error:', error);
+      alert(`Provider test failed: ${error}`);
+    }
+  };
+
+  const testYoursConnection = async () => {
+    try {
+      console.log('=== STARTING COMPREHENSIVE WALLET TEST ===');
+      
+      const yours = (window as any).yours;
+      const panda = (window as any).panda;
+      
+      console.log('Available wallet objects:', { yours: !!yours, panda: !!panda });
+      
+      if (yours) {
+        console.log('Yours wallet object:', yours);
+        console.log('Yours wallet properties:', Object.getOwnPropertyNames(yours));
+        
+        // Test different connection methods
+        if (yours.connect) {
+          console.log('Testing yours.connect()...');
+          try {
+            const result = await yours.connect();
+            console.log('yours.connect() result:', result);
+            alert(`Yours.connect() successful! Address: ${result.address}, PublicKey: ${result.publicKey}`);
+            return;
+          } catch (e) {
+            console.error('yours.connect() failed:', e);
+          }
+        }
+        
+        if (yours.request) {
+          console.log('Testing yours.request()...');
+          try {
+            const accounts = await yours.request({ method: 'eth_requestAccounts' });
+            console.log('yours.request(eth_requestAccounts) result:', accounts);
+            alert(`Yours.request() successful! Accounts: ${JSON.stringify(accounts)}`);
+            return;
+          } catch (e) {
+            console.error('yours.request() failed:', e);
+          }
+        }
+        
+        if (yours.getPublicKey) {
+          console.log('Testing yours.getPublicKey()...');
+          try {
+            const result = await yours.getPublicKey();
+            console.log('yours.getPublicKey() result:', result);
+            alert(`Yours.getPublicKey() successful! Result: ${JSON.stringify(result)}`);
+            return;
+          } catch (e) {
+            console.error('yours.getPublicKey() failed:', e);
+          }
+        }
+      }
+      
+      if (panda) {
+        console.log('Panda wallet object:', panda);
+        console.log('Panda wallet properties:', Object.getOwnPropertyNames(panda));
+        
+        if (panda.connect) {
+          console.log('Testing panda.connect()...');
+          try {
+            const result = await panda.connect();
+            console.log('panda.connect() result:', result);
+            alert(`Panda.connect() successful! Address: ${result.address}, PublicKey: ${result.publicKey}`);
+            return;
+          } catch (e) {
+            console.error('panda.connect() failed:', e);
+          }
+        }
+      }
+      
+      console.log('=== NO WORKING CONNECTION METHOD FOUND ===');
+      alert('No working wallet connection method found. Check console for details.');
+      
+    } catch (error) {
+      console.error('Comprehensive test error:', error);
+      alert(`Test failed: ${error}`);
     }
   };
 
@@ -184,9 +269,15 @@ export default function WalletDebugPage() {
                   </ul>
                   <button
                     onClick={testYoursConnection}
-                    className="mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                    className="mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors mr-2"
                   >
-                    Test Connection
+                    Test Direct Connection
+                  </button>
+                  <button
+                    onClick={testOurWalletProvider}
+                    className="mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+                  >
+                    Test Our Provider
                   </button>
                 </div>
               )}

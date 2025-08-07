@@ -157,18 +157,41 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     setIsConnecting(true);
     
     try {
+      console.log(`=== CONNECTING TO ${walletName} WALLET ===`);
+      console.log('Available wallets:', availableWallets.map(w => w.name));
+      
       let walletManager: WalletManager;
       let walletInfo;
       
       // Find the selected wallet provider
       const selectedWallet = availableWallets.find(w => w.name === walletName);
       if (!selectedWallet) {
+        console.error(`Wallet ${walletName} not found in:`, availableWallets);
         throw new Error(`Wallet ${walletName} not found`);
       }
 
+      console.log('Selected wallet provider:', selectedWallet);
+      console.log('Provider isAvailable:', selectedWallet.isAvailable());
+
       // Create wallet manager with the selected provider
       walletManager = createWalletManager(selectedWallet);
+      console.log('Created wallet manager:', walletManager);
+      
+      console.log('Attempting wallet connection...');
       walletInfo = await walletManager.connect();
+      console.log(`Connected to ${walletName} wallet:`, walletInfo);
+      console.log('Wallet info details:', {
+        address: walletInfo.address,
+        publicKey: walletInfo.publicKey,
+        network: walletInfo.network,
+        balance: walletInfo.balance
+      });
+      
+      // Validate wallet info
+      if (!walletInfo.address) {
+        console.error('Wallet connection returned undefined address!');
+        throw new Error('Wallet connection failed: No address returned');
+      }
       
       // Save wallet manager instance and wallet information
       setWalletManager(walletManager);
@@ -181,11 +204,21 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         localStorage.setItem('walletAddress', walletInfo.address);
         localStorage.setItem('walletPublicKey', walletInfo.publicKey);
         localStorage.setItem('selectedWallet', walletName);
+        console.log('Saved to localStorage:', {
+          address: walletInfo.address,
+          publicKey: walletInfo.publicKey,
+          wallet: walletName
+        });
       }
       
-      console.log(`Connected to ${walletName} wallet:`, walletInfo);
+      console.log(`=== SUCCESSFULLY CONNECTED TO ${walletName} WALLET ===`);
     } catch (error) {
-      console.error('Error connecting to wallet:', error);
+      console.error('=== WALLET CONNECTION ERROR ===', error);
+      console.error('Error details:', {
+        message: error.message,
+        stack: error.stack,
+        availableWallets: availableWallets.map(w => w.name)
+      });
       
       // Show user-friendly error message
       const errorMessage = error instanceof Error ? error.message : 'Failed to connect wallet';
