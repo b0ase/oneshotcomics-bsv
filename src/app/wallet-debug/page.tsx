@@ -159,7 +159,7 @@ export default function WalletDebugPage() {
                   <p className="text-gray-300 text-sm">Methods:</p>
                   <ul className="text-gray-400 text-sm ml-4">
                     {Object.entries(debugInfo.yours.methods || {}).map(([key, value]) => (
-                      <li key={key}>{key}: {value}</li>
+                      <li key={key}>{key}: {String(value)}</li>
                     ))}
                   </ul>
                   <button
@@ -181,7 +181,7 @@ export default function WalletDebugPage() {
                   <p className="text-gray-300 text-sm">Methods:</p>
                   <ul className="text-gray-400 text-sm ml-4">
                     {Object.entries(debugInfo.handcash.methods || {}).map(([key, value]) => (
-                      <li key={key}>{key}: {value}</li>
+                      <li key={key}>{key}: {String(value)}</li>
                     ))}
                   </ul>
                 </div>
