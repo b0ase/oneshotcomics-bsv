@@ -11,6 +11,7 @@
   "dependencies": {
     "@bsv/sdk": "^1.0.0",
     "@bsv/wallet-toolbox": "^1.0.0",
+    "@scrypt-inc/bsv": "^1.0.5",
     "@supabase/supabase-js": "^2.53.0",
     "dotenv": "^17.2.1",
     "lucide-react": "^0.535.0",

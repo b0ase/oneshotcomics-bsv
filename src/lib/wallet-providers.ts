@@ -1,6 +1,8 @@
 // Bitcoin SV Wallet Providers
 // This file contains implementations for different Bitcoin SV wallet providers
 
+import { Address, PublicKey } from '@scrypt-inc/bsv';
+
 export interface IWalletProvider {
   name: string;
   icon: string;
@@ -106,6 +108,20 @@ export class YoursWalletProvider implements IWalletProvider {
       // Try Yours.org wallet first
       if (yoursWallet) {
         console.log('Attempting to connect to Yours.org wallet...', yoursWallet);
+        console.log('Available methods on Yours.org wallet:', Object.getOwnPropertyNames(yoursWallet));
+        console.log('Yours.org wallet prototype methods:', Object.getOwnPropertyNames(Object.getPrototypeOf(yoursWallet) || {}));
+        
+        // Log all available methods to help debug
+        const allMethods = Object.getOwnPropertyNames(yoursWallet);
+        console.log('All available methods:', allMethods);
+        
+        // Look for methods that might contain 'address' in the name
+        const addressMethods = allMethods.filter(method => 
+          method.toLowerCase().includes('address') || 
+          method.toLowerCase().includes('addr') ||
+          method.toLowerCase().includes('receive')
+        );
+        console.log('Methods that might be related to addresses:', addressMethods);
         
         // Store the wallet reference for future operations
         this.wallet = yoursWallet;
@@ -120,24 +136,230 @@ export class YoursWalletProvider implements IWalletProvider {
           console.log('Response.address:', response?.address);
           console.log('Response.publicKey:', response?.publicKey);
           
-          // Handle different response formats
-          let address = response?.address;
-          let publicKey = response?.publicKey;
+          // Try to get the actual receiving address from the wallet
+          let actualAddress = response?.address;
           
-          // If response is a string, it might be the address directly
-          if (typeof response === 'string') {
-            address = response;
-            publicKey = response;
+          // Try multiple methods to get the real address
+          const addressMethods = [
+            { name: 'getAddresses', method: yoursWallet.getAddresses },
+            { name: 'getAddress', method: yoursWallet.getAddress },
+            { name: 'getCurrentAddress', method: yoursWallet.getCurrentAddress },
+            { name: 'getReceivingAddress', method: yoursWallet.getReceivingAddress },
+            { name: 'getDefaultAddress', method: yoursWallet.getDefaultAddress },
+            { name: 'getNewAddress', method: yoursWallet.getNewAddress },
+            { name: 'getLegacyAddress', method: yoursWallet.getLegacyAddress },
+            { name: 'getP2PKHAddress', method: yoursWallet.getP2PKHAddress },
+            { name: 'selectedAddress', property: yoursWallet.selectedAddress },
+            { name: 'currentAddress', property: yoursWallet.currentAddress },
+            { name: 'defaultAddress', property: yoursWallet.defaultAddress },
+            { name: 'receivingAddress', property: yoursWallet.receivingAddress }
+          ];
+          
+          for (const addressMethod of addressMethods) {
+            if (!actualAddress) {
+              try {
+                if (addressMethod.method) {
+                  console.log(`Trying ${addressMethod.name}() method...`);
+                  
+                  // Try calling the method with different parameters
+                  let addressResponse;
+                  try {
+                    addressResponse = await addressMethod.method();
+                  } catch (e) {
+                    // If it fails, try with common parameters
+                    try {
+                      addressResponse = await addressMethod.method('receive');
+                    } catch (e2) {
+                      try {
+                        addressResponse = await addressMethod.method('legacy');
+                      } catch (e3) {
+                        try {
+                          addressResponse = await addressMethod.method('p2pkh');
+                        } catch (e4) {
+                          console.log(`${addressMethod.name}() failed with all parameter attempts`);
+                          continue;
+                        }
+                      }
+                    }
+                  }
+                  
+                  console.log(`${addressMethod.name}() response:`, addressResponse);
+                  
+                  // Handle different response formats
+                  if (typeof addressResponse === 'string' && 
+                      addressResponse.length >= 26 && addressResponse.length <= 35 &&
+                      (addressResponse.startsWith('1') || addressResponse.startsWith('3'))) {
+                    actualAddress = addressResponse;
+                    console.log(`Found address via ${addressMethod.name}():`, actualAddress);
+                    break;
+                  } else if (Array.isArray(addressResponse) && addressResponse.length > 0) {
+                    // Handle array of addresses (like getAddresses might return)
+                    console.log(`${addressMethod.name}() returned array:`, addressResponse);
+                    for (const addr of addressResponse) {
+                      if (typeof addr === 'string' && 
+                          addr.length >= 26 && addr.length <= 35 &&
+                          (addr.startsWith('1') || addr.startsWith('3'))) {
+                        actualAddress = addr;
+                        console.log(`Found address in array via ${addressMethod.name}():`, actualAddress);
+                        break;
+                      } else if (addr && typeof addr === 'object' && addr.address &&
+                               addr.address.length >= 26 && addr.address.length <= 35 &&
+                               (addr.address.startsWith('1') || addr.address.startsWith('3'))) {
+                        actualAddress = addr.address;
+                        console.log(`Found address object in array via ${addressMethod.name}():`, actualAddress);
+                        break;
+                      }
+                    }
+                    if (actualAddress) break;
+                  } else if (addressResponse && typeof addressResponse === 'object' && !Array.isArray(addressResponse)) {
+                    // Handle object with address properties (like getAddresses returns)
+                    console.log(`${addressMethod.name}() returned object:`, addressResponse);
+                    
+                    // Check for common address property names - prioritize bsvAddress
+                    const addressProps = ['bsvAddress', 'address', 'receivingAddress', 'defaultAddress', 'currentAddress', 'identityAddress'];
+                    for (const prop of addressProps) {
+                      console.log(`Checking property ${prop}:`, addressResponse[prop]);
+                      if (addressResponse[prop] && typeof addressResponse[prop] === 'string' &&
+                          addressResponse[prop].length >= 26 && addressResponse[prop].length <= 35 &&
+                          (addressResponse[prop].startsWith('1') || addressResponse[prop].startsWith('3'))) {
+                        actualAddress = addressResponse[prop];
+                        console.log(`Found address via ${addressMethod.name}() property ${prop}:`, actualAddress);
+                        break;
+                      }
+                    }
+                    if (actualAddress) break;
+                  } else if (addressResponse && addressResponse.address &&
+                           addressResponse.address.length >= 26 && addressResponse.address.length <= 35 &&
+                           (addressResponse.address.startsWith('1') || addressResponse.address.startsWith('3'))) {
+                    actualAddress = addressResponse.address;
+                    console.log(`Found address via ${addressMethod.name}():`, actualAddress);
+                    break;
+                  }
+                } else if (addressMethod.property) {
+                  console.log(`Checking ${addressMethod.name} property...`);
+                  if (typeof addressMethod.property === 'string' && 
+                      addressMethod.property.length >= 26 && addressMethod.property.length <= 35 &&
+                      (addressMethod.property.startsWith('1') || addressMethod.property.startsWith('3'))) {
+                    actualAddress = addressMethod.property;
+                    console.log(`Found address via ${addressMethod.name} property:`, actualAddress);
+                    break;
+                  }
+                }
+              } catch (error) {
+                console.log(`${addressMethod.name} failed:`, error);
+              }
+            }
           }
           
-          // If response is an array, first element might be the address
-          if (Array.isArray(response) && response.length > 0) {
-            address = response[0];
-            publicKey = response[0];
+          // Try request-based methods if we still don't have an address
+          if (!actualAddress && yoursWallet.request) {
+            console.log('Trying request-based methods to get address...');
+            const requestMethods = [
+              'getAddresses',
+              'getAddress',
+              'getCurrentAddress', 
+              'getReceivingAddress',
+              'getDefaultAddress',
+              'getNewAddress',
+              'getLegacyAddress'
+            ];
+            
+            for (const method of requestMethods) {
+              if (!actualAddress) {
+                try {
+                  console.log(`Trying request method: ${method}`);
+                  const requestResponse = await yoursWallet.request({ method });
+                  console.log(`Request ${method} response:`, requestResponse);
+                  
+                  if (typeof requestResponse === 'string' && 
+                      requestResponse.length >= 26 && requestResponse.length <= 35 &&
+                      (requestResponse.startsWith('1') || requestResponse.startsWith('3'))) {
+                    actualAddress = requestResponse;
+                    console.log(`Found address via request ${method}:`, actualAddress);
+                    break;
+                  } else if (requestResponse && requestResponse.address &&
+                           requestResponse.address.length >= 26 && requestResponse.address.length <= 35 &&
+                           (requestResponse.address.startsWith('1') || requestResponse.address.startsWith('3'))) {
+                    actualAddress = requestResponse.address;
+                    console.log(`Found address via request ${method}:`, actualAddress);
+                    break;
+                  }
+                } catch (error) {
+                  console.log(`Request method ${method} failed:`, error);
+                }
+              }
+            }
+          }
+          
+          // Handle different response formats
+          let address = actualAddress || response?.address;
+          let publicKey = response?.publicKey;
+          
+          console.log('Final address determination:', {
+            actualAddress,
+            responseAddress: response?.address,
+            finalAddress: address,
+            publicKey
+          });
+          
+          // If we found a real address from getAddresses(), use it and don't override
+          if (actualAddress && actualAddress !== 'unknown') {
+            console.log('Using real address from getAddresses():', actualAddress);
+            address = actualAddress;
+            // Keep the public key from the connect response for reference
+            publicKey = response?.publicKey || response;
+          } else {
+            // Only fall back to derived logic if we didn't find a real address
+            console.log('No real address found, falling back to derived logic');
+            
+            // If response is a string, it might be the address directly
+            if (typeof response === 'string') {
+              address = response;
+              publicKey = response;
+            }
+            
+            // If response is an array, first element might be the address
+            if (Array.isArray(response) && response.length > 0) {
+              address = response[0];
+              publicKey = response[0];
+            }
           }
           
           console.log('Final address:', address);
           console.log('Final publicKey:', publicKey);
+          
+          // If we got a public key, we need to derive the address
+          if (publicKey && publicKey.length === 66 && (publicKey.startsWith('02') || publicKey.startsWith('03'))) {
+            console.log('Detected public key, deriving address...');
+            console.log('Public key format validation passed:', {
+              length: publicKey.length,
+              startsWith02: publicKey.startsWith('02'),
+              startsWith03: publicKey.startsWith('03'),
+              isValidHex: /^[0-9a-fA-F]+$/.test(publicKey)
+            });
+            
+            // Check if we already have a real address from the wallet
+            // A real BSV address should be 26-35 characters and start with '1' or '3'
+            if (address && address !== 'unknown' && 
+                address.length >= 26 && address.length <= 35 && 
+                (address.startsWith('1') || address.startsWith('3'))) {
+              console.log('Using real address from wallet:', address);
+              return {
+                address: address,
+                publicKey: publicKey,
+                network: 'mainnet'
+              };
+            }
+            
+            const derivedAddress = this.deriveAddressFromPublicKey(publicKey);
+            console.log('Derived address from public key:', derivedAddress);
+            console.log('WARNING: Using derived address - this may not match your wallet!');
+            return {
+              address: derivedAddress,
+              publicKey: publicKey,
+              network: 'mainnet'
+            };
+          }
           
           return {
             address: address || 'unknown',
@@ -192,6 +414,24 @@ export class YoursWalletProvider implements IWalletProvider {
           
           console.log('Final address from getPublicKey:', address);
           console.log('Final publicKey from getPublicKey:', publicKey);
+          
+          // If we got a public key, we need to derive the address
+          if (publicKey && publicKey.length === 66 && (publicKey.startsWith('02') || publicKey.startsWith('03'))) {
+            console.log('Detected public key from getPublicKey, deriving address...');
+            console.log('Public key format validation passed:', {
+              length: publicKey.length,
+              startsWith02: publicKey.startsWith('02'),
+              startsWith03: publicKey.startsWith('03'),
+              isValidHex: /^[0-9a-fA-F]+$/.test(publicKey)
+            });
+            const derivedAddress = this.deriveAddressFromPublicKey(publicKey);
+            console.log('Derived address from getPublicKey:', derivedAddress);
+            return {
+              address: derivedAddress,
+              publicKey: publicKey,
+              network: 'mainnet'
+          };
+          }
           
           return {
             address: address || 'unknown',
@@ -354,15 +594,42 @@ export class YoursWalletProvider implements IWalletProvider {
 
     try {
       if (this.wallet && this.wallet.getAddress) {
+        console.log('Calling wallet.getAddress()...');
         const response = await this.wallet.getAddress();
-        return response.address;
+        console.log('getAddress() response:', response);
+        console.log('getAddress() response type:', typeof response);
+        console.log('getAddress() response keys:', response ? Object.keys(response) : 'null/undefined');
+        
+        // Check if response is a string (direct address)
+        if (typeof response === 'string') {
+          console.log('getAddress() returned string:', response);
+          return response;
+        }
+        
+        // Check if response has address property
+        if (response && response.address) {
+          console.log('getAddress() returned address property:', response.address);
+          return response.address;
+        }
+        
+        console.log('getAddress() response does not contain address:', response);
+        throw new Error('getAddress() did not return a valid address');
       } else if (this.wallet && this.wallet.getPublicKey) {
         // Fallback to getPublicKey if getAddress is not available
+        console.log('getAddress() not available, falling back to getPublicKey()...');
         const response = await this.wallet.getPublicKey();
-        return response.address || response.publicKey;
+        console.log('getPublicKey() fallback response:', response);
+        
+        // Don't return public key as address - this is wrong
+        if (response && response.address) {
+          return response.address;
+        }
+        
+        throw new Error('getPublicKey() fallback did not return a valid address');
       }
       throw new Error('getAddress method not available in Yours.org wallet');
     } catch (error) {
+      console.error('Error in getAddress():', error);
       throw new Error(`Failed to get address: ${error}`);
     }
   }
@@ -377,6 +644,38 @@ export class YoursWalletProvider implements IWalletProvider {
       return response.publicKey;
     } catch (error) {
       throw new Error(`Failed to get public key: ${error}`);
+    }
+  }
+
+  // Derive BSV address from public key using proper BSV library
+  private deriveAddressFromPublicKey(publicKeyHex: string): string {
+    try {
+      console.log('Deriving BSV address from public key:', publicKeyHex);
+      
+      // Create PublicKey object from hex string
+      const publicKey = PublicKey.fromHex(publicKeyHex);
+      console.log('Created PublicKey object:', publicKey);
+      
+      // Derive P2PKH address from public key
+      const address = Address.fromPublicKey(publicKey);
+      console.log('Derived BSV address:', address.toString());
+      
+      return address.toString();
+    } catch (error) {
+      console.error('Error deriving address from public key:', error);
+      console.error('Public key that failed:', publicKeyHex);
+      
+             // Fallback: try to create address directly from hex
+       try {
+         console.log('Attempting fallback address creation...');
+         const fallbackPublicKey = PublicKey.fromHex(publicKeyHex);
+         const address = Address.fromPublicKey(fallbackPublicKey);
+         console.log('Fallback address created:', address.toString());
+         return address.toString();
+       } catch (fallbackError) {
+         console.error('Fallback address creation also failed:', fallbackError);
+         return 'unknown';
+       }
     }
   }
 }

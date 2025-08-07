@@ -259,12 +259,6 @@ export default function WalletPage() {
     <div className="container mx-auto px-6 py-12">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold">Wallet</h1>
-          <button
-            onClick={disconnectWallet}
-            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
-          >
-            Disconnect Wallet
-          </button>
         </div>
         
         <div className="max-w-7xl mx-auto space-y-8">

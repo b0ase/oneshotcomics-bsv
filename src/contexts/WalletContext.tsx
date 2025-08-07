@@ -141,7 +141,15 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         const savedWallet = localStorage.getItem('walletAddress');
         const savedPublicKey = localStorage.getItem('walletPublicKey');
         const savedWalletType = localStorage.getItem('selectedWallet');
+        console.log('Checking saved wallet data:', {
+          savedWallet,
+          savedPublicKey,
+          savedWalletType,
+          hasSavedData: !!(savedWallet && savedPublicKey)
+        });
         if (savedWallet && savedPublicKey) {
+          console.log('Restoring wallet connection from localStorage');
+          console.log('WARNING: This may be using cached/derived address instead of real wallet address');
           setWalletAddress(savedWallet);
           setPublicKey(savedPublicKey);
           setIsWalletConnected(true);
@@ -260,6 +268,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       console.error('Error disconnecting wallet:', error);
     }
   };
+
+
 
   const signMessage = async (message: string): Promise<string | null> => {
     try {
