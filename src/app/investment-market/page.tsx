@@ -44,13 +44,26 @@ export default function InvestmentMarketPage() {
           const values = line.split(',');
           if (values.length < 8) return null;
           
-          return {
+          const data = {
             investor: parseInt(values[0]),
             investmentCost: parseFloat(values[1]),
             tokenReward: parseInt(values[2]),
             costPerToken: parseFloat(values[3]),
             individualEquity: parseFloat(values[4])
           };
+          
+          // Debug logging for first few items
+          if (index < 5) {
+            console.log(`Parsed data for investor ${data.investor}:`, {
+              investor: data.investor,
+              investmentCost: data.investmentCost,
+              tokenReward: data.tokenReward,
+              costPerToken: data.costPerToken,
+              individualEquity: data.individualEquity
+            });
+          }
+          
+          return data;
         }).filter(item => item !== null);
         
         // Create investment offerings with live pricing
@@ -115,15 +128,20 @@ export default function InvestmentMarketPage() {
   };
 
   const formatCurrency = (amount: number, currency: 'USD' | 'BSV' | 'GBP') => {
+    // Debug logging for cost per token formatting
+    if (amount < 0.01 && currency === 'USD') {
+      console.log(`Formatting small USD amount: ${amount} -> $${amount.toFixed(8)}`);
+    }
+    
     switch (currency) {
       case 'USD':
-        return `$${amount.toFixed(2)}`;
+        return `$${amount.toFixed(8)}`; // Changed from 2 to 8 decimal places for small amounts
       case 'BSV':
         return `${amount.toFixed(8)} BSV`;
       case 'GBP':
-        return `£${amount.toFixed(2)}`;
+        return `£${amount.toFixed(8)}`; // Changed from 2 to 8 decimal places for small amounts
       default:
-        return amount.toFixed(2);
+        return amount.toFixed(8); // Changed from 2 to 8 decimal places for small amounts
     }
   };
 

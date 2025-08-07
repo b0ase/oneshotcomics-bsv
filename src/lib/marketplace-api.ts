@@ -36,7 +36,23 @@ export interface MarketListing {
 export async function getBSVPrice(): Promise<BSVPriceData> {
   try {
     // Try CoinGecko API first (free, reliable)
-    const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin-sv,bsv&vs_currencies=usd,gbp,eur&include_last_updated_at=true');
+    // Bitcoin SV should be 'bitcoin-sv' but let's verify with search first
+    const searchResponse = await fetch('https://api.coingecko.com/api/v3/search?query=bitcoin%20sv');
+    const searchData = await searchResponse.json();
+    console.log('CoinGecko search results for Bitcoin SV:', searchData);
+    
+    const bsvCoin = searchData.coins?.find((coin: any) => 
+      coin.name.toLowerCase().includes('bitcoin sv') || 
+      coin.symbol.toLowerCase() === 'bsv'
+    );
+    
+    if (!bsvCoin) {
+      throw new Error('Bitcoin SV not found in CoinGecko search results');
+    }
+    
+    console.log('Found Bitcoin SV coin:', bsvCoin);
+    
+    const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${bsvCoin.id}&vs_currencies=usd,gbp,eur&include_last_updated_at=true`);
     
     if (!response.ok) {
       const errorText = await response.text();
@@ -47,14 +63,21 @@ export async function getBSVPrice(): Promise<BSVPriceData> {
     const data = await response.json();
     console.log('CoinGecko API response:', data);
     
-    // Try different possible IDs for Bitcoin SV
-    let bsvData = data['bitcoin-sv'] || data['bsv'];
+    // Get Bitcoin SV data using the correct ID from search
+    let bsvData = data[bsvCoin.id];
     console.log('BSV data extracted:', bsvData);
     
     if (!bsvData || !bsvData.usd) {
       console.error('Invalid BSV data structure:', bsvData);
       console.error('Available keys in response:', Object.keys(data));
       throw new Error('Invalid data structure from CoinGecko API');
+    }
+    
+    // Validate that we got a reasonable price (Bitcoin SV should be > $10)
+    if (bsvData.usd < 10) {
+      console.error('Suspiciously low BSV price detected:', bsvData.usd);
+      console.error('This might be the wrong token. Available keys:', Object.keys(data));
+      throw new Error('Invalid BSV price detected - possible wrong token');
     }
     
     console.log('Live BSV price fetched:', bsvData);
@@ -154,6 +177,17 @@ export async function createInvestmentOfferings(tokenomicsData: any[]): Promise<
     const offerings: InvestmentOffering[] = tokenomicsData.map((item, index) => {
       const investmentCostBSV = convertUSDToBSV(item.investmentCost, bsvPriceData.usd);
       const costPerTokenBSV = convertUSDToBSV(item.costPerToken, bsvPriceData.usd);
+      
+      // Debug logging for first few items
+      if (index < 5) {
+        console.log(`Creating offering for investor ${item.investor}:`, {
+          investmentCost: item.investmentCost,
+          costPerToken: item.costPerToken,
+          costPerTokenUSD: item.costPerToken,
+          bsvPrice: bsvPriceData.usd,
+          costPerTokenGBP: item.costPerToken * bsvPriceData.gbp / bsvPriceData.usd
+        });
+      }
       
       return {
         investor: item.investor,
