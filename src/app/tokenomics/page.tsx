@@ -477,6 +477,7 @@ export default function TokenomicsPage() {
                 <th className="text-left p-3 text-gold">Investment Cost ({showGBP ? '£' : '$'})</th>
                 <th className="text-left p-3 text-gold">Equity Tokens</th>
                 <th className="text-left p-3 text-gold">Cost Per Token ({showGBP ? '£' : '$'})</th>
+                <th className="text-left p-3 text-gold">Sats per Token</th>
                 <th className="text-left p-3 text-gold">Individual Equity (%)</th>
                 <th className="text-center p-3 text-gold">NFT Comic</th>
                 <th className="text-center p-3 text-gold">Action</th>
@@ -502,6 +503,9 @@ export default function TokenomicsPage() {
                     <td className="p-3">{item.tokenReward.toLocaleString()}</td>
                     <td className="p-3">
                       {showGBP ? '£' : '$'}{showGBP ? item.costPerTokenGBP.toFixed(8) : item.costPerToken.toFixed(8)}
+                    </td>
+                    <td className="p-3">
+                      {(item.costPerToken * 100000000).toFixed(0)} sats
                     </td>
                     <td className="p-3">{item.individualEquity.toFixed(6)}%</td>
                     <td className="p-3 text-center">

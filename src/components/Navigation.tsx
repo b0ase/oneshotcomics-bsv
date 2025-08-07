@@ -221,15 +221,35 @@ export default function Navigation() {
             <Link href="/market" className="nav-link" onClick={closeMobileMenu}>
               Market
             </Link>
-            <Link href="/token" className="nav-link" onClick={closeMobileMenu}>
-              $1SHOT Token
-            </Link>
-            <Link href="/tokenomics" className="nav-link" onClick={closeMobileMenu}>
-              Tokenomics
-            </Link>
-            <Link href="/rank" className="nav-link" onClick={closeMobileMenu}>
-              Rank
-            </Link>
+            {/* Token Dropdown */}
+            <div className={`dropdown ${activeDropdown === 'token' ? 'active' : ''}`}>
+              <button 
+                className="nav-link dropdown-toggle"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleDropdown('token');
+                }}
+              >
+                Token ▼
+              </button>
+              {activeDropdown === 'token' && (
+                <div className="dropdown-menu">
+                  <Link href="/token" className="dropdown-item" onClick={() => { closeDropdown(); closeMobileMenu(); }}>
+                    $1SHOT Token
+                  </Link>
+                  <Link href="/tokenomics" className="dropdown-item" onClick={() => { closeDropdown(); closeMobileMenu(); }}>
+                    Tokenomics
+                  </Link>
+                  <Link href="/investment-market" className="dropdown-item" onClick={() => { closeDropdown(); closeMobileMenu(); }}>
+                    Investment Market
+                  </Link>
+                </div>
+              )}
+            </div>
+              <Link href="/rank" className="nav-link" onClick={closeMobileMenu}>
+                Rank
+              </Link>
           </div>
         </div>
 
