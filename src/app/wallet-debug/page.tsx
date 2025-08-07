@@ -17,6 +17,11 @@ export default function WalletDebugPage() {
           object: (window as any).yours,
           properties: []
         },
+        panda: {
+          exists: !!(window as any).panda,
+          object: (window as any).panda,
+          properties: []
+        },
         handcash: {
           exists: !!(window as any).handcash,
           object: (window as any).handcash,
@@ -31,9 +36,24 @@ export default function WalletDebugPage() {
         info.yours.methods = {
           isYours: !!yours.isYours,
           connect: typeof yours.connect,
+          request: typeof yours.request,
           getPublicKey: typeof yours.getPublicKey,
           signMessage: typeof yours.signMessage,
           sendTransaction: typeof yours.sendTransaction
+        };
+      }
+
+      // Check Panda wallet properties
+      if ((window as any).panda) {
+        const panda = (window as any).panda;
+        info.panda.properties = Object.getOwnPropertyNames(panda);
+        info.panda.methods = {
+          isPanda: !!panda.isPanda,
+          connect: typeof panda.connect,
+          request: typeof panda.request,
+          getPublicKey: typeof panda.getPublicKey,
+          signMessage: typeof panda.signMessage,
+          sendTransaction: typeof panda.sendTransaction
         };
       }
 
@@ -168,6 +188,22 @@ export default function WalletDebugPage() {
                   >
                     Test Connection
                   </button>
+                </div>
+              )}
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-2">Panda Wallet</h3>
+              <p className="text-gray-300">Exists: {debugInfo.panda?.exists ? 'Yes' : 'No'}</p>
+              {debugInfo.panda?.exists && (
+                <div className="mt-2">
+                  <p className="text-gray-300 text-sm">Properties: {debugInfo.panda.properties?.join(', ')}</p>
+                  <p className="text-gray-300 text-sm">Methods:</p>
+                  <ul className="text-gray-400 text-sm ml-4">
+                    {Object.entries(debugInfo.panda.methods || {}).map(([key, value]) => (
+                      <li key={key}>{key}: {String(value)}</li>
+                    ))}
+                  </ul>
                 </div>
               )}
             </div>

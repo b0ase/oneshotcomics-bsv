@@ -46,10 +46,11 @@ export class YoursWalletProvider implements IWalletProvider {
   isAvailable(): boolean {
     if (typeof window === 'undefined') return false;
     
-    // Re-check for wallet on each call (in case it loads after page load)
+    // Check for Yours.org wallet using multiple detection methods
     const yoursWallet = (window as any).yours;
+    const pandaWallet = (window as any).panda;
     
-    // More robust detection - check for any of these properties
+    // Yours.org wallet detection - check for the wallet object
     const hasYoursWallet = !!(
       yoursWallet && (
         yoursWallet.isYours || 
@@ -57,23 +58,39 @@ export class YoursWalletProvider implements IWalletProvider {
         yoursWallet.getPublicKey ||
         yoursWallet.signMessage ||
         yoursWallet.sendTransaction ||
+        yoursWallet.request ||
         typeof yoursWallet === 'object'
+      )
+    );
+    
+    // Panda wallet detection (alternative name)
+    const hasPandaWallet = !!(
+      pandaWallet && (
+        pandaWallet.isPanda ||
+        pandaWallet.connect ||
+        pandaWallet.getPublicKey ||
+        pandaWallet.signMessage ||
+        pandaWallet.sendTransaction ||
+        pandaWallet.request ||
+        typeof pandaWallet === 'object'
       )
     );
     
     // Debug logging
     console.log('Yours.org wallet detection:', {
       yoursWallet: !!yoursWallet,
+      pandaWallet: !!pandaWallet,
       yoursIsYours: !!(yoursWallet && yoursWallet.isYours),
-      hasConnect: !!(yoursWallet && yoursWallet.connect),
-      hasGetPublicKey: !!(yoursWallet && yoursWallet.getPublicKey),
-      hasSignMessage: !!(yoursWallet && yoursWallet.signMessage),
-      hasSendTransaction: !!(yoursWallet && yoursWallet.sendTransaction),
-      windowYours: !!(window as any).yours,
-      finalResult: hasYoursWallet
+      pandaIsPanda: !!(pandaWallet && pandaWallet.isPanda),
+      hasConnect: !!(yoursWallet && yoursWallet.connect) || !!(pandaWallet && pandaWallet.connect),
+      hasGetPublicKey: !!(yoursWallet && yoursWallet.getPublicKey) || !!(pandaWallet && pandaWallet.getPublicKey),
+      hasSignMessage: !!(yoursWallet && yoursWallet.signMessage) || !!(pandaWallet && pandaWallet.signMessage),
+      hasSendTransaction: !!(yoursWallet && yoursWallet.sendTransaction) || !!(pandaWallet && pandaWallet.sendTransaction),
+      hasRequest: !!(yoursWallet && yoursWallet.request) || !!(pandaWallet && pandaWallet.request),
+      finalResult: hasYoursWallet || hasPandaWallet
     });
     
-    return hasYoursWallet;
+    return hasYoursWallet || hasPandaWallet;
   }
 
   async connect(): Promise<WalletInfo> {
@@ -82,38 +99,84 @@ export class YoursWalletProvider implements IWalletProvider {
     }
 
     try {
-      // Get fresh reference to Yours.org wallet
+      // Get fresh reference to wallet objects
       const yoursWallet = (window as any).yours;
+      const pandaWallet = (window as any).panda;
       
-      console.log('Attempting to connect to Yours.org wallet...', yoursWallet);
-      
-      // Try different connection methods
-      if (yoursWallet && yoursWallet.connect) {
-        console.log('Using yoursWallet.connect() method...');
-        const response = await yoursWallet.connect();
-        console.log('Yours.org wallet connection response:', response);
+      // Try Yours.org wallet first
+      if (yoursWallet) {
+        console.log('Attempting to connect to Yours.org wallet...', yoursWallet);
         
-        return {
-          address: response.address,
-          publicKey: response.publicKey,
-          network: 'mainnet'
-        };
+        // Try connect method
+        if (yoursWallet.connect) {
+          console.log('Using yoursWallet.connect() method...');
+          const response = await yoursWallet.connect();
+          console.log('Yours.org wallet connection response:', response);
+          
+          return {
+            address: response.address,
+            publicKey: response.publicKey,
+            network: 'mainnet'
+          };
+        }
+        
+        // Try request method (web3 standard)
+        if (yoursWallet.request) {
+          console.log('Using yoursWallet.request() method...');
+          const accounts = await yoursWallet.request({ method: 'eth_requestAccounts' });
+          const publicKey = await yoursWallet.request({ method: 'eth_getPublicKey' });
+          
+          return {
+            address: accounts[0],
+            publicKey: publicKey,
+            network: 'mainnet'
+          };
+        }
+        
+        // Fallback: try to get public key directly
+        if (yoursWallet.getPublicKey) {
+          console.log('Using yoursWallet.getPublicKey() method...');
+          const response = await yoursWallet.getPublicKey();
+          console.log('Yours.org wallet getPublicKey response:', response);
+          
+          return {
+            address: response.address || response.publicKey,
+            publicKey: response.publicKey,
+            network: 'mainnet'
+          };
+        }
       }
       
-      // Fallback: try to get public key directly
-      if (yoursWallet && yoursWallet.getPublicKey) {
-        console.log('Using yoursWallet.getPublicKey() method...');
-        const response = await yoursWallet.getPublicKey();
-        console.log('Yours.org wallet getPublicKey response:', response);
+      // Try Panda wallet as fallback
+      if (pandaWallet) {
+        console.log('Attempting to connect to Panda wallet...', pandaWallet);
         
-        return {
-          address: response.address || response.publicKey,
-          publicKey: response.publicKey,
-          network: 'mainnet'
-        };
+        if (pandaWallet.connect) {
+          console.log('Using pandaWallet.connect() method...');
+          const response = await pandaWallet.connect();
+          console.log('Panda wallet connection response:', response);
+          
+          return {
+            address: response.address,
+            publicKey: response.publicKey,
+            network: 'mainnet'
+          };
+        }
+        
+        if (pandaWallet.request) {
+          console.log('Using pandaWallet.request() method...');
+          const accounts = await pandaWallet.request({ method: 'eth_requestAccounts' });
+          const publicKey = await pandaWallet.request({ method: 'eth_getPublicKey' });
+          
+          return {
+            address: accounts[0],
+            publicKey: publicKey,
+            network: 'mainnet'
+          };
+        }
       }
       
-      throw new Error('Yours.org wallet is not properly initialized - no connect or getPublicKey method found');
+      throw new Error('Yours.org/Panda wallet is not properly initialized - no connect, request, or getPublicKey method found');
     } catch (error) {
       console.error('Yours.org wallet connection error:', error);
       throw new Error(`Failed to connect to Yours.org wallet: ${error}`);
