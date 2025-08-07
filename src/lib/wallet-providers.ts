@@ -107,6 +107,9 @@ export class YoursWalletProvider implements IWalletProvider {
       if (yoursWallet) {
         console.log('Attempting to connect to Yours.org wallet...', yoursWallet);
         
+        // Store the wallet reference for future operations
+        this.wallet = yoursWallet;
+        
         // Try connect method
         if (yoursWallet.connect) {
           console.log('Using yoursWallet.connect() method...');
@@ -150,6 +153,9 @@ export class YoursWalletProvider implements IWalletProvider {
       // Try Panda wallet as fallback
       if (pandaWallet) {
         console.log('Attempting to connect to Panda wallet...', pandaWallet);
+        
+        // Store the wallet reference for future operations
+        this.wallet = pandaWallet;
         
         if (pandaWallet.connect) {
           console.log('Using pandaWallet.connect() method...');
@@ -195,9 +201,27 @@ export class YoursWalletProvider implements IWalletProvider {
     }
 
     try {
-      const response = await this.wallet.signMessage(message);
-      return response.signature;
+      if (this.wallet && this.wallet.signMessage) {
+        const response = await this.wallet.signMessage(message);
+        return response.signature || response;
+      }
+      
+      // Try request method for signing
+      if (this.wallet && this.wallet.request) {
+        try {
+          const signature = await this.wallet.request({ 
+            method: 'personal_sign', 
+            params: [message, this.wallet.selectedAddress || ''] 
+          });
+          return signature;
+        } catch (e) {
+          console.log('personal_sign failed, trying alternative methods');
+        }
+      }
+      
+      throw new Error('signMessage method not available in Yours.org wallet');
     } catch (error) {
+      console.error('Error signing message:', error);
       throw new Error(`Failed to sign message: ${error}`);
     }
   }
@@ -208,9 +232,33 @@ export class YoursWalletProvider implements IWalletProvider {
     }
 
     try {
-      const response = await this.wallet.sendTransaction(transaction);
-      return response.txid;
+      if (this.wallet && this.wallet.sendTransaction) {
+        const response = await this.wallet.sendTransaction(transaction);
+        return response.txid || response;
+      }
+      
+      // Try request method for sending transaction
+      if (this.wallet && this.wallet.request) {
+        try {
+          const txParams = {
+            to: transaction.to,
+            value: transaction.amount,
+            data: transaction.data || '0x'
+          };
+          
+          const txid = await this.wallet.request({ 
+            method: 'eth_sendTransaction', 
+            params: [txParams] 
+          });
+          return txid;
+        } catch (e) {
+          console.log('eth_sendTransaction failed, trying alternative methods');
+        }
+      }
+      
+      throw new Error('sendTransaction method not available in Yours.org wallet');
     } catch (error) {
+      console.error('Error sending transaction:', error);
       throw new Error(`Failed to send transaction: ${error}`);
     }
   }
@@ -221,9 +269,29 @@ export class YoursWalletProvider implements IWalletProvider {
     }
 
     try {
-      // This would need to be implemented based on Yours.org wallet API
+      // Get balance from Yours.org wallet API
+      if (this.wallet && this.wallet.getBalance) {
+        const response = await this.wallet.getBalance();
+        return response.balance || "0.00";
+      }
+      
+      // Try request method for balance
+      if (this.wallet && this.wallet.request) {
+        try {
+          const balance = await this.wallet.request({ method: 'eth_getBalance' });
+          // Convert from wei to BSV (assuming 8 decimal places like Bitcoin)
+          const balanceInBSV = (parseInt(balance, 16) / 100000000).toFixed(8);
+          return balanceInBSV;
+        } catch (e) {
+          console.log('eth_getBalance failed, trying alternative methods');
+        }
+      }
+      
+      // If no balance method available, return 0.00
+      console.warn('No getBalance method available in wallet, returning 0.00');
       return "0.00";
     } catch (error) {
+      console.error('Error getting balance:', error);
       throw new Error(`Failed to get balance: ${error}`);
     }
   }
