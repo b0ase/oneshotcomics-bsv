@@ -985,7 +985,7 @@ input:focus, select:focus, textarea:focus {
   margin-left: -22rem;
   animation: comicBounce 2s ease-in-out infinite;
   transition: transform 0.3s ease;
-  transform: rotate(-3deg);
+  transform: rotate(-7deg);
 }
 
 .bouncing-comic:hover {
@@ -1414,7 +1414,7 @@ input:focus, select:focus, textarea:focus {
   .bouncing-comic {
     margin-right: 2rem;
     margin-left: -6rem;
-    transform: rotate(-3deg);
+    transform: rotate(-7deg);
   }
   
   .bouncing-comic:hover {
