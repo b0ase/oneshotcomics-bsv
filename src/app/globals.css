@@ -852,10 +852,22 @@ input:focus, select:focus, textarea:focus {
   color: #22C55E;
   text-shadow: -4px 4px 0px #FFD700, -8px 8px 0px #1D3557, -12px 12px 0px #000;
   letter-spacing: 0.04em;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 0.5rem 0;
   line-height: 1;
   text-align: center;
   user-select: none;
+}
+
+.bsv-version-subtitle {
+  font-family: 'Bangers', Impact, Arial Black, sans-serif;
+  font-size: 1.8rem;
+  color: #22C55E;
+  text-shadow: 2px 2px 0px #FFD700, 4px 4px 0px #1D3557, 6px 6px 0px #000;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  user-select: none;
+  animation: bsvGlow 2s ease-in-out infinite alternate;
 }
 
 .landing-page-subtitle {
@@ -1319,6 +1331,10 @@ input:focus, select:focus, textarea:focus {
   .landing-page-title {
     font-size: 4rem;
   }
+
+  .bsv-version-subtitle {
+    font-size: 1.4rem;
+  }
   
   .landing-page-subtitle {
     font-size: 1.8rem;
@@ -1402,6 +1418,10 @@ input:focus, select:focus, textarea:focus {
   
   .landing-page-title {
     font-size: 3rem;
+  }
+
+  .bsv-version-subtitle {
+    font-size: 1.1rem;
   }
   
   .landing-page-subtitle {

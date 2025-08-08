@@ -13,6 +13,11 @@ export default function HomePage() {
             ONE SHOT COMICS
           </h1>
           
+          {/* BSV Version Subtitle */}
+          <div className="bsv-version-subtitle">
+            BSV Version
+          </div>
+          
           {/* Subheading */}
           <h2 className="landing-page-subtitle">
             Mint an entire comic in ONE SHOT!

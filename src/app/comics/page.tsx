@@ -51,6 +51,25 @@ export default function ComicsPage() {
       // Generate sample comics data
       const sampleComics: Comic[] = [
         {
+          id: 'npg-red-1',
+          title: 'NPG RED: Digital Shadows (Demo)',
+          subtitle: 'Episode 1 demo flipbook experience',
+          series: 'NPG Red',
+          issue: 1,
+          price: '0.00 BSV',
+          author: 'b0ase + AI',
+          artist: 'AI Generated',
+          pages: 22,
+          status: 'Published',
+          cover_image: '/images/cover-episode-1.jpg',
+          description: 'A demo of the readable comic built from NPG Red assets with page-flip UX.',
+          genre: 'Cyberpunk',
+          rating: 5.0,
+          read_count: 0,
+          created_at: '2024-01-01T00:00:00Z',
+          updated_at: '2024-01-01T00:00:00Z'
+        },
+        {
           id: 'comic-1',
           title: 'Quantum Paradox #1: The Awakening',
           subtitle: 'Nova discovers her true power in a world of quantum uncertainty',
@@ -404,7 +423,17 @@ export default function ComicsPage() {
               </div>
               
               <div className="flex gap-3">
-                <button className="flex-1 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors font-semibold">
+                <button
+                  className="flex-1 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors font-semibold"
+                  onClick={() => {
+                    if (!selectedComic) return;
+                    const path = selectedComic.id === 'npg-red-1' || selectedComic.series === 'NPG Red'
+                      ? '/comics/npg-red'
+                      : '/comics';
+                    closeComicModal();
+                    router.push(path);
+                  }}
+                >
                   📖 Read Comic
                 </button>
                 <button className="flex-1 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg transition-colors font-semibold">

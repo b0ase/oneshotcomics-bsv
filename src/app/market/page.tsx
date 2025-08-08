@@ -9,11 +9,10 @@ interface MarketItem {
   subtitle: string;
   seller: string;
   price: string;
-  currency: 'SOL' | 'BSV';
+  currency: 'BSV';
   originalPrice: string;
-  originalCurrency: 'SOL' | 'BSV';
+  originalCurrency: 'BSV';
   cover: string;
-  rarity: string;
   listedDate: string;
   series: string;
   issue: number;
@@ -21,9 +20,9 @@ interface MarketItem {
 }
 
 export default function MarketPage() {
-  const [selectedCurrency, setSelectedCurrency] = useState<'SOL' | 'BSV' | 'all'>('all');
+  const [selectedCurrency, setSelectedCurrency] = useState<'BSV' | 'all'>('all');
   const [selectedSeries, setSelectedSeries] = useState<string>('all');
-  const [selectedRarity, setSelectedRarity] = useState<string>('all');
+
   const [priceRange, setPriceRange] = useState<string>('all');
   const [sortBy, setSortBy] = useState<string>('recent');
 
@@ -33,12 +32,11 @@ export default function MarketPage() {
       title: "Quantum Paradox #1",
       subtitle: "The Quantum Awakening",
       seller: "0x1234...5678",
-      price: "0.15",
-      currency: "SOL",
-      originalPrice: "0.12",
-      originalCurrency: "SOL",
+      price: "0.12",
+      currency: "BSV",
+      originalPrice: "0.10",
+      originalCurrency: "BSV",
       cover: "/series-covers/quantum-paradox-1.jpg",
-      rarity: "Epic",
       listedDate: "2024-02-01",
       series: "Quantum Paradox",
       issue: 1,
@@ -54,7 +52,6 @@ export default function MarketPage() {
       originalPrice: "0.06",
       originalCurrency: "BSV",
       cover: "/series-covers/street-justice-3.jpg",
-      rarity: "Rare",
       listedDate: "2024-02-03",
       series: "Street Justice",
       issue: 3,
@@ -65,12 +62,11 @@ export default function MarketPage() {
       title: "Cypherpunk Chronicles #2",
       subtitle: "Digital Revolution",
       seller: "0x9876...5432",
-      price: "0.25",
-      currency: "SOL",
-      originalPrice: "0.18",
-      originalCurrency: "SOL",
+      price: "0.20",
+      currency: "BSV",
+      originalPrice: "0.15",
+      originalCurrency: "BSV",
       cover: "/series-covers/cypherpunk-chronicles-2.jpg",
-      rarity: "Legendary",
       listedDate: "2024-02-05",
       series: "Cypherpunk Chronicles",
       issue: 2,
@@ -86,7 +82,6 @@ export default function MarketPage() {
       originalPrice: "0.04",
       originalCurrency: "BSV",
       cover: "/series-covers/Mystic-Realms-1.jpg",
-      rarity: "Common",
       listedDate: "2024-02-07",
       series: "Mystic Realms",
       issue: 1,
@@ -97,12 +92,11 @@ export default function MarketPage() {
       title: "Ninja Punk Girls #2",
       subtitle: "Shadow Training",
       seller: "0xefgh...abcd",
-      price: "0.12",
-      currency: "SOL",
-      originalPrice: "0.10",
-      originalCurrency: "SOL",
+      price: "0.10",
+      currency: "BSV",
+      originalPrice: "0.08",
+      originalCurrency: "BSV",
       cover: "/series-covers/ninja-punk-girls-2.jpg",
-      rarity: "Rare",
       listedDate: "2024-02-08",
       series: "Ninja Punk Girls",
       issue: 2,
@@ -113,12 +107,11 @@ export default function MarketPage() {
       title: "Quantum Paradox #3",
       subtitle: "Reality Shift",
       seller: "0x5432...9876",
-      price: "0.35",
-      currency: "SOL",
-      originalPrice: "0.25",
-      originalCurrency: "SOL",
+      price: "0.28",
+      currency: "BSV",
+      originalPrice: "0.20",
+      originalCurrency: "BSV",
       cover: "/series-covers/quantum-paradox-3.jpg",
-      rarity: "Legendary",
       listedDate: "2024-02-10",
       series: "Quantum Paradox",
       issue: 3,
@@ -134,7 +127,6 @@ export default function MarketPage() {
       originalPrice: "0.05",
       originalCurrency: "BSV",
       cover: "/series-covers/street-justice-4.jpg",
-      rarity: "Common",
       listedDate: "2024-02-12",
       series: "Street Justice",
       issue: 4,
@@ -145,12 +137,11 @@ export default function MarketPage() {
       title: "Cypherpunk Chronicles #4",
       subtitle: "Neural Networks",
       seller: "0x3333...4444",
-      price: "0.18",
-      currency: "SOL",
-      originalPrice: "0.15",
-      originalCurrency: "SOL",
+      price: "0.15",
+      currency: "BSV",
+      originalPrice: "0.12",
+      originalCurrency: "BSV",
       cover: "/series-covers/cypherpunk-chronicles-4.jpg",
-      rarity: "Epic",
       listedDate: "2024-02-14",
       series: "Cypherpunk Chronicles",
       issue: 4,
@@ -166,7 +157,6 @@ export default function MarketPage() {
       originalPrice: "0.07",
       originalCurrency: "BSV",
       cover: "/series-covers/Mystic-Realms-3.jpg",
-      rarity: "Rare",
       listedDate: "2024-02-16",
       series: "Mystic Realms",
       issue: 3,
@@ -177,12 +167,11 @@ export default function MarketPage() {
       title: "Ninja Punk Girls #3",
       subtitle: "Final Training",
       seller: "0x7777...8888",
-      price: "0.22",
-      currency: "SOL",
-      originalPrice: "0.18",
-      originalCurrency: "SOL",
+      price: "0.18",
+      currency: "BSV",
+      originalPrice: "0.15",
+      originalCurrency: "BSV",
       cover: "/series-covers/ninja-punk-girls-3.jpg",
-      rarity: "Epic",
       listedDate: "2024-02-18",
       series: "Ninja Punk Girls",
       issue: 3,
@@ -198,7 +187,6 @@ export default function MarketPage() {
       originalPrice: "0.06",
       originalCurrency: "BSV",
       cover: "/series-covers/street-justice-5.jpg",
-      rarity: "Common",
       listedDate: "2024-02-20",
       series: "Street Justice",
       issue: 5,
@@ -209,12 +197,11 @@ export default function MarketPage() {
       title: "Quantum Paradox #4",
       subtitle: "Time Paradox",
       seller: "0xbbbb...cccc",
-      price: "0.45",
-      currency: "SOL",
-      originalPrice: "0.30",
-      originalCurrency: "SOL",
+      price: "0.36",
+      currency: "BSV",
+      originalPrice: "0.24",
+      originalCurrency: "BSV",
       cover: "/series-covers/quantum-paradox-4.jpg",
-      rarity: "Legendary",
       listedDate: "2024-02-22",
       series: "Quantum Paradox",
       issue: 4,
@@ -222,27 +209,17 @@ export default function MarketPage() {
     }
   ];
 
-  const getRarityColor = (rarity: string) => {
-    switch (rarity) {
-      case 'Common': return 'bg-gray-600';
-      case 'Rare': return 'bg-blue-600';
-      case 'Epic': return 'bg-purple-600';
-      case 'Legendary': return 'bg-yellow-600';
-      default: return 'bg-gray-600';
-    }
-  };
+
 
   const getCurrencyIcon = (currency: string) => {
     switch (currency) {
-      case 'SOL': return '◎';
       case 'BSV': return '₿';
-      default: return '◎';
+      default: return '₿';
     }
   };
 
   const filteredItems = marketItems.filter(item => {
     const matchesSeries = selectedSeries === 'all' || item.series === selectedSeries;
-    const matchesRarity = selectedRarity === 'all' || item.rarity === selectedRarity;
     const matchesCurrency = selectedCurrency === 'all' || item.currency === selectedCurrency;
     
     let matchesPrice = true;
@@ -250,18 +227,18 @@ export default function MarketPage() {
       const price = parseFloat(item.price);
       switch (priceRange) {
         case 'low':
-          matchesPrice = price <= 1.0;
+          matchesPrice = price <= 0.1;
           break;
         case 'medium':
-          matchesPrice = price > 1.0 && price <= 3.0;
+          matchesPrice = price > 0.1 && price <= 0.3;
           break;
         case 'high':
-          matchesPrice = price > 3.0;
+          matchesPrice = price > 0.3;
           break;
       }
     }
     
-    return matchesSeries && matchesRarity && matchesCurrency && matchesPrice;
+    return matchesSeries && matchesCurrency && matchesPrice;
   });
 
   const sortedItems = [...filteredItems].sort((a, b) => {
@@ -272,9 +249,7 @@ export default function MarketPage() {
         return parseFloat(a.price) - parseFloat(b.price);
       case 'price-high':
         return parseFloat(b.price) - parseFloat(a.price);
-      case 'rarity':
-        const rarityOrder = { 'Common': 1, 'Rare': 2, 'Epic': 3, 'Legendary': 4 };
-        return rarityOrder[b.rarity as keyof typeof rarityOrder] - rarityOrder[a.rarity as keyof typeof rarityOrder];
+
       default:
         return 0;
     }
@@ -290,16 +265,15 @@ export default function MarketPage() {
       {/* Filters */}
       <div className="max-w-7xl mx-auto mb-8">
         <div className="bg-black/20 backdrop-blur-sm rounded-lg p-6 border border-purple-500/30">
-          <div className="grid md:grid-cols-5 gap-4">
+          <div className="grid md:grid-cols-4 gap-4">
             <div>
               <label className="block text-purple-300 text-sm font-medium mb-2">Currency</label>
               <select 
                 value={selectedCurrency} 
-                onChange={(e) => setSelectedCurrency(e.target.value as 'SOL' | 'BSV' | 'all')}
+                onChange={(e) => setSelectedCurrency(e.target.value as 'BSV' | 'all')}
                 className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
               >
                 <option value="all">All Currencies</option>
-                <option value="SOL">SOL</option>
                 <option value="BSV">BSV</option>
               </select>
             </div>
@@ -318,20 +292,7 @@ export default function MarketPage() {
                 <option value="Ninja Punk Girls">Ninja Punk Girls</option>
               </select>
             </div>
-            <div>
-              <label className="block text-purple-300 text-sm font-medium mb-2">Rarity</label>
-              <select 
-                value={selectedRarity} 
-                onChange={(e) => setSelectedRarity(e.target.value)}
-                className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
-              >
-                <option value="all">All Rarities</option>
-                <option value="Common">Common</option>
-                <option value="Rare">Rare</option>
-                <option value="Epic">Epic</option>
-                <option value="Legendary">Legendary</option>
-              </select>
-            </div>
+
             <div>
               <label className="block text-purple-300 text-sm font-medium mb-2">Price Range</label>
               <select 
@@ -340,9 +301,9 @@ export default function MarketPage() {
                 className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
               >
                 <option value="all">All Prices</option>
-                <option value="low">Under 1.0</option>
-                <option value="medium">1.0 - 3.0</option>
-                <option value="high">Over 3.0</option>
+                <option value="low">Under 0.1 BSV</option>
+                <option value="medium">0.1 - 0.3 BSV</option>
+                <option value="high">Over 0.3 BSV</option>
               </select>
             </div>
             <div>
@@ -355,7 +316,6 @@ export default function MarketPage() {
                 <option value="recent">Recently Listed</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
-                <option value="rarity">Rarity</option>
               </select>
             </div>
           </div>
@@ -374,9 +334,6 @@ export default function MarketPage() {
                 className="w-full h-auto object-contain"
               />
               <div className="absolute inset-0 bg-black/10" />
-              <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-medium ${getRarityColor(item.rarity)}`}>
-                {item.rarity}
-              </div>
               <div className="absolute bottom-3 left-3 bg-black/70 px-2 py-1 rounded text-xs text-white">
                 {item.series} #{item.issue}
               </div>
