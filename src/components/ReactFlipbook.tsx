@@ -1,6 +1,7 @@
 'use client';
 
 import HTMLFlipBook from 'react-pageflip';
+import type { ComponentType } from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 const BASE_TOTAL_WIDTH = 922; // desktop book (two pages)
@@ -9,6 +10,7 @@ const BASE_PAGE_WIDTH = BASE_TOTAL_WIDTH / 2;
 const MOBILE_PADDING = 48; // px
 
 export default function ReactFlipbook({ pages }: { pages: string[] }) {
+  const FlipBook = (HTMLFlipBook as unknown) as ComponentType<any>;
   const bookRef = useRef<any>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(0);
@@ -83,7 +85,7 @@ export default function ReactFlipbook({ pages }: { pages: string[] }) {
                 willChange: 'transform',
               }}
             >
-              <HTMLFlipBook
+              <FlipBook
                 width={BASE_PAGE_WIDTH}
                 height={BASE_HEIGHT}
                 size="fixed"
@@ -100,14 +102,14 @@ export default function ReactFlipbook({ pages }: { pages: string[] }) {
                     <img src={src} alt={`Page ${idx + 1}`} className="w-full h-full object-contain" />
                   </div>
                 ))}
-              </HTMLFlipBook>
+              </FlipBook>
             </div>
           </div>
         )}
 
         {isMobile && (
           <div style={{ width: mobileDims.w, height: mobileDims.h }}>
-            <HTMLFlipBook
+            <FlipBook
               width={mobileDims.w}
               height={mobileDims.h}
               size="fixed"
@@ -124,7 +126,7 @@ export default function ReactFlipbook({ pages }: { pages: string[] }) {
                   <img src={src} alt={`Page ${idx + 1}`} className="w-full h-full object-contain" />
                 </div>
               ))}
-            </HTMLFlipBook>
+            </FlipBook>
           </div>
         )}
       </div>
