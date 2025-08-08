@@ -28,8 +28,21 @@ export default function HomePage() {
             Hit <span className="go-text">GO</span> to instantly create a full, unique comic NFT. No waiting, no hassle—just pure comic magic!
           </div>
           
-          {/* Call to Action Button */}
+          {/* Call to Action Button with Bouncing Comic */}
           <div className="mint-button-container">
+            {/* Bouncing NPG Red Comic */}
+            <Link href="/comics/npg-red" className="inline-block">
+              <div className="bouncing-comic">
+                <img 
+                  src="/images/cover-episode-1.jpg" 
+                  alt="NPG Red Comic" 
+                  className="bouncing-comic-image"
+                />
+                <div className="bouncing-comic-glow"></div>
+              </div>
+            </Link>
+            
+            {/* GO Button */}
             <Link href="/mint" className="inline-block">
               <div className="mint-dome-2d">
                 <span className="mint-dome-text">GO</span>

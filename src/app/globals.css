@@ -899,11 +899,12 @@ input:focus, select:focus, textarea:focus {
 .mint-button-container {
   position: relative;
   margin: 2.5rem auto 1.5rem auto;
-  width: 260px;
+  width: 400px;
   height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
 }
 
 .mint-dome-2d {
@@ -973,6 +974,60 @@ input:focus, select:focus, textarea:focus {
   padding: 1.2rem 2.5rem;
   box-shadow: 0 4px 24px #FFD70033;
   max-width: 600px;
+}
+
+/* Bouncing Comic Styles */
+.bouncing-comic {
+  position: relative;
+  display: inline-block;
+  margin-right: 4rem;
+  /* push further left */
+  margin-left: -22rem;
+  animation: comicBounce 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  transform: rotate(-3deg);
+}
+
+.bouncing-comic:hover {
+  transform: scale(1.1) rotate(-5deg);
+  animation-play-state: paused;
+}
+
+.bouncing-comic-image {
+  /* 50% of original JPEG dimensions (2:3 aspect, portrait) */
+  width: 192px;
+  height: 288px;
+  border: none;
+  border-radius: 0;
+  /* remove heavy glow to avoid perceived border */
+  box-shadow: none;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.bouncing-comic-glow {
+  display: none;
+}
+
+@keyframes comicBounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes comicGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
 }
 
 @keyframes mintPulse {
@@ -1345,9 +1400,29 @@ input:focus, select:focus, textarea:focus {
   }
   
   .mint-button-container {
-    width: 200px;
+    width: 320px;
     height: 200px;
     margin: 2.5rem auto 1.5rem auto;
+    gap: 1rem;
+  }
+  
+  .bouncing-comic-image {
+    width: 256px;
+    height: 384px;
+  }
+  
+  .bouncing-comic {
+    margin-right: 2rem;
+    margin-left: -6rem;
+    transform: rotate(-3deg);
+  }
+  
+  .bouncing-comic:hover {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  
+  .bouncing-comic-image {
+    object-fit: cover;
   }
   
   .wallet-connect-call {
