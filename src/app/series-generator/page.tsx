@@ -731,23 +731,35 @@ export default function SeriesGeneratorPage() {
               <p className="text-gray-300 mb-4">
                 Connect your Yours.org wallet to generate and own comic series. Only authenticated users can create series that will appear in their personal collection.
               </p>
-              <button
-                onClick={() => connectWallet('Demo')}
-                disabled={isConnecting}
-                className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isConnecting ? (
-                  <div className="flex items-center gap-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                    <span>Connecting...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">🔗</span>
-                    <span>Connect Yours.org Wallet</span>
+              <div className="space-y-4">
+                {availableWallets.map((wallet) => (
+                  <button
+                    key={wallet.name}
+                    onClick={() => connectWallet(wallet.name)}
+                    disabled={isConnecting}
+                    className="w-full px-8 py-3 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isConnecting ? (
+                      <div className="flex items-center gap-2">
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                        <span>Connecting...</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg">{wallet.icon}</span>
+                        <span>Connect {wallet.name}</span>
+                      </div>
+                    )}
+                  </button>
+                ))}
+                {availableWallets.length === 0 && (
+                  <div className="text-center p-4 bg-red-900/20 border border-red-500/30 rounded-lg">
+                    <p className="text-red-300 text-sm">
+                      No Bitcoin SV wallets detected. Please install Yours.org or HandCash wallet extension.
+                    </p>
                   </div>
                 )}
-              </button>
+              </div>
             </div>
           </div>
         ) : (

@@ -64,14 +64,28 @@ export class YoursWalletProvider implements BSVWalletProvider {
     // Re-check for wallet on each call (in case it loads after page load)
     const yoursWallet = (window as any).yours;
     
-    // Check if Yours.org wallet is available
-    const hasYoursWallet = !!(yoursWallet && yoursWallet.isYours);
+    // More robust detection - check for any of these properties
+    const hasYoursWallet = !!(
+      yoursWallet && (
+        yoursWallet.isYours || 
+        yoursWallet.connect || 
+        yoursWallet.getPublicKey ||
+        yoursWallet.signMessage ||
+        yoursWallet.sendTransaction ||
+        typeof yoursWallet === 'object'
+      )
+    );
     
     // Debug logging
     console.log('Yours.org wallet detection:', {
       yoursWallet: !!yoursWallet,
       yoursIsYours: !!(yoursWallet && yoursWallet.isYours),
-      windowYours: !!(window as any).yours
+      hasConnect: !!(yoursWallet && yoursWallet.connect),
+      hasGetPublicKey: !!(yoursWallet && yoursWallet.getPublicKey),
+      hasSignMessage: !!(yoursWallet && yoursWallet.signMessage),
+      hasSendTransaction: !!(yoursWallet && yoursWallet.sendTransaction),
+      windowYours: !!(window as any).yours,
+      finalResult: hasYoursWallet
     });
     
     return hasYoursWallet;
@@ -79,7 +93,6 @@ export class YoursWalletProvider implements BSVWalletProvider {
 
   async connect(): Promise<BSVWalletInfo> {
     if (!this.isAvailable()) {
-      // This should never be reached with the demo wallet fallback
       const errorMessage = `
         No Bitcoin SV wallet detected! 
         
@@ -89,8 +102,6 @@ export class YoursWalletProvider implements BSVWalletProvider {
         • MoneyButton: https://www.moneybutton.com/
         
         After installation, refresh the page and try again.
-        
-        Note: You can still test the app functionality with the demo wallet.
       `.trim();
       
       throw new Error(errorMessage);
@@ -99,12 +110,26 @@ export class YoursWalletProvider implements BSVWalletProvider {
     try {
       // Try Yours.org wallet first - get fresh reference
       const yoursWallet = (window as any).yours;
-      if (yoursWallet && yoursWallet.isYours) {
-        console.log('Attempting to connect to Yours.org wallet...');
+      console.log('Attempting to connect to Yours.org wallet...', yoursWallet);
+      
+      if (yoursWallet && yoursWallet.connect) {
+        console.log('Using yoursWallet.connect() method...');
         const response = await yoursWallet.connect();
         console.log('Yours.org wallet connection response:', response);
         return {
           address: response.address,
+          publicKey: response.publicKey,
+          network: 'mainnet'
+        };
+      }
+      
+      // Fallback: try to get public key directly
+      if (yoursWallet && yoursWallet.getPublicKey) {
+        console.log('Using yoursWallet.getPublicKey() method...');
+        const response = await yoursWallet.getPublicKey();
+        console.log('Yours.org wallet getPublicKey response:', response);
+        return {
+          address: response.address || response.publicKey,
           publicKey: response.publicKey,
           network: 'mainnet'
         };
@@ -150,9 +175,12 @@ export class YoursWalletProvider implements BSVWalletProvider {
     }
 
     try {
-      // This would need to be implemented based on Yours.org wallet API
-      // For now, return a placeholder
-      return "0.00";
+      // Get balance from Yours.org wallet API
+      if (this.wallet && this.wallet.getBalance) {
+        const response = await this.wallet.getBalance();
+        return response.balance || "0.00";
+      }
+      throw new Error('getBalance method not available in Yours.org wallet');
     } catch (error) {
       throw new Error(`Failed to get balance: ${error}`);
     }
@@ -177,9 +205,11 @@ export class YoursWalletProvider implements BSVWalletProvider {
     }
 
     try {
-      // This would need to be implemented based on Yours.org wallet API
-      // For now, return a placeholder
-      return "signed_transaction_placeholder";
+      if (this.wallet && this.wallet.signTransaction) {
+        const response = await this.wallet.signTransaction(transaction);
+        return response.signedTransaction;
+      }
+      throw new Error('signTransaction method not available in Yours.org wallet');
     } catch (error) {
       throw new Error(`Failed to sign transaction: ${error}`);
     }
@@ -204,10 +234,15 @@ export class YoursWalletProvider implements BSVWalletProvider {
     }
 
     try {
-      const response = await this.wallet.getPublicKey();
-      // This would need to be implemented based on Yours.org wallet API
-      // For now, return a placeholder
-      return "address_placeholder";
+      if (this.wallet && this.wallet.getAddress) {
+        const response = await this.wallet.getAddress();
+        return response.address;
+      } else if (this.wallet && this.wallet.getPublicKey) {
+        // Fallback to getPublicKey if getAddress is not available
+        const response = await this.wallet.getPublicKey();
+        return response.address || response.publicKey;
+      }
+      throw new Error('getAddress method not available in Yours.org wallet');
     } catch (error) {
       throw new Error(`Failed to get address: ${error}`);
     }
@@ -309,62 +344,7 @@ export class BSVWalletManager {
   }
 }
 
-// Demo wallet provider for testing (when no real wallet is available)
-export class DemoWalletProvider implements BSVWalletProvider {
-  private connected: boolean = false;
-  private demoAddress = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
-  private demoPublicKey = "demo_public_key_for_testing_purposes_only";
 
-  isAvailable(): boolean {
-    return true; // Always available for demo purposes
-  }
-
-  async connect(): Promise<BSVWalletInfo> {
-    this.connected = true;
-    return {
-      address: this.demoAddress,
-      publicKey: this.demoPublicKey,
-      balance: "0.001",
-      network: 'testnet'
-    };
-  }
-
-  async disconnect(): Promise<void> {
-    this.connected = false;
-  }
-
-  async getBalance(): Promise<string> {
-    return "0.001";
-  }
-
-  async signMessage(message: string): Promise<string> {
-    return `demo_signature_${Date.now()}`;
-  }
-
-  async signTransaction(transaction: any): Promise<string> {
-    return `demo_signed_tx_${Date.now()}`;
-  }
-
-  async sendTransaction(transaction: any): Promise<string> {
-    return `demo_txid_${Date.now()}`;
-  }
-
-  async getAddress(): Promise<string> {
-    return this.demoAddress;
-  }
-
-  async getPublicKey(): Promise<string> {
-    return this.demoPublicKey;
-  }
-
-  on(event: string, callback: (data: any) => void): void {
-    // Demo implementation
-  }
-
-  off(event: string, callback: (data: any) => void): void {
-    // Demo implementation
-  }
-}
 
 // HandCash Wallet Provider
 export class HandCashWalletProvider implements BSVWalletProvider {
@@ -428,9 +408,11 @@ export class HandCashWalletProvider implements BSVWalletProvider {
     }
 
     try {
-      // This would need to be implemented based on HandCash wallet API
-      // For now, return a placeholder
-      return "0.00";
+      if (this.wallet && this.wallet.getBalance) {
+        const response = await this.wallet.getBalance();
+        return response.balance || "0.00";
+      }
+      throw new Error('getBalance method not available in HandCash wallet');
     } catch (error) {
       throw new Error(`Failed to get balance: ${error}`);
     }
@@ -455,9 +437,11 @@ export class HandCashWalletProvider implements BSVWalletProvider {
     }
 
     try {
-      // This would need to be implemented based on HandCash wallet API
-      // For now, return a placeholder
-      return "signed_transaction_placeholder";
+      if (this.wallet && this.wallet.signTransaction) {
+        const response = await this.wallet.signTransaction(transaction);
+        return response.signedTransaction;
+      }
+      throw new Error('signTransaction method not available in HandCash wallet');
     } catch (error) {
       throw new Error(`Failed to sign transaction: ${error}`);
     }
@@ -525,7 +509,7 @@ export const getBsvWalletManager = (): BSVWalletManager => {
   const yoursProvider = new YoursWalletProvider();
   const handcashProvider = new HandCashWalletProvider();
   
-  // Prefer Yours.org if available, then HandCash, then demo
+  // Prefer Yours.org if available, then HandCash
   if (yoursProvider.isAvailable()) {
     console.log('Yours.org wallet detected, using YoursWalletProvider');
     return new BSVWalletManager(yoursProvider);
@@ -533,8 +517,7 @@ export const getBsvWalletManager = (): BSVWalletManager => {
     console.log('HandCash wallet detected, using HandCashWalletProvider');
     return new BSVWalletManager(handcashProvider);
   } else {
-    console.log('No real wallet detected, using demo wallet for testing');
-    return new BSVWalletManager(new DemoWalletProvider());
+    throw new Error('No Bitcoin SV wallet detected. Please install Yours.org or HandCash wallet extension.');
   }
 };
 
@@ -566,16 +549,7 @@ export const getAvailableWallets = () => {
     });
   }
   
-  // If no real wallets are available, include demo wallet
-  if (availableWallets.length === 0) {
-    const demoProvider = new DemoWalletProvider();
-    availableWallets.push({
-      name: 'Demo',
-      provider: demoProvider,
-      icon: '🎭',
-      description: 'Demo Wallet for Testing'
-    });
-  }
+
   
   return availableWallets;
 };

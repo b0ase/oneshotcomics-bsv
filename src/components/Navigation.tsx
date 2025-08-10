@@ -21,6 +21,15 @@ export default function Navigation() {
     setActiveDropdown(null); // Close dropdowns when mobile menu toggles
   };
 
+  const handleMobileDropdownToggle = (dropdownName: string) => {
+    // On mobile, only allow one dropdown at a time
+    if (activeDropdown === dropdownName) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(dropdownName);
+    }
+  };
+
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
   };
@@ -84,7 +93,7 @@ export default function Navigation() {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  toggleDropdown('series');
+                  handleMobileDropdownToggle('series');
                 }}
               >
                 Series ▼
@@ -114,7 +123,7 @@ export default function Navigation() {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  toggleDropdown('characters');
+                  handleMobileDropdownToggle('characters');
                 }}
               >
                 Characters ▼
@@ -144,7 +153,7 @@ export default function Navigation() {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  toggleDropdown('stories');
+                  handleMobileDropdownToggle('stories');
                 }}
               >
                 Stories ▼
@@ -171,7 +180,7 @@ export default function Navigation() {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  toggleDropdown('scripts');
+                  handleMobileDropdownToggle('scripts');
                 }}
               >
                 Scripts ▼
@@ -195,7 +204,7 @@ export default function Navigation() {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  toggleDropdown('artwork');
+                  handleMobileDropdownToggle('artwork');
                 }}
               >
                 Artwork ▼
@@ -221,22 +230,111 @@ export default function Navigation() {
             <Link href="/market" className="nav-link" onClick={closeMobileMenu}>
               Market
             </Link>
-            <Link href="/token" className="nav-link" onClick={closeMobileMenu}>
-              $1SHOT Token
-            </Link>
-            <Link href="/rank" className="nav-link" onClick={closeMobileMenu}>
-              Rank
-            </Link>
+            {/* Token Dropdown */}
+            <div className={`dropdown ${activeDropdown === 'token' ? 'active' : ''}`}>
+              <button 
+                className="nav-link dropdown-toggle"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileDropdownToggle('token');
+                }}
+              >
+                Token ▼
+              </button>
+              {activeDropdown === 'token' && (
+                <div className="dropdown-menu">
+                  <Link href="/token" className="dropdown-item" onClick={() => { closeDropdown(); closeMobileMenu(); }}>
+                    $1SHOT Token
+                  </Link>
+                  <Link href="/tokenomics" className="dropdown-item" onClick={() => { closeDropdown(); closeMobileMenu(); }}>
+                    Tokenomics
+                  </Link>
+                  <Link href="/investment-market" className="dropdown-item" onClick={() => { closeDropdown(); closeMobileMenu(); }}>
+                    Investment Market
+                  </Link>
+                </div>
+              )}
+            </div>
+              <Link href="/rank" className="nav-link" onClick={closeMobileMenu}>
+                Rank
+              </Link>
+
+              {/* Mobile Wallet Section */}
+              <div className="mobile-wallet-section">
+                <div className="mobile-wallet-header">
+                  <h3 className="text-gold text-lg font-semibold mb-4">Wallet Connection</h3>
+                </div>
+                
+                {!isWalletConnected ? (
+                  <div className="mobile-wallet-options">
+                    {availableWallets.length > 0 ? (
+                      availableWallets.map((wallet) => (
+                        <button 
+                          key={wallet.name}
+                          className="connect-wallet-nav-btn mobile"
+                          onClick={() => {
+                            connectWallet(wallet.name);
+                            closeMobileMenu();
+                          }}
+                          disabled={isConnecting}
+                        >
+                          {isConnecting ? (
+                            <div className="flex items-center gap-2">
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                              <span>Connecting...</span>
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-2">
+                              <span className="text-lg">{wallet.icon}</span>
+                              <span>Connect {wallet.name}</span>
+                            </div>
+                          )}
+                        </button>
+                      ))
+                    ) : (
+                      <div className="text-center text-gray-400 text-sm p-4 bg-gray-800/50 rounded-lg">
+                        <span>No wallets available</span>
+                        <br />
+                        <span className="text-xs">Install Yours.org wallet</span>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="wallet-connected mobile">
+                    <div className="wallet-info">
+                      <span className="text-sm text-green-300">Connected to {selectedWallet}</span>
+                      <span className="text-xs text-gray-400 block mt-1">
+                        {walletAddress?.slice(0, 6)}...{walletAddress?.slice(-4)}
+                      </span>
+                    </div>
+                    <div className="flex gap-2 mt-3">
+                      <Link 
+                        href="/wallet" 
+                        className="text-xs text-blue-400 hover:text-blue-300 transition-colors px-3 py-2 bg-blue-900/30 rounded"
+                        onClick={closeMobileMenu}
+                      >
+                        Browse
+                      </Link>
+                      <button 
+                        onClick={() => {
+                          disconnectWallet();
+                          closeMobileMenu();
+                        }}
+                        className="text-xs text-red-400 hover:text-red-300 transition-colors px-3 py-2 bg-red-900/30 rounded"
+                      >
+                        Disconnect
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
           </div>
         </div>
 
         <div className="nav-right">
-          <div className="menu-icon" onClick={toggleMobileMenu}>
-            <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
-          </div>
-
-          {/* Wallet Dropdown */}
-          <div className={`dropdown ${activeDropdown === 'wallet' ? 'active' : ''}`}>
+          {/* Desktop Wallet Dropdown */}
+          <div className={`dropdown desktop-wallet ${activeDropdown === 'wallet' ? 'active' : ''}`}>
             <button 
               className="connect-wallet-nav-btn dropdown-toggle"
               onClick={(e) => {
@@ -284,19 +382,9 @@ export default function Navigation() {
                     ) : (
                       <div className="dropdown-item text-gray-400">
                         <span className="text-xs">No wallets available</span>
-                        <span className="text-xs block">Install Yours.org or HandCash</span>
+                        <span className="text-xs block">Install Yours.org wallet</span>
                       </div>
                     )}
-                    {/* Demo wallet option - always available */}
-                    <button 
-                      className="dropdown-item text-yellow-400"
-                      onClick={() => { 
-                        connectWallet('Demo'); 
-                        closeDropdown(); 
-                      }}
-                    >
-                      🎭 Demo Mode
-                    </button>
                   </>
                 ) : (
                   <>
@@ -324,72 +412,9 @@ export default function Navigation() {
             )}
           </div>
 
-          {/* Mobile Wallet Section */}
-          <div className="mobile-wallet-section">
-            {!isWalletConnected ? (
-              <div className="mobile-wallet-options">
-                {availableWallets.length > 0 ? (
-                  availableWallets.map((wallet) => (
-                    <button 
-                      key={wallet.name}
-                      className="connect-wallet-nav-btn mobile"
-                      onClick={() => connectWallet(wallet.name)}
-                      disabled={isConnecting}
-                    >
-                      {isConnecting ? (
-                        <div className="flex items-center gap-2">
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                          <span>Connecting...</span>
-                        </div>
-                      ) : (
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg">{wallet.icon}</span>
-                          <span>Connect {wallet.name}</span>
-                        </div>
-                      )}
-                    </button>
-                  ))
-                ) : (
-                  <button 
-                    className="connect-wallet-nav-btn mobile"
-                    onClick={() => connectWallet('Demo')}
-                    disabled={isConnecting}
-                  >
-                    {isConnecting ? (
-                      <div className="flex items-center gap-2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                        <span>Connecting...</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center gap-2">
-                        <span className="text-lg">🎭</span>
-                        <span>Demo Mode</span>
-                      </div>
-                    )}
-                  </button>
-                )}
-              </div>
-            ) : (
-              <div className="wallet-connected mobile">
-                <div className="wallet-info">
-                  <span className="text-sm text-green-300">Connected to {selectedWallet}</span>
-                  <span className="text-xs text-gray-400">
-                    {walletAddress?.slice(0, 6)}...{walletAddress?.slice(-4)}
-                  </span>
-                </div>
-                <div className="flex gap-2">
-                  <Link href="/wallet" className="text-xs text-blue-400 hover:text-blue-300 transition-colors">
-                    Browse
-                  </Link>
-                  <button 
-                    onClick={disconnectWallet}
-                    className="text-xs text-red-400 hover:text-red-300 transition-colors"
-                  >
-                    Disconnect
-                  </button>
-                </div>
-              </div>
-            )}
+          {/* Mobile Menu Icon */}
+          <div className="menu-icon" onClick={toggleMobileMenu}>
+            <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
           </div>
         </div>
       </div>

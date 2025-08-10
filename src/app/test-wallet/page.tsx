@@ -139,13 +139,11 @@ export default function TestWalletPage() {
                     </button>
                   ))
                 ) : (
-                  <button
-                    onClick={() => connectWallet('Demo')}
-                    disabled={isConnecting}
-                    className="w-full px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isConnecting ? 'Connecting...' : 'Connect Demo Wallet'}
-                  </button>
+                  <div className="text-center p-4 bg-red-900/20 border border-red-500/30 rounded-lg">
+                    <p className="text-red-300 text-sm">
+                      No Bitcoin SV wallets detected. Please install Yours.org or HandCash wallet extension.
+                    </p>
+                  </div>
                 )}
               </div>
             ) : (

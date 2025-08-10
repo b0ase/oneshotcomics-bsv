@@ -512,10 +512,19 @@ body {
     display: none;
   }
 
+  .desktop-wallet {
+    display: none;
+  }
+
   .mobile-wallet-section {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    display: block;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(252, 163, 17, 0.3);
+  }
+
+  .mobile-wallet-header {
+    margin-bottom: 1rem;
   }
 
   .mobile-wallet-options {
@@ -526,52 +535,58 @@ body {
   }
 
   .connect-wallet-nav-btn.mobile {
-    background: linear-gradient(45deg, #22C55E, #16A34A);
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: bold;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(252, 163, 17, 0.1);
+    border: 1px solid rgba(252, 163, 17, 0.3);
+    color: #FCA311;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.8rem;
   }
 
-  .connect-wallet-nav-btn.mobile:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.4);
+  .connect-wallet-nav-btn.mobile:hover:not(:disabled) {
+    background: rgba(252, 163, 17, 0.2);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .connect-wallet-nav-btn.mobile:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 
   .wallet-connected.mobile {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 1rem;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 8px;
+    text-align: center;
   }
 
   .wallet-info {
-    color: #FFD700;
-    font-weight: 500;
-    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 
   .disconnect-btn {
-    background: #E63946;
-    color: white;
-    border: none;
-    padding: 0.3rem 0.6rem;
-    border-radius: 15px;
-    font-size: 0.7rem;
-    cursor: pointer;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #EF4444;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
     transition: all 0.2s ease;
+    cursor: pointer;
   }
 
   .disconnect-btn:hover {
-    background: #C1121F;
-    transform: translateY(-1px);
+    background: rgba(239, 68, 68, 0.2);
+    color: #fff;
   }
 }
 
@@ -837,10 +852,22 @@ input:focus, select:focus, textarea:focus {
   color: #22C55E;
   text-shadow: -4px 4px 0px #FFD700, -8px 8px 0px #1D3557, -12px 12px 0px #000;
   letter-spacing: 0.04em;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 0.5rem 0;
   line-height: 1;
   text-align: center;
   user-select: none;
+}
+
+.bsv-version-subtitle {
+  font-family: 'Bangers', Impact, Arial Black, sans-serif;
+  font-size: 1.8rem;
+  color: #22C55E;
+  text-shadow: 2px 2px 0px #FFD700, 4px 4px 0px #1D3557, 6px 6px 0px #000;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  user-select: none;
+  animation: bsvGlow 2s ease-in-out infinite alternate;
 }
 
 .landing-page-subtitle {
@@ -872,11 +899,12 @@ input:focus, select:focus, textarea:focus {
 .mint-button-container {
   position: relative;
   margin: 2.5rem auto 1.5rem auto;
-  width: 260px;
+  width: 400px;
   height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
 }
 
 .mint-dome-2d {
@@ -946,6 +974,74 @@ input:focus, select:focus, textarea:focus {
   padding: 1.2rem 2.5rem;
   box-shadow: 0 4px 24px #FFD70033;
   max-width: 600px;
+}
+
+/* Bouncing Comic Styles */
+.bouncing-comic {
+  position: relative;
+  display: inline-block;
+  margin-right: 4rem;
+  /* push further left */
+  margin-left: -22rem;
+  animation: comicBounce 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  transform: rotate(-7deg);
+}
+
+.bouncing-comic:hover {
+  transform: scale(1.1) rotate(-5deg);
+  animation-play-state: paused;
+}
+
+.bouncing-comic-image {
+  /* 50% of original JPEG dimensions (2:3 aspect, portrait) */
+  width: 192px;
+  height: 288px;
+  border: none;
+  border-radius: 0;
+  /* remove heavy glow to avoid perceived border */
+  box-shadow: none;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.bouncing-comic-glow {
+  display: none;
+}
+/* Right-side variant */
+.bouncing-right {
+  margin-left: 4rem;      /* spacing between GO and right cover */
+  margin-right: -22rem;   /* push outward to the right, mirroring left */
+  transform: rotate(7deg);
+}
+
+@media (max-width: 768px) {
+  .bouncing-right {
+    margin-left: 2rem;
+    margin-right: -6rem;
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes comicBounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes comicGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
 }
 
 @keyframes mintPulse {
@@ -1304,6 +1400,10 @@ input:focus, select:focus, textarea:focus {
   .landing-page-title {
     font-size: 4rem;
   }
+
+  .bsv-version-subtitle {
+    font-size: 1.4rem;
+  }
   
   .landing-page-subtitle {
     font-size: 1.8rem;
@@ -1314,9 +1414,29 @@ input:focus, select:focus, textarea:focus {
   }
   
   .mint-button-container {
-    width: 200px;
+    width: 320px;
     height: 200px;
     margin: 2.5rem auto 1.5rem auto;
+    gap: 1rem;
+  }
+  
+  .bouncing-comic-image {
+    width: 256px;
+    height: 384px;
+  }
+  
+  .bouncing-comic {
+    margin-right: 2rem;
+    margin-left: -6rem;
+    transform: rotate(-7deg);
+  }
+  
+  .bouncing-comic:hover {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  
+  .bouncing-comic-image {
+    object-fit: cover;
   }
   
   .wallet-connect-call {
@@ -1387,6 +1507,10 @@ input:focus, select:focus, textarea:focus {
   
   .landing-page-title {
     font-size: 3rem;
+  }
+
+  .bsv-version-subtitle {
+    font-size: 1.1rem;
   }
   
   .landing-page-subtitle {
