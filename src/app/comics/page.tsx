@@ -50,6 +50,25 @@ export default function ComicsPage() {
     try {
       // Generate sample comics data
       const sampleComics: Comic[] = [
+          {
+            id: 'overnerd-1',
+            title: 'Overnerd: Episode 1 (Demo)',
+            subtitle: 'A slice of the Overnerd comic demo',
+            series: 'Overnerd',
+            issue: 1,
+            price: '0.00 BSV',
+            author: 'Overnerd',
+            artist: 'Overnerd',
+            pages: 12,
+            status: 'Published',
+            cover_image: '/overnerd/cover.jpg',
+            description: 'Demo flipbook sample from Overnerd. Not all pages included.',
+            genre: 'Action',
+            rating: 4.9,
+            read_count: 0,
+            created_at: '2024-01-02T00:00:00Z',
+            updated_at: '2024-01-02T00:00:00Z'
+          },
         {
           id: 'overnerd-1',
           title: 'Overnerd: Episode 1 (Demo)',

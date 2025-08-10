@@ -1009,6 +1009,20 @@ input:focus, select:focus, textarea:focus {
 .bouncing-comic-glow {
   display: none;
 }
+/* Right-side variant */
+.bouncing-right {
+  margin-left: 4rem;      /* spacing between GO and right cover */
+  margin-right: -22rem;   /* push outward to the right, mirroring left */
+  transform: rotate(7deg);
+}
+
+@media (max-width: 768px) {
+  .bouncing-right {
+    margin-left: 2rem;
+    margin-right: -6rem;
+    transform: rotate(3deg);
+  }
+}
 
 @keyframes comicBounce {
   0%, 100% {

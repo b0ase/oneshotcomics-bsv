@@ -30,24 +30,28 @@ export default function HomePage() {
           
           {/* Call to Action Button with Bouncing Comic */}
           <div className="mint-button-container">
-            {/* Bouncing NPG Red Comic */}
+            {/* Left: NPG Red */}
             <Link href="/comics/npg-red" className="inline-block">
               <div className="bouncing-comic">
-                <img 
-                  src="/images/cover-episode-1.jpg" 
-                  alt="NPG Red Comic" 
-                  className="bouncing-comic-image"
-                />
+                <img src="/images/cover-episode-1.jpg" alt="NPG Red Comic" className="bouncing-comic-image" />
                 <div className="bouncing-comic-glow"></div>
               </div>
             </Link>
-            
+
             {/* GO Button */}
             <Link href="/mint" className="inline-block">
               <div className="mint-dome-2d">
                 <span className="mint-dome-text">GO</span>
                 {/* Dome highlight */}
                 <span className="dome-highlight"></span>
+              </div>
+            </Link>
+
+            {/* Right: Overnerd (slanted right) */}
+            <Link href="/comics/overnerd" className="inline-block">
+              <div className="bouncing-comic bouncing-right">
+                <img src="/overnerd/cover.jpg" alt="Overnerd Comic" className="bouncing-comic-image" />
+                <div className="bouncing-comic-glow"></div>
               </div>
             </Link>
           </div>
