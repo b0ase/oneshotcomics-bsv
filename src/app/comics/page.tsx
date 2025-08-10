@@ -51,6 +51,25 @@ export default function ComicsPage() {
       // Generate sample comics data
       const sampleComics: Comic[] = [
         {
+          id: 'overnerd-1',
+          title: 'Overnerd: Episode 1 (Demo)',
+          subtitle: 'A slice of the Overnerd comic demo',
+          series: 'Overnerd',
+          issue: 1,
+          price: '0.00 BSV',
+          author: 'Overnerd',
+          artist: 'Overnerd',
+          pages: 12,
+          status: 'Published',
+          cover_image: '/overnerd/cover.jpg',
+          description: 'Demo flipbook sample from Overnerd. Not all pages included.',
+          genre: 'Action',
+          rating: 4.9,
+          read_count: 0,
+          created_at: '2024-01-02T00:00:00Z',
+          updated_at: '2024-01-02T00:00:00Z'
+        },
+        {
           id: 'npg-red-1',
           title: 'NPG RED: Digital Shadows (Demo)',
           subtitle: 'Episode 1 demo flipbook experience',
@@ -429,6 +448,8 @@ export default function ComicsPage() {
                     if (!selectedComic) return;
                     const path = selectedComic.id === 'npg-red-1' || selectedComic.series === 'NPG Red'
                       ? '/comics/npg-red'
+                      : selectedComic.id === 'overnerd-1' || selectedComic.series === 'Overnerd'
+                      ? '/comics/overnerd'
                       : '/comics';
                     closeComicModal();
                     router.push(path);
